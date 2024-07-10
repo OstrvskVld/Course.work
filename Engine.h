@@ -5,11 +5,12 @@
 
 
 #include <iostream>
+#include "Cars.h"
 
 using namespace std;
 
-class Engine{
-public:
+class Engine : public Cars {
+protected:
     string engineCapacity,power;
 public:
     Engine();
