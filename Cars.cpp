@@ -53,7 +53,7 @@ using namespace std;
 Cars::Cars()
         : Cars("","",0,0,0,0){}
 Cars::Cars(string brand, string color, double fuel, int numberOfDoors, int yearOfProduction, double price)
-        : brand(brand), color(color), fuel(fuel), numberOfDoors(numberOfDoors), yearOfProduction(yearOfProduction), price(price) {}
+        : brand{brand}, color{color}, fuel{fuel}, numberOfDoors{numberOfDoors}, yearOfProduction{yearOfProduction}, price{price} {}
 Cars::Cars(const Cars &other) {
     brand=other.brand;
     color=other.color;
@@ -77,17 +77,26 @@ ostream &operator<<(ostream &os, const Cars &obj){
     << obj.price << endl;
     return os;
 }
-Cars Cars::operator=(const Cars &rhs) {
-    if(this==&rhs)
-        return *this;
-    else{
-        brand=rhs.brand;
-        color=rhs.color;
-        fuel=rhs.fuel;
-        numberOfDoors=rhs.numberOfDoors;
-        yearOfProduction=rhs.yearOfProduction;
-        price=rhs.price;
-        return *this;
-    }
+//Cars Cars::operator=(const Cars &rhs) {
+//    if(this==&rhs)
+//        return *this;
+//    else{
+//        brand=rhs.brand;
+//        color=rhs.color;
+//        fuel=rhs.fuel;
+//        numberOfDoors=rhs.numberOfDoors;
+//        yearOfProduction=rhs.yearOfProduction;
+//        price=rhs.price;
+//        return *this;
+//    }
+//}
+
+void Cars ::printInfo() const {
+    cout << "Brand: " << brand << endl;
+        cout << "Color: " << color << endl;
+        cout << "Fuel: " << fuel << " 100km" << endl;
+        cout << "Number of doors " << numberOfDoors << endl;
+        cout << "Year of production: " << yearOfProduction << endl;
+        cout << "Price: " << price << " dollars" << endl;
 }
 

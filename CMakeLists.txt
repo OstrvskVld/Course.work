@@ -21,4 +21,6 @@ add_executable(Code main.cpp
         Vehicle.cpp
         Vehicle.h
         WrongPassword.h
-        WrongType.h)
+        WrongType.h
+        Sedan.cpp
+        Sedan.h)

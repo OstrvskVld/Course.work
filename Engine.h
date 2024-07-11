@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class Engine : public Cars {
+class Engine {
 protected:
     string engineCapacity,power;
 public:

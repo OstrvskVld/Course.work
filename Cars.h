@@ -37,14 +37,13 @@
 //};
 
 #include <iostream>
-#include <vector>
+
 
 using namespace std;
 
-// Абстрактний клас Car
+
 class Cars {
 private:
-    // Захищені члени-дані для зберігання інформації про автомобіль
     string brand;
     string color;
     double fuel;
@@ -58,31 +57,12 @@ public:
     Cars(const Cars &other);
     Cars(Cars &&other);
     friend ostream &operator <<(ostream &os,const Cars &obj);
-    Cars operator=(const Cars &rhs);
+//    Cars operator=(const Cars &rhs);
     Cars(string brand, string color, double fuel, int numberOfDoors, int yearOfProduction, double price);
-//    Cars(string brand, string color, double fuel, int numberOfDoors, int yearOfProduction);
-    // Конструктор для створення нового об'єкта Car
-//    Cars(const string& brand, const string& color, double fuel,
-//        int numberOfDoors, int yearOfProduction, double price)
-//            : brand(brand), color(color), fuel(fuel),
-//              numberOfDoors(numberOfDoors), yearOfProduction(yearOfProduction), price(price) {}
-
-
-    virtual void getFuel() const;
-    // Чиста віртуальна функція для отримання витрат на 100 км
-//    virtual double getFuelCostPer100km() = 0;
-
-    // Віртуальна функція для друку інформації про автомобіль
+    virtual void getFuel() const = 0;
     virtual void printInfo() const;
-//    virtual void printInfo() {
-//        cout << "Brand: " << brand << endl;
-//        cout << "Color: " << color << endl;
-//        cout << "Fuel: " << fuel << " 100km" << endl;
-//        cout << "Number of doors " << numberOfDoors << endl;
-//        cout << "Year of production: " << yearOfProduction << endl;
-//        cout << "Price: " << price << " dollars" << endl;
-//    }
     ~Cars(){};
+
 };
 
 
