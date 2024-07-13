@@ -138,7 +138,7 @@ int main() {
 //    catch (WrongPassword &A) {
 //        cerr << A.what();
 //    }
-cout << printf;
+cout << "Hello";
 
 }
 

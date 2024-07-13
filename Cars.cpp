@@ -99,4 +99,22 @@ void Cars ::printInfo() const {
         cout << "Year of production: " << yearOfProduction << endl;
         cout << "Price: " << price << " dollars" << endl;
 }
+int Cars::getPrice() const {
+    return price;
+}
+int Cars::getFuel() const {
+    return fuel;
+}
+string Cars::getColor() const {
+    return color;
+}
+string Cars::getBrand() const {
+    return brand;
+}
+int Cars::getYear() const {
+    return yearOfProduction;
+}
+int Cars::getDoors() const {
+    return numberOfDoors;
+}
 

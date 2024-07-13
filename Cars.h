@@ -52,6 +52,20 @@ private:
     double price;
 
 public:
+        int getFuel() const;
+        string getColor() const;
+        string getBrand() const;
+        int getDoors() const;
+        int getYear() const;
+        int getPrice() const;
+
+        void setBrand(const string& brand);
+        void setFuel(const double& fuel);
+        void setColor(const string& color);
+        void setDoors(const int& numberOfDoors);
+        void setYear(const int& yearOfProduction);
+        void setPrice(const double& price);
+
 
     Cars();
     Cars(const Cars &other);
@@ -59,7 +73,7 @@ public:
     friend ostream &operator <<(ostream &os,const Cars &obj);
 //    Cars operator=(const Cars &rhs);
     Cars(string brand, string color, double fuel, int numberOfDoors, int yearOfProduction, double price);
-    virtual void getFuel() const = 0;
+//    virtual void Fuel() const = 0;
     virtual void printInfo() const;
     ~Cars(){};
 

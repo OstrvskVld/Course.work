@@ -11,7 +11,7 @@ class Drivers : public People{
 private:
     double number;
     string placeOfResidence;
-    Cars ownCar;
+//    Cars ownCar;
 public:
     Drivers();
     Drivers(string name, int age, double salary,string sal,double number,string placeOfResidence,Cars ownCar);

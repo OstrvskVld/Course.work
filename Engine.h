@@ -10,7 +10,7 @@
 using namespace std;
 
 class Engine {
-protected:
+private:
     string engineCapacity,power;
 public:
     Engine();
