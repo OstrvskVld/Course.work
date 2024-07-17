@@ -51,9 +51,11 @@ using namespace std;
 //    cout<< " Model: " <<model << " Price: "<<price << " Mileage: " <<mileage << engine1 << " Car " << "\n";
 //}
 Cars::Cars()
-        : Cars("","",0,0,0,0){}
-Cars::Cars(string brand, string color, double fuel, int numberOfDoors, int yearOfProduction, double price)
-        : brand{brand}, color{color}, fuel{fuel}, numberOfDoors{numberOfDoors}, yearOfProduction{yearOfProduction}, price{price} {}
+        : Cars("","",0,0,0,0,"",""){}
+Cars::Cars(string brand, string color, double fuel, int numberOfDoors, int yearOfProduction, double price, string model
+, string inventoryStatus)
+        : brand{brand}, color{color}, fuel{fuel}, numberOfDoors{numberOfDoors}, yearOfProduction{yearOfProduction},
+        price{price}, model{model}, inventoryStatus{inventoryStatus} {}
 Cars::Cars(const Cars &other) {
     brand=other.brand;
     color=other.color;
@@ -61,20 +63,25 @@ Cars::Cars(const Cars &other) {
     numberOfDoors=other.numberOfDoors;
     yearOfProduction=other.yearOfProduction;
     price=other.price;
+    model=other.model;
+    inventoryStatus=other.inventoryStatus;
 }
 Cars::Cars(Cars &&other)
         :brand(other.brand), color(other.color),fuel(other.fuel),numberOfDoors(other.numberOfDoors),
-        yearOfProduction(other.yearOfProduction), price(other.price) {
+        yearOfProduction(other.yearOfProduction), price(other.price), model(other.model),
+        inventoryStatus(other.inventoryStatus) {
     other.brand= "";
     other.color= "";
     other.fuel = 0;
     other.numberOfDoors = 0;
     other.yearOfProduction = 0;
     other.price = 0;
+    other.model = "";
+    other.inventoryStatus = "";
 }
 ostream &operator<<(ostream &os, const Cars &obj){
     os<<obj.brand << "\t"<<obj.color <<"\t"<<obj.fuel << "\t" << obj.numberOfDoors << "\t"<< obj.yearOfProduction<< "\t"
-    << obj.price << endl;
+    << obj.price << "\t" << obj.model << "\t" << obj.inventoryStatus << endl;
     return os;
 }
 //Cars Cars::operator=(const Cars &rhs) {
@@ -98,6 +105,9 @@ void Cars ::printInfo() const {
         cout << "Number of doors " << numberOfDoors << endl;
         cout << "Year of production: " << yearOfProduction << endl;
         cout << "Price: " << price << " dollars" << endl;
+        cout << "Model: " << model << endl;
+        cout << "Vehicle availability status (for example, “available”, “sold”, “reserved”) :" <<
+        inventoryStatus << endl;
 }
 int Cars::getPrice() const {
     return price;
@@ -116,5 +126,11 @@ int Cars::getYear() const {
 }
 int Cars::getDoors() const {
     return numberOfDoors;
+}
+string Cars::getModel() const {
+    return model;
+}
+string Cars::getStatus() const {
+    return inventoryStatus;
 }
 

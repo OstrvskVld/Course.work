@@ -5,7 +5,7 @@
 
 //#include "Vehicle.h"
 //#include "Engine.h"
-#include <iostream>
+//#include <iostream>
 //#include "Functions.h"
 
 //using namespace std;
@@ -44,7 +44,9 @@ using namespace std;
 
 class Cars {
 private:
+    string inventoryStatus;
     string brand;
+    string model;
     string color;
     double fuel;
     int numberOfDoors;
@@ -58,6 +60,8 @@ public:
         int getDoors() const;
         int getYear() const;
         int getPrice() const;
+        string getModel() const;
+        string getStatus() const;
 
         void setBrand(const string& brand);
         void setFuel(const double& fuel);
@@ -65,6 +69,8 @@ public:
         void setDoors(const int& numberOfDoors);
         void setYear(const int& yearOfProduction);
         void setPrice(const double& price);
+        void getModel(const string& model);
+        void getStatus(const string& inventoryStatus);
 
 
     Cars();
@@ -72,7 +78,8 @@ public:
     Cars(Cars &&other);
     friend ostream &operator <<(ostream &os,const Cars &obj);
 //    Cars operator=(const Cars &rhs);
-    Cars(string brand, string color, double fuel, int numberOfDoors, int yearOfProduction, double price);
+    Cars(string brand, string color, double fuel, int numberOfDoors, int yearOfProduction, double price,
+         string model, string inventoryStatus);
 //    virtual void Fuel() const = 0;
     virtual void printInfo() const;
     ~Cars(){};

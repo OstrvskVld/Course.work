@@ -23,4 +23,8 @@ add_executable(Code main.cpp
         WrongPassword.h
         WrongType.h
         Sedan.cpp
-        Sedan.h)
+        Sedan.h
+        Van.cpp
+        Van.h
+        Customers.cpp
+        Customers.h)
