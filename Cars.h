@@ -77,7 +77,7 @@ public:
     Cars(const Cars &other);
     Cars(Cars &&other);
     friend ostream &operator <<(ostream &os,const Cars &obj);
-//    Cars operator=(const Cars &rhs);
+    Cars operator=(const Cars &rhs);
     Cars(string brand, string color, double fuel, int numberOfDoors, int yearOfProduction, double price,
          string model, string inventoryStatus);
 //    virtual void Fuel() const = 0;

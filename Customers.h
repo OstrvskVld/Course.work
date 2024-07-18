@@ -14,7 +14,13 @@ private:
     string phone;
     string email;
 public:
-
+    Customers();
+    Customers(int customerId,string name,string phone, string email);
+    Customers(const Customers &other);
+    Customers(Customers &&other);
+    friend ostream &operator <<(ostream &os,const Customers &obj);
+    Customers operator=(const Customers &rhs);
+    ~Customers(){};
 };
 
 

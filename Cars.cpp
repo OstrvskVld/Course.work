@@ -84,19 +84,21 @@ ostream &operator<<(ostream &os, const Cars &obj){
     << obj.price << "\t" << obj.model << "\t" << obj.inventoryStatus << endl;
     return os;
 }
-//Cars Cars::operator=(const Cars &rhs) {
-//    if(this==&rhs)
-//        return *this;
-//    else{
-//        brand=rhs.brand;
-//        color=rhs.color;
-//        fuel=rhs.fuel;
-//        numberOfDoors=rhs.numberOfDoors;
-//        yearOfProduction=rhs.yearOfProduction;
-//        price=rhs.price;
-//        return *this;
-//    }
-//}
+Cars Cars::operator=(const Cars &rhs) {
+    if(this==&rhs)
+        return *this;
+    else{
+        brand=rhs.brand;
+        model=rhs.model;
+        color=rhs.color;
+        fuel=rhs.fuel;
+        numberOfDoors=rhs.numberOfDoors;
+        yearOfProduction=rhs.yearOfProduction;
+        price=rhs.price;
+        inventoryStatus=rhs.inventoryStatus;
+        return *this;
+    }
+}
 
 void Cars ::printInfo() const {
     cout << "Brand: " << brand << endl;
