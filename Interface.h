@@ -11,28 +11,23 @@ public:
     virtual void A1()=0;
     virtual void A2()=0;
     virtual void A3()=0;
-    virtual void A4()=0;
-    virtual void A5()=0;
 
 };
 class Interface1 : public Interface{
 public:
+//    virtual void A1() override{
+//        cout << " Cars: ";
+//    }
     virtual void A1() override{
-        cout << " Vehicle: ";
+        cout << " Sedan: ";
     }
     virtual void A2() override{
-        cout << " Cars: ";
+        cout << " Van: ";
     }
     virtual void A3() override{
-        cout << " People: ";
+        cout << " Customers: ";
     }
-    virtual void A4() override{
-        cout << " Driver: ";
-    }
-    virtual void A5() override{
-        cout << " Bikes: ";
-    }
-
+    virtual ~Interface1(){};
 };
 
 #endif //CODE_INTERFACE_H

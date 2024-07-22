@@ -5,10 +5,11 @@
 #include "iostream"
 #include "Cars.h"
 #include "Engine.h"
+#include "Interface.h"
 
 using namespace std;
 
-class Sedan : public Cars{
+class Sedan : public Cars, Interface1{
 private:
     string typeofroof;
     int maxspeed;
@@ -24,6 +25,7 @@ public:
     virtual void Fuel() const = 0;
     Sedan(const Sedan &other);
     Sedan(Sedan &&other);
+    virtual void A1() override;
     ~Sedan();
 };
 

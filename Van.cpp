@@ -51,6 +51,10 @@ Van::Van(Van&& other)
 
 }
 
+void Van::A2() {
+    Van::A2();
+}
+
 
 
 

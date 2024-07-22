@@ -39,10 +39,11 @@
 #include <iostream>
 
 
+
 using namespace std;
 
 
-class Cars {
+class Cars  {
 private:
     string inventoryStatus;
     string brand;
@@ -82,7 +83,8 @@ public:
          string model, string inventoryStatus);
 //    virtual void Fuel() const = 0;
     virtual void printInfo() const;
-    ~Cars(){};
+//    virtual void A1() override;
+    virtual ~Cars(){};
 
 };
 

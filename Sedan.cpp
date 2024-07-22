@@ -4,6 +4,7 @@
 #include "iostream"
 #include "Cars.h"
 #include "Engine.h"
+#include "Interface.h"
 
 
 using namespace std;
@@ -48,6 +49,12 @@ Sedan::Sedan(Sedan&& other)
           engine1(move(other.engine1)) {
 
 }
+
+void Sedan::A1() {
+    Sedan::A1();
+}
+
+
 
 
 

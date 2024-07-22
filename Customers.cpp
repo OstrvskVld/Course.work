@@ -27,14 +27,17 @@ ostream &operator<<(ostream &os, const Customers &obj){
     return os;
 }
 
-Customers Customers::operator=(const Customers &rhs) {
-    if(this==&rhs)
-        return *this;
-    else{
-        customerId=rhs.customerId;
-        name=rhs.name;
-        phone=rhs.phone;
-        email=rhs.email;
-        return *this;
-    }
+//Customers Customers::operator=(const Customers &rhs) {
+//    if(this==&rhs)
+//        return *this;
+//    else{
+//        customerId=rhs.customerId;
+//        name=rhs.name;
+//        phone=rhs.phone;
+//        email=rhs.email;
+//        return *this;
+//    }
+//}
+void Customers::A3() {
+    Customers::A3();
 }

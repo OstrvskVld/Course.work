@@ -5,10 +5,11 @@
 #include "iostream"
 #include "Cars.h"
 #include "Engine.h"
+#include "Interface.h"
 
 using namespace std;
 
-class Van : public Cars{
+class Van : public Cars,Interface1{
 private:
     int payloadCapacity;
     int sleepingCapacity;
@@ -23,7 +24,8 @@ public:
     Van(Cars cars,int payloadCapacity, int sleepingCapacity, Engine engine2);
     Van(const Van &other);
     Van(Van &&other);
-    ~Van();
+    virtual void A2() override;
+    virtual ~Van(){};
 };
 
 
