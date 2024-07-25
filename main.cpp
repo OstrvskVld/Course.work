@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Vehicle.h"
 #include "Cars.h"
+#include "Sedan.h"
 #include "People.h"
 #include "Drivers.h"
 #include "Bike.h"
@@ -14,12 +15,20 @@
 using namespace std;
 
 //Cars car("","",0,"","","");
+Cars cars("","","","",0,0,0,0,"");
 //Vehicle vehicle("","",0,"","");
 //Bike bike(vehicle,"","",0);
 //People personal("",0,0,"");
 
 int main() {
-//    cout << " Welcome to the vehicle salon! " << endl << endl;
+    Cars car;
+    AddCars(car);
+    car.printInfo();
+    return 0;
+
+
+
+////    cout << " Welcome to the vehicle salon! " << endl << endl;
 //    cout << " Who are you? " << endl << " Enter A if you are the Admin " << endl << " Enter U if you are the User ";
 //    Probels();
 //    char cont;
@@ -138,7 +147,7 @@ int main() {
 //    catch (WrongPassword &A) {
 //        cerr << A.what();
 //    }
-cout << "Hello";
+//cout << "Hello";
 
 }
 

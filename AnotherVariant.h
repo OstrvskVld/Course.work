@@ -10,7 +10,7 @@ public:
     ~AnotherVariant() = default;
 
     const char *what() const noexcept override{
-        return "Choose another variant!";
+        return "Write correctly!";
     };
 };
 

@@ -13,20 +13,18 @@ Van::Van()
         : Cars(),payloadCapacity(0),sleepingCapacity(0), engine2("","",""){}
 Van::Van(int payloadCapacity, int sleepingCapacity)
         : payloadCapacity{payloadCapacity}, sleepingCapacity{sleepingCapacity}{}
-Van::Van(string brand, string inventoryStatus, string model, string color, double fuel, int numberOfDoors,
+Van::Van(string type,string brand, string inventoryStatus, string model, string color, double fuel, int numberOfDoors,
          int yearOfProduction, double price,
-         int payloadCapacity, int sleepingCapacity) : Cars(brand,color,fuel,numberOfDoors, yearOfProduction,price,
-                                                           model,inventoryStatus),
+         int payloadCapacity, int sleepingCapacity) : Cars(type,brand, model, color, fuel, numberOfDoors, yearOfProduction, price,
+                                                           inventoryStatus),
          payloadCapacity{payloadCapacity}, sleepingCapacity{sleepingCapacity} {}
 Van::Van(Cars cars,int payloadCapacity, int sleepingCapacity)
-        : Cars(cars.getBrand(),cars.getColor(),cars.getFuel(),cars.getDoors(),
-               cars.getYear(),cars.getPrice(), cars.getModel(),
-               cars.getStatus()),
+        : Cars(cars.getType(),cars.getBrand(),cars.getModel(),cars.getColor(),cars.getFuel(),cars.getDoors(),
+               cars.getYear(),cars.getPrice(),  cars.getStatus()),
           payloadCapacity{payloadCapacity}, sleepingCapacity{sleepingCapacity} {}
 Van::Van(Cars cars,int payloadCapacity, int sleepingCapacity,Engine engine2)
-        : Cars(cars.getBrand(),cars.getColor(),cars.getFuel(),cars.getDoors(),
-               cars.getYear(),cars.getPrice(), cars.getModel(),
-               cars.getStatus()),
+        : Cars(cars.getType(),cars.getBrand(),cars.getModel(),cars.getColor(),cars.getFuel(),cars.getDoors(),
+               cars.getYear(),cars.getPrice(),  cars.getStatus()),
           payloadCapacity{payloadCapacity}, sleepingCapacity{sleepingCapacity},engine2{engine2}{}
 Van::Van(const Cars& carRef, int payloadCapacity, int sleepingCapacity)
         : payloadCapacity{payloadCapacity}, sleepingCapacity{sleepingCapacity} {
@@ -53,6 +51,10 @@ Van::Van(Van&& other)
 
 void Van::A2() {
     Van::A2();
+}
+
+void Van::printInfo() const {
+    Van::printInfo();
 }
 
 

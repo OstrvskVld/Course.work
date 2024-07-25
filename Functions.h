@@ -3,16 +3,16 @@
 #define CODE_FUNCTIONS_H
 
 
-#include "Vehicle.h"
-#include "People.h"
+#include "Cars.h"
+#include "Customers.h"
 #include <iostream>
 using namespace std;
 void Probels();
-void AddVehicle(Vehicle &vehicle);
-void AddPersonal(People &people);
-void ReadPersonal(People &people);
-void ReadVehicle(Vehicle &vehicle);
-void BuyACar(Vehicle &vehicle);
+void AddCars(Cars &cars);
+void AddCustomers(Customers &customers);
+void ReadCustomers(Customers &customers);
+void ReadCars(Cars &cars);
+void BuyACar(Cars &cars);
 
 
 #endif //CODE_FUNCTIONS_H

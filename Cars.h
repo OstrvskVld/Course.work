@@ -45,6 +45,7 @@ using namespace std;
 
 class Cars  {
 private:
+    string type;
     string inventoryStatus;
     string brand;
     string model;
@@ -55,7 +56,9 @@ private:
     double price;
 
 public:
+
         int getFuel() const;
+        string getType() const;
         string getColor() const;
         string getBrand() const;
         int getDoors() const;
@@ -64,14 +67,15 @@ public:
         string getModel() const;
         string getStatus() const;
 
-        void setBrand(const string& brand);
-        void setFuel(const double& fuel);
-        void setColor(const string& color);
-        void setDoors(const int& numberOfDoors);
-        void setYear(const int& yearOfProduction);
-        void setPrice(const double& price);
-        void getModel(const string& model);
-        void getStatus(const string& inventoryStatus);
+        void setType(const string& newType);
+        void setBrand(const string& newbrand);
+        void setFuel(const double& newfuel);
+        void setColor(const string& newcolor);
+        void setDoors(const int& newnumberOfDoors);
+        void setYear(const int& newyearOfProduction);
+        void setPrice(const double& newPrice);
+        void setModel(const string& newmodel);
+        void setStatus(const string& newStatus);
 
 
     Cars();
@@ -79,8 +83,8 @@ public:
     Cars(Cars &&other);
     friend ostream &operator <<(ostream &os,const Cars &obj);
     Cars operator=(const Cars &rhs);
-    Cars(string brand, string color, double fuel, int numberOfDoors, int yearOfProduction, double price,
-         string model, string inventoryStatus);
+    Cars(string type,string brand, string model, string color, double fuel, int numberOfDoors, int yearOfProduction, double price,
+         string inventoryStatus);
 //    virtual void Fuel() const = 0;
     virtual void printInfo() const;
 //    virtual void A1() override;

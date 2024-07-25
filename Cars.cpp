@@ -51,43 +51,46 @@ using namespace std;
 //    cout<< " Model: " <<model << " Price: "<<price << " Mileage: " <<mileage << engine1 << " Car " << "\n";
 //}
 Cars::Cars()
-        : Cars("","",0,0,0,0,"",""){}
-Cars::Cars(string brand, string color, double fuel, int numberOfDoors, int yearOfProduction, double price, string model
-, string inventoryStatus)
-        : brand{brand}, color{color}, fuel{fuel}, numberOfDoors{numberOfDoors}, yearOfProduction{yearOfProduction},
-        price{price}, model{model}, inventoryStatus{inventoryStatus} {}
+        : Cars("","","","",0,0,0,0,""){}
+Cars::Cars(string type,string brand, string model, string color, double fuel, int numberOfDoors, int yearOfProduction,
+           double price,string inventoryStatus)
+        : type{type},brand{brand}, model{model}, color{color}, fuel{fuel}, numberOfDoors{numberOfDoors}, yearOfProduction{yearOfProduction},
+        price{price}, inventoryStatus{inventoryStatus} {}
 Cars::Cars(const Cars &other) {
+    type=other.type;
     brand=other.brand;
+    model=other.model;
     color=other.color;
     fuel=other.fuel;
     numberOfDoors=other.numberOfDoors;
     yearOfProduction=other.yearOfProduction;
     price=other.price;
-    model=other.model;
     inventoryStatus=other.inventoryStatus;
 }
 Cars::Cars(Cars &&other)
-        :brand(other.brand), color(other.color),fuel(other.fuel),numberOfDoors(other.numberOfDoors),
-        yearOfProduction(other.yearOfProduction), price(other.price), model(other.model),
+        :type(other.type),brand(other.brand), model(other.model), color(other.color),fuel(other.fuel),numberOfDoors(other.numberOfDoors),
+        yearOfProduction(other.yearOfProduction), price(other.price),
         inventoryStatus(other.inventoryStatus) {
+    other.type = "";
     other.brand= "";
+    other.model = "";
     other.color= "";
     other.fuel = 0;
     other.numberOfDoors = 0;
     other.yearOfProduction = 0;
     other.price = 0;
-    other.model = "";
     other.inventoryStatus = "";
 }
-ostream &operator<<(ostream &os, const Cars &obj){
-    os<<obj.brand << "\t"<<obj.color <<"\t"<<obj.fuel << "\t" << obj.numberOfDoors << "\t"<< obj.yearOfProduction<< "\t"
-    << obj.price << "\t" << obj.model << "\t" << obj.inventoryStatus << endl;
+ostream &operator<<(ostream &os, const Cars &car){
+    os<<car.type << "\t" << car.brand << "\t" << car.model <<"\t"<<car.color <<"\t"<<car.fuel << "\t" << car.numberOfDoors
+    << "\t"<< car.yearOfProduction<< "\t"<< car.price << "\t" << car.inventoryStatus << endl;
     return os;
 }
 Cars Cars::operator=(const Cars &rhs) {
     if(this==&rhs)
         return *this;
     else{
+        type=rhs.type;
         brand=rhs.brand;
         model=rhs.model;
         color=rhs.color;
@@ -101,14 +104,15 @@ Cars Cars::operator=(const Cars &rhs) {
 }
 
 void Cars ::printInfo() const {
-    cout << "Brand: " << brand << endl;
+        cout << "Type: " << type << endl;
+        cout << "Brand: " << brand << endl;
+        cout << "Model: " << model << endl;
         cout << "Color: " << color << endl;
         cout << "Fuel: " << fuel << " 100km" << endl;
         cout << "Number of doors " << numberOfDoors << endl;
         cout << "Year of production: " << yearOfProduction << endl;
         cout << "Price: " << price << " dollars" << endl;
-        cout << "Model: " << model << endl;
-        cout << "Vehicle availability status (for example, “available”, “sold”, “reserved”) :" <<
+        cout << "Vehicle availability status (for example, 'available', 'sold', 'reserved') :" <<
         inventoryStatus << endl;
 }
 int Cars::getPrice() const {
@@ -135,6 +139,37 @@ string Cars::getModel() const {
 string Cars::getStatus() const {
     return inventoryStatus;
 }
+string Cars::getType() const {
+    return type;
+}
+void Cars::setType(const string& newType) {
+    type = newType;
+}
+void Cars::setStatus(const string &newStatus) {
+    inventoryStatus = newStatus;
+}
+void Cars::setPrice(const double &newPrice) {
+    price = newPrice;
+}
+void Cars::setYear(const int &newyearOfProduction) {
+    yearOfProduction = newyearOfProduction;
+}
+void Cars::setDoors(const int &newnumberOfDoors) {
+    numberOfDoors = newnumberOfDoors;
+}
+void Cars::setFuel(const double &newfuel) {
+    fuel = newfuel;
+}
+void Cars::setColor(const string &newcolor) {
+    color = newcolor;
+}
+void Cars::setModel(const string &newmodel) {
+    model = newmodel;
+}
+void Cars::setBrand(const string &newbrand) {
+    brand = newbrand;
+}
+
 
 //void Cars::A1() {
 //    Cars::A1();

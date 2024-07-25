@@ -15,40 +15,71 @@
 
 
 
-//using namespace std;
-//
+using namespace std;
+
 //void Probels(){
 //    cout<<endl<<"--------------------------"<<endl;
 //};
-//
-//void AddVehicle(Vehicle &vehicle) {
-//    cout << " You want to add new vehicle: " << endl;
-//    cout << " What is the name of the transport? " << endl;
-//    shared_ptr<string> nam{new string{""}};
-//    cin >> *nam;
-//    cout << " Is it available? " << endl;
-//    shared_ptr<string> aval{new string{""}};
-//    cin >> *aval;
-//    cout << " Is it possible to bring from abroad? " << endl;
-//    shared_ptr<string> deliv{new string{""}};
-//    cin >> *deliv;
-//    cout << " Enter age of vehicle: " << endl;
-//    shared_ptr<double> age{new double{0}};
-//    cin >> *age;
-//    cout << " Type of vehicle: " << endl;
-//    shared_ptr<string> typeOfVehicle{new string{""}};
-//    cin >> *typeOfVehicle;
-//    if (*aval == "No" && *deliv == "No")
+
+void AddCars(Cars &cars) {
+    cout << " You want to add a new car: " << endl;
+    cout << " What type of transportation? " << endl;
+    shared_ptr<string> type{new string{""}};
+    cin >> *type;
+    cars.setType(*type);
+    if (*type != "Sedan" && *type != "Van") {
+        throw AnotherVariant();
+    }
+    cout << " What is the brand of the transport? " << endl;
+    shared_ptr<string> brand{new string{""}};
+    cin >> *brand;
+    cars.setBrand(*brand);
+    cout << " What is the model of the car? " << endl;
+    shared_ptr<string> model{new string{""}};
+    cin >> *model;
+    cars.setModel(*model);
+    cout << " What is the color of the car? " << endl;
+    shared_ptr<string> color{new string{""}};
+    cin >> *color;
+    cars.setColor(*color);
+    cout << " What is the fuel consumption on 100km? " << endl;
+    shared_ptr<double> fuel{new double{0.0}};
+    cin >> *fuel;
+    cars.setFuel(*fuel);
+    cout << " How many doors? " << endl;
+    shared_ptr<int> doors{new int{0}};
+    cin >> *doors;
+    cars.setDoors(*doors);
+    cout << " What is the year of production? " << endl;
+    shared_ptr<int> production{new int{0}};
+    cin >> *production;
+    cars.setYear(*production);
+    cout << " What is the price of the car? " << endl;
+    shared_ptr<double> price{new double {0.0}};
+    cin >> *price;
+    cars.setPrice(*price);
+    cout << " Vehicle availability status (for example, 'available', 'sold', 'reserved') : " << endl;
+    shared_ptr<string> inventoryStatus{new string{""}};
+    cin >> *inventoryStatus;
+    cars.setStatus(*inventoryStatus);
+    if (*inventoryStatus != "Available" && *inventoryStatus != "Sold" && *inventoryStatus != "Reserved") {
+        throw AnotherVariant();
+    }
+//    if (*inventoryStatus == "Sold" && "Reserved")
 //        throw AnotherVariant();
-//    Vehicle vehic(*nam, *typeOfVehicle, *age, *aval, *deliv);
-//    ofstream foutVe(R"(C:\Oop143\Laba_4\Vehicle.txt)",
-//                    ios_base::app);
-//    foutVe << vehic << "\t" << endl;
-//    foutVe.close();
+    Cars car(*type,*brand, *model, *color, *fuel, *doors,*production,
+             *price, *inventoryStatus);
+    ofstream foutCar(R"(D:\Course Work\Code\Cars.txt)",
+                    ios_base::app);
+    foutCar << "Type: " << *type  << "\t"  << "Brand: " << *brand << "\t" << "Model: " << *model << "\t" << "Color: "
+    << *color << "\t" << "Fuel :" << *fuel << " 100km" <<"\t" << "Number of doors: " << *doors << "\t" << "Year of production: "
+    << *production << "\t" << "Price: " << *price << " dollars" <<"\t" << "Vehicle availability status (for example, 'available', 'sold', 'reserved') :"
+    << *inventoryStatus << endl;
+    foutCar.close();
 //    Probels();
-//}
-//
-//
+}
+
+
 //void AddPersonal(People &people){
 //    cout << " You want to add new person: " << endl;
 //    cout << " What is the employee`s name? " << endl;
