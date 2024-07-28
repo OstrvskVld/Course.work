@@ -16,9 +16,9 @@ Sedan::Sedan(string typeofroof, int maxspeed)
 : typeofroof{typeofroof}, maxspeed{maxspeed}{}
 Sedan::Sedan(string type,string brand, string inventoryStatus, string model, string color, double fuel, int numberOfDoors,
              int yearOfProduction, double price,
-             string typeofroof, int maxspeed) : Cars(type,brand, model, color, fuel, numberOfDoors, yearOfProduction, price,
-        inventoryStatus),
-             typeofroof{typeofroof}, maxspeed{maxspeed} {}
+             string typeofroof, int maxspeed,Engine engine1)
+        : Cars(type, brand, model, color, fuel, numberOfDoors, yearOfProduction, price, inventoryStatus),
+          typeofroof(typeofroof), maxspeed(maxspeed), engine1(engine1) {}
 Sedan::Sedan(Cars cars,string typeofroof, int maxspeed)
 : Cars(cars.getType(),cars.getBrand(),cars.getModel(),cars.getColor(),cars.getFuel(),cars.getDoors(),
        cars.getYear(),cars.getPrice(),  cars.getStatus()),
@@ -57,6 +57,23 @@ void Sedan::A1() {
 
 void Sedan::printInfo() const {
     Sedan::printInfo();
+    cout<< "Type of roof: " << typeofroof << "\n" << "Max speed: " << maxspeed
+        << "km/h" << "\n" << " Engine characteristics: "
+    <<"\n" << engine1;
+}
+
+int Sedan::getSpeed() const {
+    return maxspeed;
+}
+string Sedan::getTypeofroof()  const {
+    return typeofroof;
+}
+
+void Sedan::setTypeofroof(const string& newTyperoof) {
+    typeofroof = newTyperoof;
+}
+void Sedan::setSpeed(const int &newSpeed) {
+    maxspeed = newSpeed;
 }
 
 

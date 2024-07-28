@@ -11,13 +11,14 @@ public:
     virtual void A1()=0;
     virtual void A2()=0;
     virtual void A3()=0;
+    virtual void A4()=0;
 
 };
 class Interface1 : public Interface{
 public:
-//    virtual void A1() override{
-//        cout << " Cars: ";
-//    }
+    virtual void A4() override{
+        cout << " Cars: ";
+    }
     virtual void A1() override{
         cout << " Sedan: ";
     }

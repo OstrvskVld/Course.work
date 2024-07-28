@@ -109,10 +109,10 @@ void Cars ::printInfo() const {
         cout << "Model: " << model << endl;
         cout << "Color: " << color << endl;
         cout << "Fuel: " << fuel << " 100km" << endl;
-        cout << "Number of doors " << numberOfDoors << endl;
+        cout << "Number of doors: " << numberOfDoors << endl;
         cout << "Year of production: " << yearOfProduction << endl;
         cout << "Price: " << price << " dollars" << endl;
-        cout << "Vehicle availability status (for example, 'available', 'sold', 'reserved') :" <<
+        cout << "Vehicle availability status (for example, 'available', 'sold', 'reserved') : " <<
         inventoryStatus << endl;
 }
 int Cars::getPrice() const {
@@ -171,7 +171,7 @@ void Cars::setBrand(const string &newbrand) {
 }
 
 
-//void Cars::A1() {
-//    Cars::A1();
-//}
+void Cars::A4() {
+    Cars::A4();
+}
 

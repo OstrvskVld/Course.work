@@ -37,13 +37,14 @@
 //};
 
 #include <iostream>
+#include "Interface.h"
 
 
 
 using namespace std;
 
 
-class Cars  {
+class Cars : public Interface1{
 private:
     string type;
     string inventoryStatus;
@@ -87,7 +88,7 @@ public:
          string inventoryStatus);
 //    virtual void Fuel() const = 0;
     virtual void printInfo() const;
-//    virtual void A1() override;
+    virtual void A4() override;
     virtual ~Cars(){};
 
 };

@@ -4,6 +4,7 @@
 #include "memory"
 #include <fstream>
 #include "Cars.h"
+#include "Sedan.h"
 #include "Engine.h"
 #include "Bike.h"
 #include "WrongType.h"
@@ -17,19 +18,30 @@
 
 using namespace std;
 
-//void Probels(){
-//    cout<<endl<<"--------------------------"<<endl;
-//};
+void Probels(){
+    cout<<endl<<"--------------------------"<<endl;
+};
 
 void AddCars(Cars &cars) {
     cout << " You want to add a new car: " << endl;
-    cout << " What type of transportation? " << endl;
+//    cout << " What type of transportation? " << endl;
     shared_ptr<string> type{new string{""}};
-    cin >> *type;
+//    cin >> *type;
+//    cars.setType(*type);
+        for (int attempts = 0; attempts < 3; ++attempts) {
+            cout << " What type of transportation? (Sedan or Van): ";
+            cin >> *type;
+            if (*type == "Sedan" || *type == "Van") {
+                break;
+            } else {
+                cout << " Incorrect input. Please try again. " << endl;
+            }
+        }
+        if (*type != "Sedan" && *type != "Van") {
+            cout << " Too many incorrect attempts. Exiting program. " << endl;
+            exit(1);
+        }
     cars.setType(*type);
-    if (*type != "Sedan" && *type != "Van") {
-        throw AnotherVariant();
-    }
     cout << " What is the brand of the transport? " << endl;
     shared_ptr<string> brand{new string{""}};
     cin >> *brand;
@@ -71,13 +83,107 @@ void AddCars(Cars &cars) {
              *price, *inventoryStatus);
     ofstream foutCar(R"(D:\Course Work\Code\Cars.txt)",
                     ios_base::app);
-    foutCar << "Type: " << *type  << "\t"  << "Brand: " << *brand << "\t" << "Model: " << *model << "\t" << "Color: "
-    << *color << "\t" << "Fuel :" << *fuel << " 100km" <<"\t" << "Number of doors: " << *doors << "\t" << "Year of production: "
-    << *production << "\t" << "Price: " << *price << " dollars" <<"\t" << "Vehicle availability status (for example, 'available', 'sold', 'reserved') :"
+    foutCar << *type  << "\t"  << *brand << "\t"  << *model << "\t"
+    << *color << "\t"  << *fuel  <<"\t"  << *doors << "\t"
+    << *production << "\t"  << *price <<"\t"
     << *inventoryStatus << endl;
     foutCar.close();
-//    Probels();
+    Probels();
 }
+void AddinfSed(Sedan &sedan){
+    Engine engine1;
+    Cars car1;
+//    cout << " You want to add more about the sedan: " << endl;
+    cout << " Choose which sedan you want to know more about: " << endl;
+    ifstream finCar(R"(D:\Course Work\Code\Cars.txt)");
+    if (!finCar.is_open())
+        cerr << "Error opening file: " << endl;
+    shared_ptr<string> nazvmar{new string{""}};
+    cout << " What is the brand of the transport? " << endl;
+    cin >> *nazvmar;
+    shared_ptr<string> nazvamod{new string{""}};
+    cout << " What is the model of the car? " << endl;
+    cin >> *nazvamod;
+    shared_ptr<string> type{new string{""}};
+    car1.setType(*type);
+    shared_ptr<string> brand{new string{""}};
+    car1.setBrand(*brand);
+    shared_ptr<string> model{new string{""}};
+    car1.setModel(*model);
+    shared_ptr<string> color{new string{""}};
+    car1.setColor(*color);
+    shared_ptr<double> fuel{new double{0.0}};
+    car1.setFuel(*fuel);
+    shared_ptr<int> doors{new int{0}};
+    car1.setDoors(*doors);
+    shared_ptr<int> production{new int{0}};
+    car1.setYear(*production);
+    shared_ptr<double> price{new double {0.0}};
+    car1.setPrice(*price);
+    shared_ptr<string> inventoryStatus{new string{""}};
+    car1.setStatus(*inventoryStatus);
+    while (finCar >> *type >> *brand >> *model >> *color >> *fuel >> *doors >> *production >> *price >>
+                  *inventoryStatus) {
+        if (*brand == *nazvmar || *model == *nazvamod) {
+            Cars cars(*type, *brand, *model, *color, *fuel, *doors, *production,
+                      *price, *inventoryStatus);
+            cout << " Type of roof: " << endl;
+            shared_ptr<string> typeofroof{new string{""}};
+            cin >> *typeofroof;
+            sedan.setTypeofroof(*typeofroof);
+            cout << " Max speed: " << endl;
+            shared_ptr<int> maxspeed{new int{0}};
+            cin >> *maxspeed;
+            sedan.setSpeed(*maxspeed);
+            cout << " Engine characteristics: " << endl;
+            cout << " Engine capacity: " << endl;
+            shared_ptr<string> engineCapacity{new string{""}};
+            cin >> *engineCapacity;
+            engine1.setCapacity(*engineCapacity);
+            cout << " Power: " << endl;
+            shared_ptr<string> power{new string{""}};
+            cin >> *power;
+            engine1.setPower(*power);
+            cout << " Engine type: " << endl;
+            shared_ptr<string> engineType{new string{""}};
+            cin >> *engineType;
+            engine1.setType(*engineType);
+            Sedan sedan1(*type, *brand, *inventoryStatus, *model, *color, *fuel, *doors, *production, *price,
+                         *typeofroof,
+                         *maxspeed, Engine(*engineCapacity, *power, *engineType));
+            ofstream foutSed(R"(D:\Course Work\Code\Sedan.txt)",
+                             ios_base::app);
+            foutSed << *type << "\t" << *brand << "\t" << *model << "\t"
+                    << *color << "\t" << *fuel << "\t" << *doors << "\t"
+                    << *production << "\t" << *price << "\t"
+                    << *inventoryStatus << "\t" << *typeofroof << "\t"
+                    << *maxspeed << "\t" << *engineCapacity << "\t" << *power <<
+                    "\t" << *engineType << endl;
+            foutSed.close();
+//            Probels();
+        }
+//            foutCar << vehic << "\t" << endl;
+    }
+    }
+//    finCar.close();
+//
+//    cout << " Type of roof: " << endl;
+//    shared_ptr<string> typeofroof{new string{""}};
+//    cin >> *typeofroof;
+//    cout << " Max speed: " << endl;
+//    shared_ptr<int> maxspeed{new int{0}};
+//    cin >> *maxspeed;
+//    cout <<" Engine characteristics: " << endl;
+//    cout << " Engine capacity: " << endl;
+//    shared_ptr<string> engineCapacity{new string {""}};
+//    cin >> *engineCapacity;
+//    cout << " Power: " << endl;
+//    shared_ptr<string> power{new string {""}};
+//    cin >> *power;
+//    cout << " Engine type: " << endl;
+//    shared_ptr<string> engineType{new string {""}};
+//    cin >> *engineType;
+//}
 
 
 //void AddPersonal(People &people){
@@ -120,21 +226,63 @@ void AddCars(Cars &cars) {
 //    finE.close();
 //}
 //
-//void ReadVehicle(Vehicle &vehicle){
-//    ifstream finE(R"(C:\Oop143\Laba_4\Vehicle.txt)");
-//    if (!finE.is_open()) {
-//        cerr << "Error opening file: " << endl;
-//    }
-//    shared_ptr<string> nam{new string{""}};
-//    shared_ptr<string> aval{new string{""}};
-//    shared_ptr<string> deliv{new string{""}};
-//    shared_ptr<double> age{new double{0.0}};
-//    shared_ptr<string> typeOfVehicle{new string{""}};
-//    while(finE >> *nam >> *deliv >> *aval >> *age >> *typeOfVehicle){
-//        cout << *nam << "\t" << *deliv << "\t" << *aval << "\t" << *age << "\t" << *typeOfVehicle << "\t" << endl;
-//    }
-//    finE.close();
-//}
+void ReadSed(Sedan &sedan){
+    ifstream finSed(R"(D:\Course Work\Code\Sedan.txt)");
+    if (!finSed.is_open()) {
+        cerr << "Error opening file: " << endl;
+    }
+    shared_ptr<string> type{new string{""}};
+    shared_ptr<string> brand{new string{""}};
+    shared_ptr<string> model{new string{""}};
+    shared_ptr<string> color{new string{""}};
+    shared_ptr<double> fuel{new double{0.0}};
+    shared_ptr<int> doors{new int{0}};
+    shared_ptr<int> production{new int{0}};
+    shared_ptr<double> price{new double {0.0}};
+    shared_ptr<string> inventoryStatus{new string{""}};
+    shared_ptr<string> typeofroof{new string{""}};
+    shared_ptr<int> maxspeed{new int{0}};
+    shared_ptr<string> engineCapacity{new string {""}};
+    shared_ptr<string> power{new string {""}};
+    shared_ptr<string> engineType{new string {""}};
+    while(finSed >> *type >> *brand >> *model >> *color >> *fuel >> *doors >> *production >> *price >>
+    *inventoryStatus >> *typeofroof >> *maxspeed >> *engineCapacity >> *power >> *engineType){
+        cout << "Type: " << *type  << "\n"  << "Brand: " << *brand << "\n" << "Model: " << *model << "\n" << "Color: "
+             << *color << "\n" << "Fuel :" << *fuel << " 100km" <<"\n" << "Number of doors: " << *doors << "\n" << "Year of production: "
+             << *production << "\n" << "Price: " << *price << " dollars" <<"\n" << "Vehicle availability status (for example, 'available', 'sold', 'reserved') : "
+             << *inventoryStatus << "\n" << "Type of roof: " << *typeofroof << "\n" << "Max speed: " << *maxspeed
+             << "km/h" << "\n" << "Engine capacity: " << *engineCapacity << "/L" <<"\n" << "Power:"
+             << *power << "/HP" << "\n" << "Engine type(patrol,diesel,gas): " <<*engineType << endl;
+    }
+    finSed.close();
+}
+
+
+
+
+void ReadCars(Cars &cars){
+    ifstream finCar(R"(D:\Course Work\Code\Cars.txt)");
+    if (!finCar.is_open()) {
+        cerr << "Error opening file: " << endl;
+    }
+    shared_ptr<string> type{new string{""}};
+    shared_ptr<string> brand{new string{""}};
+    shared_ptr<string> model{new string{""}};
+    shared_ptr<string> color{new string{""}};
+    shared_ptr<double> fuel{new double{0.0}};
+    shared_ptr<int> doors{new int{0}};
+    shared_ptr<int> production{new int{0}};
+    shared_ptr<double> price{new double {0.0}};
+    shared_ptr<string> inventoryStatus{new string{""}};
+    while(finCar >> *type >> *brand >> *model >> *color >> *fuel >> *doors >> *production >> *price >>
+                 *inventoryStatus){
+        cout << "Type: " << *type  << "\n"  << "Brand: " << *brand << "\n" << "Model: " << *model << "\n" << "Color: "
+             << *color << "\n" << "Fuel :" << *fuel << " 100km" <<"\n" << "Number of doors: " << *doors << "\n" << "Year of production: "
+             << *production << "\n" << "Price: " << *price << " dollars" <<"\n" << "Vehicle availability status (for example, 'available', 'sold', 'reserved') : "
+             << *inventoryStatus << endl;
+    }
+    finCar.close();
+}
 //
 //void BuyACar(Vehicle &vehicle) {
 //    cout << " You want to buy a vehicle: " << endl;

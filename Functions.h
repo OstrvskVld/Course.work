@@ -4,11 +4,14 @@
 
 
 #include "Cars.h"
+#include "Sedan.h"
 #include "Customers.h"
 #include <iostream>
 using namespace std;
 void Probels();
 void AddCars(Cars &cars);
+void AddinfSed(Sedan &sedan);
+void ReadSed(Sedan &sedan);
 void AddCustomers(Customers &customers);
 void ReadCustomers(Customers &customers);
 void ReadCars(Cars &cars);

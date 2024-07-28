@@ -15,11 +15,17 @@ private:
     int maxspeed;
     Engine engine1;
 public:
+    string getTypeofroof() const;
+    int getSpeed() const;
+    void setTypeofroof(const string& newTyperoof);
+    void setSpeed(const int& newSpeed);
+
     Sedan(const Cars& carRef, string typeofroof, int maxspeed);
     Sedan();
     Sedan(string typeofroof, int maxspeed);
-    Sedan(string type,string brand, string inventoryStatus, string model, string color, double fuel, int numberOfDoors, int yearOfProduction, double price,string
-    typeofroof, int maxspeed);
+    Sedan(string type,string brand, string inventoryStatus, string model, string color, double fuel, int numberOfDoors,
+          int yearOfProduction, double price,
+          string typeofroof, int maxspeed,Engine engine1);
     Sedan(Cars cars,string typeofroof, int maxspeed);
     Sedan(Cars cars,string typeofroof, int maxspeed, Engine engine1);
 //    virtual void Fuel() const = 0;

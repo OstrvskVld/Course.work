@@ -2,6 +2,7 @@
 #include "Vehicle.h"
 #include "Cars.h"
 #include "Sedan.h"
+#include "Engine.h"
 #include "People.h"
 #include "Drivers.h"
 #include "Bike.h"
@@ -16,14 +17,29 @@ using namespace std;
 
 //Cars car("","",0,"","","");
 Cars cars("","","","",0,0,0,0,"");
+Sedan sedan("","","","","",0,0,0,0,
+            "",0,Engine("","",""));
 //Vehicle vehicle("","",0,"","");
 //Bike bike(vehicle,"","",0);
 //People personal("",0,0,"");
 
 int main() {
     Cars car;
+    Sedan sedan1;
+    Interface1 interface1;
+//    interface1.A4();
+//    Probels();
+//    AddCars(car);
+//    AddinfSed(sedan1);
+//    ReadSed(sedan1);
+//    interface1.A1();
+//    Probels();
+//    AddinfSed(sedan1);
+//    sedan1.printInfo();
     AddCars(car);
     car.printInfo();
+
+//    ReadCars(car);
     return 0;
 
 
