@@ -58,6 +58,7 @@ private:
 
 public:
 
+
         int getFuel() const;
         string getType() const;
         string getColor() const;

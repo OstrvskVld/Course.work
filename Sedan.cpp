@@ -44,6 +44,8 @@ Sedan::Sedan(const Sedan &other)
         :Cars(other), typeofroof(other.typeofroof), maxspeed(other.maxspeed), engine1(other.engine1)
 {}
 
+Sedan::Sedan(const Cars& car) : Cars(car), typeofroof(""), maxspeed(0) {}
+
 Sedan::Sedan(Sedan&& other)
         : typeofroof(move(other.typeofroof)),
           maxspeed(move(other.maxspeed)),
@@ -51,12 +53,15 @@ Sedan::Sedan(Sedan&& other)
 
 }
 
+
+
+
 void Sedan::A1() {
     Sedan::A1();
 }
 
 void Sedan::printInfo() const {
-    Sedan::printInfo();
+    Cars::printInfo();
     cout<< "Type of roof: " << typeofroof << "\n" << "Max speed: " << maxspeed
         << "km/h" << "\n" << " Engine characteristics: "
     <<"\n" << engine1;

@@ -19,25 +19,27 @@ using namespace std;
 Cars cars("","","","",0,0,0,0,"");
 Sedan sedan("","","","","",0,0,0,0,
             "",0,Engine("","",""));
+Engine engine1("","","");
 //Vehicle vehicle("","",0,"","");
 //Bike bike(vehicle,"","",0);
 //People personal("",0,0,"");
 
 int main() {
     Cars car;
-    Sedan sedan1;
+    Engine engine;
+    Sedan sedan;
     Interface1 interface1;
 //    interface1.A4();
 //    Probels();
 //    AddCars(car);
+//    car.printInfo();
 //    AddinfSed(sedan1);
-//    ReadSed(sedan1);
+//    ReadSed(sedan);
 //    interface1.A1();
 //    Probels();
-//    AddinfSed(sedan1);
-//    sedan1.printInfo();
-    AddCars(car);
-    car.printInfo();
+    AddinfSed(sedan);
+    sedan.printInfo();
+//    AddCars(car);
 
 //    ReadCars(car);
     return 0;

@@ -124,9 +124,18 @@ void AddinfSed(Sedan &sedan){
     car1.setStatus(*inventoryStatus);
     while (finCar >> *type >> *brand >> *model >> *color >> *fuel >> *doors >> *production >> *price >>
                   *inventoryStatus) {
-        if (*brand == *nazvmar || *model == *nazvamod) {
-            Cars cars(*type, *brand, *model, *color, *fuel, *doors, *production,
-                      *price, *inventoryStatus);
+        Cars cars(*type, *brand, *model, *color, *fuel, *doors, *production,
+                  *price, *inventoryStatus);
+        if (cars.getBrand() == *nazvmar && cars.getModel() == *nazvamod) {
+            sedan.setType(*type);
+            sedan.setBrand(*brand);
+            sedan.setModel(*model);
+            sedan.setColor(*color);
+            sedan.setFuel(*fuel);
+            sedan.setDoors(*doors);
+            sedan.setYear(*production);
+            sedan.setPrice(*price);
+            sedan.setStatus(*inventoryStatus);
             cout << " Type of roof: " << endl;
             shared_ptr<string> typeofroof{new string{""}};
             cin >> *typeofroof;
@@ -139,15 +148,15 @@ void AddinfSed(Sedan &sedan){
             cout << " Engine capacity: " << endl;
             shared_ptr<string> engineCapacity{new string{""}};
             cin >> *engineCapacity;
-            engine1.setCapacity(*engineCapacity);
+            sedan.getEngine().setCapacity(*engineCapacity);
             cout << " Power: " << endl;
             shared_ptr<string> power{new string{""}};
             cin >> *power;
-            engine1.setPower(*power);
+            sedan.getEngine().setPower(*power);
             cout << " Engine type: " << endl;
             shared_ptr<string> engineType{new string{""}};
             cin >> *engineType;
-            engine1.setType(*engineType);
+            sedan.getEngine().setType(*engineType);
             Sedan sedan1(*type, *brand, *inventoryStatus, *model, *color, *fuel, *doors, *production, *price,
                          *typeofroof,
                          *maxspeed, Engine(*engineCapacity, *power, *engineType));
@@ -159,6 +168,14 @@ void AddinfSed(Sedan &sedan){
                     << *inventoryStatus << "\t" << *typeofroof << "\t"
                     << *maxspeed << "\t" << *engineCapacity << "\t" << *power <<
                     "\t" << *engineType << endl;
+//            sedan = Sedan(cars);
+
+//            cout << "Type: " << *type  << "\n"  << "Brand: " << *brand << "\n" << "Model: " << *model << "\n" << "Color: "
+//                 << *color << "\n" << "Fuel :" << *fuel << " 100km" <<"\n" << "Number of doors: " << *doors << "\n" << "Year of production: "
+//                 << *production << "\n" << "Price: " << *price << " dollars" <<"\n" << "Vehicle availability status (for example, 'available', 'sold', 'reserved') : "
+//                 << *inventoryStatus << "\n" << "Type of roof: " << *typeofroof << "\n" << "Max speed: " << *maxspeed
+//                 << "km/h" << "\n" << "Engine capacity: " << *engineCapacity << "/L" <<"\n" << "Power:"
+//                 << *power << "/HP" << "\n" << "Engine type(patrol,diesel,gas): " <<*engineType << endl;
             foutSed.close();
 //            Probels();
         }
