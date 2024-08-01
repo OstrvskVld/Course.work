@@ -20,6 +20,8 @@ Cars cars("","","","",0,0,0,0,"");
 Sedan sedan("","","","","",0,0,0,0,
             "",0,Engine("","",""));
 Engine engine1("","","");
+Van van("","","","","",0,0,
+        0,0,0,0,Engine("","",""));
 //Vehicle vehicle("","",0,"","");
 //Bike bike(vehicle,"","",0);
 //People personal("",0,0,"");
@@ -27,18 +29,23 @@ Engine engine1("","","");
 int main() {
     Cars car;
     Engine engine;
+    Van van1;
     Sedan sedan;
     Interface1 interface1;
 //    interface1.A4();
 //    Probels();
 //    AddCars(car);
 //    car.printInfo();
+//    ReadCars(cars);
 //    AddinfSed(sedan1);
 //    ReadSed(sedan);
 //    interface1.A1();
 //    Probels();
-    AddinfSed(sedan);
-    sedan.printInfo();
+//    AddinfSed(sedan);
+//    sedan.printInfo();
+//    AddinfVan(van);
+//    van.printInfo();
+//    ReadVan(van);
 //    AddCars(car);
 
 //    ReadCars(car);

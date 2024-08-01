@@ -15,9 +15,9 @@ Van::Van(int payloadCapacity, int sleepingCapacity)
         : payloadCapacity{payloadCapacity}, sleepingCapacity{sleepingCapacity}{}
 Van::Van(string type,string brand, string inventoryStatus, string model, string color, double fuel, int numberOfDoors,
          int yearOfProduction, double price,
-         int payloadCapacity, int sleepingCapacity) : Cars(type,brand, model, color, fuel, numberOfDoors, yearOfProduction, price,
+         int payloadCapacity, int sleepingCapacity,Engine engine2) : Cars(type,brand, model, color, fuel, numberOfDoors, yearOfProduction, price,
                                                            inventoryStatus),
-         payloadCapacity{payloadCapacity}, sleepingCapacity{sleepingCapacity} {}
+         payloadCapacity{payloadCapacity}, sleepingCapacity{sleepingCapacity}, engine2{engine2} {}
 Van::Van(Cars cars,int payloadCapacity, int sleepingCapacity)
         : Cars(cars.getType(),cars.getBrand(),cars.getModel(),cars.getColor(),cars.getFuel(),cars.getDoors(),
                cars.getYear(),cars.getPrice(),  cars.getStatus()),
@@ -54,7 +54,23 @@ void Van::A2() {
 }
 
 void Van::printInfo() const {
-    Van::printInfo();
+    Cars::printInfo();
+    cout<< " Payload capacity: "  << payloadCapacity << "\n" << " Sleeping capacity: " <<
+    "\n" << sleepingCapacity << "\n" << " Engine characteristics: " <<"\n" << engine2;
+}
+
+int Van::getPayloadCap() const {
+    return payloadCapacity;
+}
+int Van::getSleepCap()const {
+    return sleepingCapacity;
+}
+
+void Van::setPayloadCap(const int &loadcap)  {
+    payloadCapacity = loadcap;
+}
+void Van::setSleepCap(const int &sleep) {
+    sleepingCapacity = sleep;
 }
 
 
