@@ -26,7 +26,7 @@ public:
         cout << " Van: ";
     }
     virtual void A3() override{
-        cout << " Customers: ";
+        cout << " Users: ";
     }
     virtual ~Interface1(){};
 };

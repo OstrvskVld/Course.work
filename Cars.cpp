@@ -51,11 +51,11 @@ using namespace std;
 //    cout<< " Model: " <<model << " Price: "<<price << " Mileage: " <<mileage << engine1 << " Car " << "\n";
 //}
 Cars::Cars()
-        : Cars("","","","",0,0,0,0,""){}
+        : Cars("","","","",0,0,0,0,"",""){}
 Cars::Cars(string type,string brand, string model, string color, double fuel, int numberOfDoors, int yearOfProduction,
-           double price,string inventoryStatus)
+           double price,string inventoryStatus, string licenseplate)
         : type{type},brand{brand}, model{model}, color{color}, fuel{fuel}, numberOfDoors{numberOfDoors}, yearOfProduction{yearOfProduction},
-        price{price}, inventoryStatus{inventoryStatus} {}
+        price{price}, inventoryStatus{inventoryStatus}, licenseplate{licenseplate} {}
 Cars::Cars(const Cars &other) {
     type=other.type;
     brand=other.brand;
@@ -66,11 +66,12 @@ Cars::Cars(const Cars &other) {
     yearOfProduction=other.yearOfProduction;
     price=other.price;
     inventoryStatus=other.inventoryStatus;
+    licenseplate=other.licenseplate;
 }
 Cars::Cars(Cars &&other)
         :type(other.type),brand(other.brand), model(other.model), color(other.color),fuel(other.fuel),numberOfDoors(other.numberOfDoors),
         yearOfProduction(other.yearOfProduction), price(other.price),
-        inventoryStatus(other.inventoryStatus) {
+        inventoryStatus(other.inventoryStatus), licenseplate(other.licenseplate) {
     other.type = "";
     other.brand= "";
     other.model = "";
@@ -80,10 +81,11 @@ Cars::Cars(Cars &&other)
     other.yearOfProduction = 0;
     other.price = 0;
     other.inventoryStatus = "";
+    other.licenseplate = "";
 }
 ostream &operator<<(ostream &os, const Cars &car){
     os<<car.type << "\t" << car.brand << "\t" << car.model <<"\t"<<car.color <<"\t"<<car.fuel << "\t" << car.numberOfDoors
-    << "\t"<< car.yearOfProduction<< "\t"<< car.price << "\t" << car.inventoryStatus << endl;
+    << "\t"<< car.yearOfProduction<< "\t"<< car.price << "\t" << car.inventoryStatus << "\t" << car.licenseplate << endl;
     return os;
 }
 Cars Cars::operator=(const Cars &rhs) {
@@ -99,6 +101,7 @@ Cars Cars::operator=(const Cars &rhs) {
         yearOfProduction=rhs.yearOfProduction;
         price=rhs.price;
         inventoryStatus=rhs.inventoryStatus;
+        licenseplate=rhs.licenseplate;
         return *this;
     }
 }
@@ -114,6 +117,11 @@ void Cars ::printInfo() const {
         cout << "Price: " << price << " dollars" << endl;
         cout << "Vehicle availability status (for example, 'available', 'sold', 'reserved') : " <<
         inventoryStatus << endl;
+        cout << "License plate number of the car: " << licenseplate << endl;
+}
+
+string Cars::getPlate() const {
+    return licenseplate;
 }
 int Cars::getPrice() const {
     return price;
@@ -141,6 +149,9 @@ string Cars::getStatus() const {
 }
 string Cars::getType() const {
     return type;
+}
+void Cars::setPlate(const std::string &newPlate) {
+    licenseplate = newPlate;
 }
 void Cars::setType(const string& newType) {
     type = newType;

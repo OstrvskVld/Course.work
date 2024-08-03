@@ -16,12 +16,14 @@
 using namespace std;
 
 //Cars car("","",0,"","","");
-Cars cars("","","","",0,0,0,0,"");
-Sedan sedan("","","","","",0,0,0,0,
+Cars cars("","","","",0,0,0,0,"","");
+Sedan sedan("","","","","","",0,0,0,0,
             "",0,Engine("","",""));
 Engine engine1("","","");
-Van van("","","","","",0,0,
+Van van("","","","","","",0,0,
         0,0,0,0,Engine("","",""));
+string cr;
+string sorted;
 //Vehicle vehicle("","",0,"","");
 //Bike bike(vehicle,"","",0);
 //People personal("",0,0,"");
@@ -37,6 +39,7 @@ int main() {
 //    AddCars(car);
 //    car.printInfo();
 //    ReadCars(cars);
+    SortByYearDown(cr,sorted);
 //    AddinfSed(sedan1);
 //    ReadSed(sedan);
 //    interface1.A1();
