@@ -66,6 +66,10 @@ void AddCars(Cars &cars) {
     shared_ptr<double> fuel{new double{0.0}};
     cin >> *fuel;
     cars.setFuel(*fuel);
+    cout << " What is the mileage of the car? " << endl;
+    shared_ptr<double> mileage{new double{0.0}};
+    cin >> *mileage;
+    cars.setMileage(*mileage);
     cout << " How many doors? " << endl;
     shared_ptr<int> doors{new int{0}};
     cin >> *doors;
@@ -91,12 +95,12 @@ void AddCars(Cars &cars) {
     }
 //    if (*inventoryStatus == "Sold" && "Reserved")
 //        throw AnotherVariant();
-    Cars car(*type,*brand, *model, *color, *fuel, *doors,*production,
+    Cars car(*type,*brand, *model, *color, *fuel, *mileage, *doors,*production,
              *price, *inventoryStatus,*licenseplate);
-    ofstream foutCar(R"(D:\Course Work\Code\Cars.txt)",
+    ofstream foutCar(R"(D:\Course Work\Code\Database\Cars.txt)",
                     ios_base::app);
     foutCar << *type  << "\t"  << *brand << "\t"  << *model << "\t"
-    << *color << "\t"  << *fuel  <<"\t"  << *doors << "\t"
+    << *color << "\t"  << *fuel  <<"\t"  << *mileage  <<"\t"  << *doors << "\t"
     << *production << "\t"  << *price <<"\t"
     << *inventoryStatus << "\t" << *licenseplate << endl;
     foutCar.close();
@@ -107,7 +111,7 @@ void AddinfSed(Sedan &sedan){
     Cars car1;
 //    cout << " You want to add more about the sedan: " << endl;
     cout << " Choose which sedan you want to know more about: " << endl;
-    ifstream finCar(R"(D:\Course Work\Code\Cars.txt)");
+    ifstream finCar(R"(D:\Course Work\Code\Database\Cars.txt)");
     if (!finCar.is_open())
         cerr << "Error opening file: " << endl;
     shared_ptr<string> nazvmar{new string{""}};
@@ -126,6 +130,8 @@ void AddinfSed(Sedan &sedan){
     car1.setColor(*color);
     shared_ptr<double> fuel{new double{0.0}};
     car1.setFuel(*fuel);
+    shared_ptr<double> mileage{new double{0.0}};
+    car1.setMileage(*mileage);
     shared_ptr<int> doors{new int{0}};
     car1.setDoors(*doors);
     shared_ptr<int> production{new int{0}};
@@ -136,9 +142,9 @@ void AddinfSed(Sedan &sedan){
     car1.setStatus(*inventoryStatus);
     shared_ptr<string> licenseplate{new string{""}};
     car1.setPlate(*licenseplate);
-    while (finCar >> *type >> *brand >> *model >> *color >> *fuel >> *doors >> *production >> *price >>
+    while (finCar >> *type >> *brand >> *model >> *color >> *fuel >> *mileage >> *doors >> *production >> *price >>
                   *inventoryStatus >> *licenseplate) {
-        Cars cars(*type, *brand, *model, *color, *fuel, *doors, *production,
+        Cars cars(*type, *brand, *model, *color, *fuel, *mileage, *doors, *production,
                   *price, *inventoryStatus,*licenseplate);
         if (cars.getBrand() == *nazvmar && cars.getModel() == *nazvamod) {
             sedan.setType(*type);
@@ -146,6 +152,7 @@ void AddinfSed(Sedan &sedan){
             sedan.setModel(*model);
             sedan.setColor(*color);
             sedan.setFuel(*fuel);
+            sedan.setMileage(*mileage);
             sedan.setDoors(*doors);
             sedan.setYear(*production);
             sedan.setPrice(*price);
@@ -172,13 +179,13 @@ void AddinfSed(Sedan &sedan){
             shared_ptr<string> engineType{new string{""}};
             cin >> *engineType;
             sedan.getEngine().setType(*engineType);
-            Sedan sedan1(*type,  *licenseplate, *brand, *inventoryStatus, *model, *color, *fuel, *doors, *production, *price,
+            Sedan sedan1(*type,  *licenseplate, *brand, *inventoryStatus, *model, *color, *fuel,*mileage, *doors, *production, *price,
                          *typeofroof,
                          *maxspeed, Engine(*engineCapacity, *power, *engineType));
-            ofstream foutSed(R"(D:\Course Work\Code\Sedan.txt)",
+            ofstream foutSed(R"(D:\Course Work\Code\Database\Sedan.txt)",
                              ios_base::app);
             foutSed << *type << "\t" << *brand << "\t" << *model << "\t"
-                    << *color << "\t" << *fuel << "\t" << *doors << "\t"
+                    << *color << "\t" << *fuel << "\t" << *mileage << "\t" << *doors << "\t"
                     << *production  << *price << "\t"
                     << *inventoryStatus << "\t" << *licenseplate << "\t"<< *typeofroof << "\t"
                     << *maxspeed << "\t" << *engineCapacity << "\t" << *power <<
@@ -203,7 +210,7 @@ void AddinfVan(Van &van){
     Cars car1;
 //    cout << " You want to add more about the sedan: " << endl;
     cout << " Choose which van you want to know more about: " << endl;
-    ifstream finCar(R"(D:\Course Work\Code\Cars.txt)");
+    ifstream finCar(R"(D:\Course Work\Code\Database\Cars.txt)");
     if (!finCar.is_open())
         cerr << "Error opening file: " << endl;
     shared_ptr<string> nazvmar{new string{""}};
@@ -222,6 +229,8 @@ void AddinfVan(Van &van){
     car1.setColor(*color);
     shared_ptr<double> fuel{new double{0.0}};
     car1.setFuel(*fuel);
+    shared_ptr<double> mileage{new double{0.0}};
+    car1.setMileage(*mileage);
     shared_ptr<int> doors{new int{0}};
     car1.setDoors(*doors);
     shared_ptr<int> production{new int{0}};
@@ -232,9 +241,9 @@ void AddinfVan(Van &van){
     car1.setStatus(*inventoryStatus);
     shared_ptr<string> licenseplate{new string{""}};
     car1.setPlate(*licenseplate);
-    while (finCar >> *type >> *brand >> *model >> *color >> *fuel >> *doors >> *production >> *price >>
+    while (finCar >> *type >> *brand >> *model >> *color >> *fuel >> *mileage >> *doors >> *production >> *price >>
                   *inventoryStatus >> *licenseplate) {
-        Cars cars(*type, *brand, *model, *color, *fuel, *doors, *production,
+        Cars cars(*type, *brand, *model, *color, *fuel, *mileage, *doors, *production,
                   *price, *inventoryStatus, *licenseplate);
         if (cars.getBrand() == *nazvmar && cars.getModel() == *nazvamod) {
             van.setType(*type);
@@ -242,6 +251,7 @@ void AddinfVan(Van &van){
             van.setModel(*model);
             van.setColor(*color);
             van.setFuel(*fuel);
+            van.setMileage(*mileage);
             van.setDoors(*doors);
             van.setYear(*production);
             van.setPrice(*price);
@@ -268,13 +278,13 @@ void AddinfVan(Van &van){
             shared_ptr<string> engineType{new string{""}};
             cin >> *engineType;
             van.getEngine().setType(*engineType);
-            Van van1(*type, *brand, *licenseplate, *inventoryStatus, *model, *color, *fuel, *doors, *production, *price,
+            Van van1(*type, *brand, *licenseplate, *inventoryStatus, *model, *color, *fuel, *mileage, *doors, *production, *price,
                          *payloadCapacity,
                          *sleepingCapacity, Engine(*engineCapacity, *power, *engineType));
-            ofstream foutVan(R"(D:\Course Work\Code\Van.txt)",
+            ofstream foutVan(R"(D:\Course Work\Code\Database\Van.txt)",
                              ios_base::app);
             foutVan << *type << "\t" << *brand << "\t" << *model << "\t"
-                    << *color << "\t" << *fuel << "\t" << *doors << "\t"
+                    << *color << "\t" << *fuel << "\t" << *mileage << "\t" << *doors << "\t"
                     << *production << "\t" << *price << "\t"
                     << *inventoryStatus << "\t" <<*licenseplate << "\t" << *payloadCapacity << "\t"
                     << *sleepingCapacity << "\t" << *engineCapacity << "\t" << *power <<
@@ -306,11 +316,27 @@ struct CarData {
     double price;
     string status;
     string licensePlate;
+    double mileage;
 };
+void SortCars(vector<CarData>& cars, int criteria, bool ch) {
+    if (criteria == 1) {
+        sort(cars.begin(), cars.end(), [ch](const CarData& a, const CarData& b) {
+            return ch ? a.year < b.year : a.year > b.year;
+        });
+    } else if (criteria == 2) {
+        sort(cars.begin(), cars.end(), [ch](const CarData& a, const CarData& b) {
+            return ch ? a.price < b.price : a.price > b.price;
+        });
+    } else if (criteria == 3) {
+        sort(cars.begin(), cars.end(), [ch](const CarData& a, const CarData& b) {
+            return ch ? a.mileage < b.mileage : a.mileage > b.mileage;
+        });
+    }
+}
 
-void SortByYearDown(const string& cr, const string& sorted) {
+void Sort(const string& cr, const string& sorted, int criteria, bool ch) {
     vector<CarData> cars;
-    ifstream finyear(R"(D:\Course Work\Code\Cars.txt)");
+    ifstream finyear(R"(D:\Course Work\Code\Database\Cars.txt)");
 
     if (!finyear.is_open()) {
         cerr << "Error opening file: " << cr << endl;
@@ -321,19 +347,16 @@ void SortByYearDown(const string& cr, const string& sorted) {
     while (getline(finyear, line)) {
         istringstream iss(line);
         CarData car;
-        iss >> car.type >> car.brand >> car.model >> car.color >> car.fuel >> car.doors >> car.year >> car.price >> car.status >> car.licensePlate;
+        iss >> car.type >> car.brand >> car.model >> car.color >> car.fuel >> car.mileage
+            >> car.doors >> car.year >> car.price >> car.status >> car.licensePlate;
         cars.push_back(car);
     }
 
     finyear.close();
 
-    sort(cars.begin(), cars.end(), [](const CarData& a, const CarData& b) {
-        return a.year < b.year;
-    });
+    SortCars(cars, criteria, ch);
 
-    ofstream foutyear(R"(D:\Course Work\Code\Sort by year down.txt)",
-                     ios_base::app);
-
+    ofstream foutyear(sorted, ios_base::app);
     if (!foutyear.is_open()) {
         cerr << "Error opening file: " << sorted << endl;
         return;
@@ -341,13 +364,29 @@ void SortByYearDown(const string& cr, const string& sorted) {
 
     for (const CarData& car : cars) {
         foutyear << car.type << "\t" << car.brand << "\t" << car.model << "\t"
-             << car.color << "\t" << car.fuel << "\t" << car.doors << "\t"
-             << car.year << "\t" << car.price << "\t" << car.status << "\t"
-             << car.licensePlate << endl;
+                 << car.color << "\t" << car.fuel << "\t" << car.mileage << "\t"
+                 << car.doors << "\t" << car.year << "\t" << car.price << "\t"
+                 << car.status << "\t" << car.licensePlate << endl;
+
+        cout << "Type: " << car.type << "\n"
+             << "Brand: " << car.brand << "\n"
+             << "Model: " << car.model << "\n"
+             << "Color: " << car.color << "\n"
+             << "Fuel: " << car.fuel << "L/100km\n"
+             << "Mileage: " << car.mileage << " km\n"
+             << "Number of doors: " << car.doors << "\n"
+             << "Year of production: " << car.year << "\n"
+             << "Price: " << car.price << " dollars\n"
+             << "Vehicle availability status: " << car.status << "\n"
+             << "License plate number of the car: " << car.licensePlate << endl;
     }
 
     foutyear.close();
 }
+
+
+
+
 
 
 
@@ -415,7 +454,7 @@ void SortByYearDown(const string& cr, const string& sorted) {
 //}
 //
 void ReadSed(Sedan &sedan){
-    ifstream finSed(R"(D:\Course Work\Code\Sedan.txt)");
+    ifstream finSed(R"(D:\Course Work\Code\Database\Sedan.txt)");
     if (!finSed.is_open()) {
         cerr << "Error opening file: " << endl;
     }
@@ -424,6 +463,7 @@ void ReadSed(Sedan &sedan){
     shared_ptr<string> model{new string{""}};
     shared_ptr<string> color{new string{""}};
     shared_ptr<double> fuel{new double{0.0}};
+    shared_ptr<double> mileage{new double{0.0}};
     shared_ptr<int> doors{new int{0}};
     shared_ptr<int> production{new int{0}};
     shared_ptr<double> price{new double {0.0}};
@@ -434,10 +474,10 @@ void ReadSed(Sedan &sedan){
     shared_ptr<string> engineCapacity{new string {""}};
     shared_ptr<string> power{new string {""}};
     shared_ptr<string> engineType{new string {""}};
-    while(finSed >> *type >> *brand >> *model >> *color >> *fuel >> *doors >> *production >> *price >>
+    while(finSed >> *type >> *brand >> *model >> *color >> *fuel >> *mileage >> *doors >> *production >> *price >>
     *inventoryStatus >> *typeofroof >> *maxspeed >> *engineCapacity >> *power >> *engineType){
         cout << "Type: " << *type  << "\n"  << "Brand: " << *brand << "\n" << "Model: " << *model << "\n" << "Color: "
-             << *color << "\n" << "Fuel :" << *fuel << " 100km" <<"\n" << "Number of doors: " << *doors << "\n" << "Year of production: "
+             << *color << "\n" << "Fuel :" << *fuel << " 100km" <<"\n" << "Mileage: " << *mileage << " km" << "\n" << "Number of doors: " << *doors << "\n" << "Year of production: "
              << *production << "\n" << "Price: " << *price << " dollars" <<"\n" << "Vehicle availability status (for example, 'available', 'sold', 'reserved') : "
              << *inventoryStatus << "\n" << "License plate number of the car: " << *licenseplate << "\n" << "Type of roof: " << *typeofroof << "\n" << "Max speed: " << *maxspeed
              << "km/h" << "\n" << "Engine capacity: " << *engineCapacity << "/L" <<"\n" << "Power:"
@@ -448,7 +488,7 @@ void ReadSed(Sedan &sedan){
 
 
 void ReadVan(Van &van){
-    ifstream finVan(R"(D:\Course Work\Code\Van.txt)");
+    ifstream finVan(R"(D:\Course Work\Code\Database\Van.txt)");
     if (!finVan.is_open()) {
         cerr << "Error opening file: " << endl;
     }
@@ -457,6 +497,7 @@ void ReadVan(Van &van){
     shared_ptr<string> model{new string{""}};
     shared_ptr<string> color{new string{""}};
     shared_ptr<double> fuel{new double{0.0}};
+    shared_ptr<double> mileage{new double{0.0}};
     shared_ptr<int> doors{new int{0}};
     shared_ptr<int> production{new int{0}};
     shared_ptr<double> price{new double {0.0}};
@@ -467,10 +508,10 @@ void ReadVan(Van &van){
     shared_ptr<string> engineCapacity{new string {""}};
     shared_ptr<string> power{new string {""}};
     shared_ptr<string> engineType{new string {""}};
-    while(finVan >> *type >> *brand >> *model >> *color >> *fuel >> *doors >> *production >> *price >>
+    while(finVan >> *type >> *brand >> *model >> *color >> *fuel >> *mileage >> *doors >> *production >> *price >>
                  *inventoryStatus >> *payloadCapacity >> *sleepingCapacity >> *engineCapacity >> *power >> *engineType){
         cout << "Type: " << *type  << "\n"  << "Brand: " << *brand << "\n" << "Model: " << *model << "\n" << "Color: "
-             << *color << "\n" << "Fuel :" << *fuel << " 100km" <<"\n" << "Number of doors: " << *doors << "\n" << "Year of production: "
+             << *color << "\n" << "Fuel :" << *fuel << " 100km" <<"\n" << "Mileage: " << *mileage << " km" << "\n"  "Number of doors: " << *doors << "\n" << "Year of production: "
              << *production << "\n" << "Price: " << *price << " dollars" <<"\n" << "Vehicle availability status (for example, 'available', 'sold', 'reserved') : "
              << *inventoryStatus << "\n" << "License plate number of the car: " << *licenseplate << "\n"  << " Payload capacity: " << *payloadCapacity << "\n" << " Sleeping capacity: " << *sleepingCapacity
              << "km/h" << "\n" << "Engine capacity: " << *engineCapacity << "/L" <<"\n" << "Power:"
@@ -482,7 +523,7 @@ void ReadVan(Van &van){
 
 
 void ReadCars(Cars &cars){
-    ifstream finCar(R"(D:\Course Work\Code\Cars.txt)");
+    ifstream finCar(R"(D:\Course Work\Code\Database\Cars.txt)");
     if (!finCar.is_open()) {
         cerr << "Error opening file: " << endl;
     }
@@ -491,15 +532,16 @@ void ReadCars(Cars &cars){
     shared_ptr<string> model{new string{""}};
     shared_ptr<string> color{new string{""}};
     shared_ptr<double> fuel{new double{0.0}};
+    shared_ptr<double> mileage{new double{0.0}};
     shared_ptr<int> doors{new int{0}};
     shared_ptr<int> production{new int{0}};
     shared_ptr<double> price{new double {0.0}};
     shared_ptr<string> inventoryStatus{new string{""}};
     shared_ptr<string> licenseplate{new string{""}};
-    while(finCar >> *type >> *brand >> *model >> *color >> *fuel >> *doors >> *production >> *price >>
+    while(finCar >> *type >> *brand >> *model >> *color >> *fuel >> *mileage >> *doors >> *production >> *price >>
                  *inventoryStatus >> *licenseplate){
         cout << "Type: " << *type  << "\n"  << "Brand: " << *brand << "\n" << "Model: " << *model << "\n" << "Color: "
-             << *color << "\n" << "Fuel :" << *fuel << " 100km" <<"\n" << "Number of doors: " << *doors << "\n" << "Year of production: "
+             << *color << "\n" << "Fuel :" << *fuel << " 100km" <<"\n" << "Mileage: " << *mileage << " km" << "\n"  "Number of doors: " << *doors << "\n" << "Year of production: "
              << *production << "\n" << "Price: " << *price << " dollars" <<"\n" << "Vehicle availability status (for example, 'available', 'sold', 'reserved') : "
              << *inventoryStatus << "\n" << "License plate number of the car: " << *licenseplate << endl;
     }

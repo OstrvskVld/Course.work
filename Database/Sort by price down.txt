@@ -1,0 +1,2 @@
+Sedan	Toyota	Camry	Black	15	190000	4	2010	9300	Reserved	CE0022EE
+Sedan	Chevrolet	Aveo	Blue	10	145000	4	2006	4200	Available	KE3236MI

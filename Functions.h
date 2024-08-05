@@ -17,8 +17,7 @@ void ReadVan(Van &van);
 void ReadSed(Sedan &sedan);
 void AddUsers(Users &Users);
 void ReadUsers(Users &Users);
-void SortByYear(Cars &cars);
-void SortByYearDown(const string& cr, const string& sorted);
+void Sort(const string& cr, const string& sorted, int criteria, bool ch);
 void ReadCars(Cars &cars);
 void BuyACar(Cars &cars);
 

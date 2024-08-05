@@ -51,10 +51,10 @@ using namespace std;
 //    cout<< " Model: " <<model << " Price: "<<price << " Mileage: " <<mileage << engine1 << " Car " << "\n";
 //}
 Cars::Cars()
-        : Cars("","","","",0,0,0,0,"",""){}
-Cars::Cars(string type,string brand, string model, string color, double fuel, int numberOfDoors, int yearOfProduction,
+        : Cars("","","","",0,0,0,0,0,"",""){}
+Cars::Cars(string type,string brand, string model, string color, double fuel, double mileage, int numberOfDoors, int yearOfProduction,
            double price,string inventoryStatus, string licenseplate)
-        : type{type},brand{brand}, model{model}, color{color}, fuel{fuel}, numberOfDoors{numberOfDoors}, yearOfProduction{yearOfProduction},
+        : type{type},brand{brand}, model{model}, color{color}, fuel{fuel}, mileage{mileage}, numberOfDoors{numberOfDoors}, yearOfProduction{yearOfProduction},
         price{price}, inventoryStatus{inventoryStatus}, licenseplate{licenseplate} {}
 Cars::Cars(const Cars &other) {
     type=other.type;
@@ -62,6 +62,7 @@ Cars::Cars(const Cars &other) {
     model=other.model;
     color=other.color;
     fuel=other.fuel;
+    mileage=other.mileage;
     numberOfDoors=other.numberOfDoors;
     yearOfProduction=other.yearOfProduction;
     price=other.price;
@@ -69,14 +70,15 @@ Cars::Cars(const Cars &other) {
     licenseplate=other.licenseplate;
 }
 Cars::Cars(Cars &&other)
-        :type(other.type),brand(other.brand), model(other.model), color(other.color),fuel(other.fuel),numberOfDoors(other.numberOfDoors),
-        yearOfProduction(other.yearOfProduction), price(other.price),
+        :type(other.type),brand(other.brand), model(other.model), color(other.color),fuel(other.fuel), mileage(other.mileage),
+        numberOfDoors(other.numberOfDoors),yearOfProduction(other.yearOfProduction), price(other.price),
         inventoryStatus(other.inventoryStatus), licenseplate(other.licenseplate) {
     other.type = "";
     other.brand= "";
     other.model = "";
     other.color= "";
     other.fuel = 0;
+    other.mileage = 0;
     other.numberOfDoors = 0;
     other.yearOfProduction = 0;
     other.price = 0;
@@ -84,7 +86,7 @@ Cars::Cars(Cars &&other)
     other.licenseplate = "";
 }
 ostream &operator<<(ostream &os, const Cars &car){
-    os<<car.type << "\t" << car.brand << "\t" << car.model <<"\t"<<car.color <<"\t"<<car.fuel << "\t" << car.numberOfDoors
+    os<<car.type << "\t" << car.brand << "\t" << car.model <<"\t"<<car.color <<"\t"<<car.fuel << "\t" << car.mileage << "\t" << car.numberOfDoors
     << "\t"<< car.yearOfProduction<< "\t"<< car.price << "\t" << car.inventoryStatus << "\t" << car.licenseplate << endl;
     return os;
 }
@@ -97,6 +99,7 @@ Cars Cars::operator=(const Cars &rhs) {
         model=rhs.model;
         color=rhs.color;
         fuel=rhs.fuel;
+        mileage=rhs.mileage;
         numberOfDoors=rhs.numberOfDoors;
         yearOfProduction=rhs.yearOfProduction;
         price=rhs.price;
@@ -112,6 +115,7 @@ void Cars ::printInfo() const {
         cout << "Model: " << model << endl;
         cout << "Color: " << color << endl;
         cout << "Fuel: " << fuel << " 100km" << endl;
+        cout << "Mileage: " << mileage << " km" << endl;
         cout << "Number of doors: " << numberOfDoors << endl;
         cout << "Year of production: " << yearOfProduction << endl;
         cout << "Price: " << price << " dollars" << endl;
@@ -122,6 +126,9 @@ void Cars ::printInfo() const {
 
 string Cars::getPlate() const {
     return licenseplate;
+}
+double Cars::getMileage() const {
+    return mileage;
 }
 int Cars::getPrice() const {
     return price;
@@ -164,6 +171,9 @@ void Cars::setPrice(const double &newPrice) {
 }
 void Cars::setYear(const int &newyearOfProduction) {
     yearOfProduction = newyearOfProduction;
+}
+void Cars::setMileage(const double& newMileage) {
+    mileage = newMileage;
 }
 void Cars::setDoors(const int &newnumberOfDoors) {
     numberOfDoors = newnumberOfDoors;

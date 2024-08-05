@@ -16,14 +16,15 @@
 using namespace std;
 
 //Cars car("","",0,"","","");
-Cars cars("","","","",0,0,0,0,"","");
-Sedan sedan("","","","","","",0,0,0,0,
+Cars cars("","","","",0,0,0,0,0,"","");
+Sedan sedan("","","","","","",0,0,0,0,0,
             "",0,Engine("","",""));
 Engine engine1("","","");
-Van van("","","","","","",0,0,
+Van van("","","","","","",0,0,0,
         0,0,0,0,Engine("","",""));
 string cr;
 string sorted;
+int choice;
 //Vehicle vehicle("","",0,"","");
 //Bike bike(vehicle,"","",0);
 //People personal("",0,0,"");
@@ -39,7 +40,54 @@ int main() {
 //    AddCars(car);
 //    car.printInfo();
 //    ReadCars(cars);
-    SortByYearDown(cr,sorted);
+//    SortByYearDown(cr,sorted);
+    cout << "Choose an option:\n"
+         << "1. Sort by year (up)\n"
+         << "2. Sort by year (down)\n"
+         << "3. Sort by price (down)\n"
+         << "4. Sort by price (up)\n"
+         << "5. Sort by mileage (down)\n"
+         << "6. Sort by mileage (up)\n"
+         << "7. Exit\n";
+
+    cin >> choice;
+
+    switch (choice) {
+        case 1:
+            sorted = R"(D:\Course Work\Code\Database\Sort by year up.txt)";
+            Sort(cr, sorted, 1, true);
+            break;
+        case 2:
+            sorted = R"(D:\Course Work\Code\Database\Sort by year down.txt)";
+            Sort(cr, sorted, 1, false);
+            break;
+        case 3:
+            sorted = R"(D:\Course Work\Code\Database\Sort by price down.txt)";
+            Sort(cr, sorted, 2, false);
+            break;
+        case 4:
+            sorted = R"(D:\Course Work\Code\Database\Sort by price up.txt)";
+            Sort(cr, sorted, 2, true);
+            break;
+        case 5:
+            sorted = R"(D:\Course Work\Code\Database\Sort by mileage down.txt)";
+            Sort(cr, sorted, 3, false);
+            break;
+        case 6:
+            sorted = R"(D:\Course Work\Code\Database\Sort by mileage up.txt)";
+            Sort(cr, sorted, 3, true);
+            break;
+        case 7:
+            cout << "Exiting program..." << endl;
+            exit(0);
+        default:
+            cout << "Invalid choice!" << endl;
+            break;
+    }
+
+
+
+
 //    AddinfSed(sedan1);
 //    ReadSed(sedan);
 //    interface1.A1();

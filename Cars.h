@@ -56,6 +56,7 @@ private:
     int yearOfProduction;
     double price;
     string licenseplate;
+    double mileage;
 
 public:
 
@@ -69,6 +70,7 @@ public:
         int getPrice() const;
         string getModel() const;
         string getStatus() const;
+        double getMileage() const;
 
         void setPlate(const string& newPlate);
         void setType(const string& newType);
@@ -80,6 +82,7 @@ public:
         void setPrice(const double& newPrice);
         void setModel(const string& newmodel);
         void setStatus(const string& newStatus);
+        void setMileage(const double& newMileage);
 
 
     Cars();
@@ -87,7 +90,7 @@ public:
     Cars(Cars &&other);
     friend ostream &operator <<(ostream &os,const Cars &obj);
     Cars operator=(const Cars &rhs);
-    Cars(string type,string brand, string model, string color, double fuel, int numberOfDoors, int yearOfProduction, double price,
+    Cars(string type,string brand, string model, string color, double fuel,double mileage, int numberOfDoors, int yearOfProduction, double price,
          string inventoryStatus, string licenseplate);
 //    virtual void Fuel() const = 0;
     virtual void printInfo() const;

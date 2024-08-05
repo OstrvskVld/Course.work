@@ -26,7 +26,7 @@ public:
     Sedan(const Cars& carRef, string typeofroof, int maxspeed);
     Sedan();
     Sedan(string typeofroof, int maxspeed);
-    Sedan(string type,string licenseplate,string brand, string inventoryStatus, string model, string color, double fuel, int numberOfDoors,
+    Sedan(string type,string licenseplate,string brand, string inventoryStatus, string model, string color, double fuel, double mileage,int numberOfDoors,
           int yearOfProduction, double price, string typeofroof, int maxspeed,Engine engine1);
     Sedan(Cars cars,string typeofroof, int maxspeed);
     Sedan(Cars cars,string typeofroof, int maxspeed, Engine engine1);

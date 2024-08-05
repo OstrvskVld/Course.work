@@ -13,17 +13,17 @@ Van::Van()
         : Cars(),payloadCapacity(0),sleepingCapacity(0), engine2("","",""){}
 Van::Van(int payloadCapacity, int sleepingCapacity)
         : payloadCapacity{payloadCapacity}, sleepingCapacity{sleepingCapacity}{}
-Van::Van(string type,string licenseplate,string brand, string inventoryStatus, string model, string color, double fuel, int numberOfDoors,
+Van::Van(string type,string licenseplate,string brand, string inventoryStatus, string model, string color, double fuel, double mileage,int numberOfDoors,
          int yearOfProduction, double price,
-         int payloadCapacity, int sleepingCapacity,Engine engine2) : Cars(type,brand, model, color, fuel, numberOfDoors, yearOfProduction, price,
+         int payloadCapacity, int sleepingCapacity,Engine engine2) : Cars(type,brand, model, color, fuel, mileage, numberOfDoors, yearOfProduction, price,
                                                            inventoryStatus,licenseplate),
          payloadCapacity{payloadCapacity}, sleepingCapacity{sleepingCapacity}, engine2{engine2} {}
 Van::Van(Cars cars,int payloadCapacity, int sleepingCapacity)
-        : Cars(cars.getType(),cars.getBrand(),cars.getModel(),cars.getColor(),cars.getFuel(),cars.getDoors(),
+        : Cars(cars.getType(),cars.getBrand(),cars.getModel(),cars.getColor(),cars.getFuel(),cars.getMileage(),cars.getDoors(),
                cars.getYear(),cars.getPrice(),  cars.getStatus(), cars.getPlate()),
           payloadCapacity{payloadCapacity}, sleepingCapacity{sleepingCapacity} {}
 Van::Van(Cars cars,int payloadCapacity, int sleepingCapacity,Engine engine2)
-        : Cars(cars.getType(),cars.getBrand(),cars.getModel(),cars.getColor(),cars.getFuel(),cars.getDoors(),
+        : Cars(cars.getType(),cars.getBrand(),cars.getModel(),cars.getColor(),cars.getFuel(),cars.getMileage(),cars.getDoors(),
                cars.getYear(),cars.getPrice(),  cars.getStatus(), cars.getPlate()),
           payloadCapacity{payloadCapacity}, sleepingCapacity{sleepingCapacity},engine2{engine2}{}
 Van::Van(const Cars& carRef, int payloadCapacity, int sleepingCapacity)
@@ -31,6 +31,7 @@ Van::Van(const Cars& carRef, int payloadCapacity, int sleepingCapacity)
     string licenseplate = carRef.getPlate();
     int price = carRef.getPrice();
     int fuel = carRef.getFuel();
+    double mileage = carRef.getMileage();
     string inventoryStatus = carRef.getStatus();
     string color = carRef.getColor();
     string brand = carRef.getBrand();
