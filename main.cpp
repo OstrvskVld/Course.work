@@ -13,6 +13,7 @@
 #include "memory"
 #include "AnotherVariant.h"
 
+
 using namespace std;
 
 //Cars car("","",0,"","","");
@@ -25,6 +26,7 @@ Van van("","","","","","",0,0,0,
 string cr;
 string sorted;
 int choice;
+string brand, model, color, status,type;
 //Vehicle vehicle("","",0,"","");
 //Bike bike(vehicle,"","",0);
 //People personal("",0,0,"");
@@ -35,57 +37,111 @@ int main() {
     Van van1;
     Sedan sedan;
     Interface1 interface1;
+//    cout << "Enter the car brand to search for:";
+//    cin >> brand;
+//    cout << "Enter the car model to search for:";
+//    cin >> model;
+//    cout << "Enter the car color to search for:";
+//    cin >> color;
+//    cout << "Enter the car type to search for:";
+//    cin >> type;
+//    cout << "Enter the car status to search for:";
+//    cin >> status;
+//        cout << "Enter the car brand and model to search for:";
+//        cin >> brand >> model;
 //    interface1.A4();
 //    Probels();
 //    AddCars(car);
 //    car.printInfo();
 //    ReadCars(cars);
 //    SortByYearDown(cr,sorted);
-    cout << "Choose an option:\n"
-         << "1. Sort by year (up)\n"
-         << "2. Sort by year (down)\n"
-         << "3. Sort by price (down)\n"
-         << "4. Sort by price (up)\n"
-         << "5. Sort by mileage (down)\n"
-         << "6. Sort by mileage (up)\n"
-         << "7. Exit\n";
+//    cout << "Choose an option:\n"
+//         << "1. Sort by year (up)\n"
+//         << "2. Sort by year (down)\n"
+//         << "3. Sort by price (down)\n"
+//         << "4. Sort by price (up)\n"
+//         << "5. Sort by mileage (down)\n"
+//         << "6. Sort by mileage (up)\n"
+//         << "7. Exit\n";
+//
+//    cin >> choice;
+//
+//    switch (choice) {
+//        case 1:
+//            sorted = R"(D:\Course Work\Code\Database\Sort by year up.txt)";
+//            Sort(cr, sorted, 1, true);
+//            break;
+//        case 2:
+//            sorted = R"(D:\Course Work\Code\Database\Sort by year down.txt)";
+//            Sort(cr, sorted, 1, false);
+//            break;
+//        case 3:
+//            sorted = R"(D:\Course Work\Code\Database\Sort by price down.txt)";
+//            Sort(cr, sorted, 2, false);
+//            break;
+//        case 4:
+//            sorted = R"(D:\Course Work\Code\Database\Sort by price up.txt)";
+//            Sort(cr, sorted, 2, true);
+//            break;
+//        case 5:
+//            sorted = R"(D:\Course Work\Code\Database\Sort by mileage down.txt)";
+//            Sort(cr, sorted, 3, false);
+//            break;
+//        case 6:
+//            sorted = R"(D:\Course Work\Code\Database\Sort by mileage up.txt)";
+//            Sort(cr, sorted, 3, true);
+//            break;
+//        case 7:
+//            cout << "Exiting program..." << endl;
+//            exit(0);
+//        default:
+//            cout << "Invalid choice!" << endl;
+//            break;
+//    }
+//    SearchCarsByBrand(brand);
+//    SearchCarsByModel(model);
+//    SearchCarsByColor(color);
+//    SearchCarsByType(type);
+//    SearchCarsByStatus(status);
+//    SearchCarsByModBr(brand,model);
+    vector<CarData> cars = SearchCars(R"(D:\Course Work\Code\Database\Cars.txt)");
+//    CarData cheapestCar = findCheapestCar(cars);
+//    printCar(cheapestCar, "D:\\Course Work\\Code\\Database\\The cheapest car.txt");
+//    printCars(cheapestCar);
+//    CarData expensiveCar = findExpensiveCar(cars);
+//    printCar(expensiveCar, "D:\\Course Work\\Code\\Database\\The most expensive car.txt");
+//    printCars(expensiveCar);
+//    CarData highestMileageCar = findHighestMileage(cars);
+//    printCar(highestMileageCar, "D:\\Course Work\\Code\\Database\\High mileage.txt");
+//    printCars(highestMileageCar);
+//    CarData lowestMileageCar = findLowestMileage(cars);
+//    printCar(lowestMileageCar, "D:\\Course Work\\Code\\Database\\Low mileage.txt");
+//    printCars(lowestMileageCar);
+//    CarData LeastEconomicalCar = findLeastEconomical(cars);
+//    printCar(LeastEconomicalCar, "D:\\Course Work\\Code\\Database\\Not the most economic.txt");
+//    printCars(LeastEconomicalCar);
+//    CarData MostEconomicalCar = findMostEconomical(cars);
+//    printCar(MostEconomicalCar, "D:\\Course Work\\Code\\Database\\The most economical.txt");
+//    printCars(MostEconomicalCar);
+//    CarData OldCar = findOldest(cars);
+//    printCar(OldCar, "D:\\Course Work\\Code\\Database\\The oldest.txt");
+//    printCars(OldCar);
+    CarData NewCar = findYoungest(cars);
+    printCar(NewCar, "D:\\Course Work\\Code\\Database\\The newest.txt");
+    printCars(NewCar);
 
-    cin >> choice;
 
-    switch (choice) {
-        case 1:
-            sorted = R"(D:\Course Work\Code\Database\Sort by year up.txt)";
-            Sort(cr, sorted, 1, true);
-            break;
-        case 2:
-            sorted = R"(D:\Course Work\Code\Database\Sort by year down.txt)";
-            Sort(cr, sorted, 1, false);
-            break;
-        case 3:
-            sorted = R"(D:\Course Work\Code\Database\Sort by price down.txt)";
-            Sort(cr, sorted, 2, false);
-            break;
-        case 4:
-            sorted = R"(D:\Course Work\Code\Database\Sort by price up.txt)";
-            Sort(cr, sorted, 2, true);
-            break;
-        case 5:
-            sorted = R"(D:\Course Work\Code\Database\Sort by mileage down.txt)";
-            Sort(cr, sorted, 3, false);
-            break;
-        case 6:
-            sorted = R"(D:\Course Work\Code\Database\Sort by mileage up.txt)";
-            Sort(cr, sorted, 3, true);
-            break;
-        case 7:
-            cout << "Exiting program..." << endl;
-            exit(0);
-        default:
-            cout << "Invalid choice!" << endl;
-            break;
-    }
-
-
+//    // Приклад пошуку найдорожчого автомобіля
+//    CarData mostExpensiveCar = findExpensiveCar(cars);
+//    printCar(mostExpensiveCar, "most_expensive_car.txt");
+//    vector<CarData> cars = SearchCars(R"(D:\Course Work\Code\Database\Cars.txt)");
+//    // Приклад пошуку найдешевшого автомобіля
+//    CarData cheapestCar = findCheapestCar(cars);
+//    printCar(cheapestCar);
+//
+//    // Приклад пошуку найдорожчого автомобіля
+//    CarData mostExpensiveCar = findExpensiveCar(cars);
+//    printCar(mostExpensiveCar);
 
 
 //    AddinfSed(sedan1);

@@ -305,19 +305,7 @@ void AddinfVan(Van &van){
 }
 
 
-struct CarData {
-    string type;
-    string brand;
-    string model;
-    string color;
-    double fuel;
-    int doors;
-    int year;
-    double price;
-    string status;
-    string licensePlate;
-    double mileage;
-};
+
 void SortCars(vector<CarData>& cars, int criteria, bool ch) {
     if (criteria == 1) {
         sort(cars.begin(), cars.end(), [ch](const CarData& a, const CarData& b) {
@@ -356,7 +344,7 @@ void Sort(const string& cr, const string& sorted, int criteria, bool ch) {
 
     SortCars(cars, criteria, ch);
 
-    ofstream foutyear(sorted, ios_base::app);
+    ofstream foutyear(sorted, ios::out | ios::trunc);
     if (!foutyear.is_open()) {
         cerr << "Error opening file: " << sorted << endl;
         return;
@@ -390,27 +378,479 @@ void Sort(const string& cr, const string& sorted, int criteria, bool ch) {
 
 
 
+void SearchCarsByBrand(const string& brand) {
+    vector<CarData> cars;
+    ifstream finser(R"(D:\Course Work\Code\Database\Cars.txt)");
+
+    if (!finser.is_open()) {
+        cerr << "Error opening file: Cars.txt" << endl;
+        return;
+    }
+
+    string line;
+    while (getline(finser, line)) {
+        istringstream iss(line);
+        CarData car;
+        iss >> car.type >> car.brand >> car.model >> car.color >> car.fuel >> car.mileage >> car.doors >> car.year >> car.price >> car.status >> car.licensePlate;
+        cars.push_back(car);
+    }
+
+    finser.close();
+
+    ofstream foutser(R"(D:\Course Work\Code\Database\Search for a car by brand.txt)",
+                     ios::out | ios::trunc);
+
+    if (!foutser.is_open()) {
+        cerr << "Error opening file: Search for a car by brand.txt" << endl;
+        return;
+    }
+
+    bool found = false;
+    for (const CarData& car : cars) {
+        if (car.brand == brand) {
+            found = true;
+            foutser << car.type << "\t" << car.brand << "\t" << car.model << "\t"
+                 << car.color << "\t" << car.fuel << "\t" << car.mileage << "\t" << car.doors << "\t"
+                 << car.year << "\t" << car.price << "\t" << car.status << "\t"
+                 << car.licensePlate << endl;
+            cout << "Type: " << car.type << "\n"
+                 << "Brand: " << car.brand << "\n"
+                 << "Model: " << car.model << "\n"
+                 << "Color: " << car.color << "\n"
+                 << "Fuel: " << car.fuel << "L/100km\n"
+                 << "Mileage: " << car.mileage << " km\n"
+                 << "Number of doors: " << car.doors << "\n"
+                 << "Year of production: " << car.year << "\n"
+                 << "Price: " << car.price << " dollars\n"
+                 << "Vehicle availability status: " << car.status << "\n"
+                 << "License plate number of the car: " << car.licensePlate << endl;
+
+        }
+    }
+
+    foutser.close();
+
+    if (!found) {
+        cout << "Cars with brand " << brand << " not found." << endl;
+    }
+}
 
 
-//    finCar.close();
-//
-//    cout << " Type of roof: " << endl;
-//    shared_ptr<string> typeofroof{new string{""}};
-//    cin >> *typeofroof;
-//    cout << " Max speed: " << endl;
-//    shared_ptr<int> maxspeed{new int{0}};
-//    cin >> *maxspeed;
-//    cout <<" Engine characteristics: " << endl;
-//    cout << " Engine capacity: " << endl;
-//    shared_ptr<string> engineCapacity{new string {""}};
-//    cin >> *engineCapacity;
-//    cout << " Power: " << endl;
-//    shared_ptr<string> power{new string {""}};
-//    cin >> *power;
-//    cout << " Engine type: " << endl;
-//    shared_ptr<string> engineType{new string {""}};
-//    cin >> *engineType;
-//}
+void SearchCarsByModel(const string& model) {
+    vector<CarData> cars;
+    ifstream finser(R"(D:\Course Work\Code\Database\Cars.txt)");
+
+    if (!finser.is_open()) {
+        cerr << "Error opening file: Cars.txt" << endl;
+        return;
+    }
+
+    string line;
+    while (getline(finser, line)) {
+        istringstream iss(line);
+        CarData car;
+        iss >> car.type >> car.brand >> car.model >> car.color >> car.fuel >> car.mileage >> car.doors >> car.year >> car.price >> car.status >> car.licensePlate;
+        cars.push_back(car);
+    }
+
+    finser.close();
+
+    ofstream foutser(R"(D:\Course Work\Code\Database\Search for a car by model.txt)",
+                     ios::out | ios::trunc);
+
+    if (!foutser.is_open()) {
+        cerr << "Error opening file: Search for a car by model.txt" << endl;
+        return;
+    }
+
+    bool found = false;
+    for (const CarData& car : cars) {
+        if (car.model == model) {
+            found = true;
+            foutser << car.type << "\t" << car.brand << "\t" << car.model << "\t"
+                    << car.color << "\t" << car.fuel << "\t" << car.mileage << "\t" << car.doors << "\t"
+                    << car.year << "\t" << car.price << "\t" << car.status << "\t"
+                    << car.licensePlate << endl;
+            cout << "Type: " << car.type << "\n"
+                 << "Brand: " << car.brand << "\n"
+                 << "Model: " << car.model << "\n"
+                 << "Color: " << car.color << "\n"
+                 << "Fuel: " << car.fuel << "L/100km\n"
+                 << "Mileage: " << car.mileage << " km\n"
+                 << "Number of doors: " << car.doors << "\n"
+                 << "Year of production: " << car.year << "\n"
+                 << "Price: " << car.price << " dollars\n"
+                 << "Vehicle availability status: " << car.status << "\n"
+                 << "License plate number of the car: " << car.licensePlate << endl;
+
+        }
+    }
+
+    foutser.close();
+
+    if (!found) {
+        cout << "Cars with model " << model << " not found." << endl;
+    }
+}
+
+void SearchCarsByColor(const string& color) {
+    vector<CarData> cars;
+    ifstream finser(R"(D:\Course Work\Code\Database\Cars.txt)");
+
+    if (!finser.is_open()) {
+        cerr << "Error opening file: Cars.txt" << endl;
+        return;
+    }
+
+    string line;
+    while (getline(finser, line)) {
+        istringstream iss(line);
+        CarData car;
+        iss >> car.type >> car.brand >> car.model >> car.color >> car.fuel >> car.mileage >> car.doors >> car.year >> car.price >> car.status >> car.licensePlate;
+        cars.push_back(car);
+    }
+
+    finser.close();
+
+    ofstream foutser(R"(D:\Course Work\Code\Database\Search for a car by color.txt)",
+                     ios::out | ios::trunc);
+
+    if (!foutser.is_open()) {
+        cerr << "Error opening file: Search for a car by color.txt" << endl;
+        return;
+    }
+
+    bool found = false;
+    for (const CarData& car : cars) {
+        if (car.color == color) {
+            found = true;
+            foutser << car.type << "\t" << car.brand << "\t" << car.model << "\t"
+                    << car.color << "\t" << car.fuel << "\t" << car.mileage << "\t" << car.doors << "\t"
+                    << car.year << "\t" << car.price << "\t" << car.status << "\t"
+                    << car.licensePlate << endl;
+            cout << "Type: " << car.type << "\n"
+                 << "Brand: " << car.brand << "\n"
+                 << "Model: " << car.model << "\n"
+                 << "Color: " << car.color << "\n"
+                 << "Fuel: " << car.fuel << "L/100km\n"
+                 << "Mileage: " << car.mileage << " km\n"
+                 << "Number of doors: " << car.doors << "\n"
+                 << "Year of production: " << car.year << "\n"
+                 << "Price: " << car.price << " dollars\n"
+                 << "Vehicle availability status: " << car.status << "\n"
+                 << "License plate number of the car: " << car.licensePlate << endl;
+
+        }
+    }
+    foutser.close();
+
+    if (!found) {
+        cout << "Cars with color " << color << " not found." << endl;
+    }
+}
+
+void SearchCarsByType(const string& type) {
+    vector<CarData> cars;
+    ifstream finser(R"(D:\Course Work\Code\Database\Cars.txt)");
+
+    if (!finser.is_open()) {
+        cerr << "Error opening file: Cars.txt" << endl;
+        return;
+    }
+
+    string line;
+    while (getline(finser, line)) {
+        istringstream iss(line);
+        CarData car;
+        iss >> car.type >> car.brand >> car.model >> car.color >> car.fuel >> car.mileage >> car.doors >> car.year >> car.price >> car.status >> car.licensePlate;
+        cars.push_back(car);
+    }
+
+    finser.close();
+
+    ofstream foutser(R"(D:\Course Work\Code\Database\Search for a car by type.txt)",
+                     ios::out | ios::trunc);
+
+    if (!foutser.is_open()) {
+        cerr << "Error opening file: Search for a car by type.txt" << endl;
+        return;
+    }
+
+    bool found = false;
+    for (const CarData& car : cars) {
+        if (car.type == type) {
+            found = true;
+            foutser << car.type << "\t" << car.brand << "\t" << car.model << "\t"
+                    << car.color << "\t" << car.fuel << "\t" << car.mileage << "\t" << car.doors << "\t"
+                    << car.year << "\t" << car.price << "\t" << car.status << "\t"
+                    << car.licensePlate << endl;
+            cout << "Type: " << car.type << "\n"
+                 << "Brand: " << car.brand << "\n"
+                 << "Model: " << car.model << "\n"
+                 << "Color: " << car.color << "\n"
+                 << "Fuel: " << car.fuel << "L/100km\n"
+                 << "Mileage: " << car.mileage << " km\n"
+                 << "Number of doors: " << car.doors << "\n"
+                 << "Year of production: " << car.year << "\n"
+                 << "Price: " << car.price << " dollars\n"
+                 << "Vehicle availability status: " << car.status << "\n"
+                 << "License plate number of the car: " << car.licensePlate << endl;
+
+        }
+    }
+    foutser.close();
+
+    if (!found) {
+        cout << "Cars with type " << type << " not found." << endl;
+    }
+}
+
+
+void SearchCarsByStatus(const string& status) {
+    vector<CarData> cars;
+    ifstream finser(R"(D:\Course Work\Code\Database\Cars.txt)");
+
+    if (!finser.is_open()) {
+        cerr << "Error opening file: Cars.txt" << endl;
+        return;
+    }
+
+    string line;
+    while (getline(finser, line)) {
+        istringstream iss(line);
+        CarData car;
+        iss >> car.type >> car.brand >> car.model >> car.color >> car.fuel >> car.mileage >> car.doors >> car.year >> car.price >> car.status >> car.licensePlate;
+        cars.push_back(car);
+    }
+
+    finser.close();
+
+    ofstream foutser(R"(D:\Course Work\Code\Database\Search for a car by status.txt)",
+                     ios::out | ios::trunc);
+
+    if (!foutser.is_open()) {
+        cerr << "Error opening file: Search for a car by status.txt" << endl;
+        return;
+    }
+
+    bool found = false;
+    for (const CarData& car : cars) {
+        if (car.status == status) {
+            found = true;
+            foutser << car.type << "\t" << car.brand << "\t" << car.model << "\t"
+                    << car.color << "\t" << car.fuel << "\t" << car.mileage << "\t" << car.doors << "\t"
+                    << car.year << "\t" << car.price << "\t" << car.status << "\t"
+                    << car.licensePlate << endl;
+            cout << "Type: " << car.type << "\n"
+                 << "Brand: " << car.brand << "\n"
+                 << "Model: " << car.model << "\n"
+                 << "Color: " << car.color << "\n"
+                 << "Fuel: " << car.fuel << "L/100km\n"
+                 << "Mileage: " << car.mileage << " km\n"
+                 << "Number of doors: " << car.doors << "\n"
+                 << "Year of production: " << car.year << "\n"
+                 << "Price: " << car.price << " dollars\n"
+                 << "Vehicle availability status: " << car.status << "\n"
+                 << "License plate number of the car: " << car.licensePlate << endl;
+
+        }
+    }
+    foutser.close();
+
+    if (!found) {
+        cout << "Cars with status " << status << " not found." << endl;
+    }
+}
+
+
+void SearchCarsByModBr(const string& brand,const string& model) {
+    vector<CarData> cars;
+    ifstream finser(R"(D:\Course Work\Code\Database\Cars.txt)");
+
+    if (!finser.is_open()) {
+        cerr << "Error opening file: Cars.txt" << endl;
+        return;
+    }
+
+    string line;
+    while (getline(finser, line)) {
+        istringstream iss(line);
+        CarData car;
+        iss >> car.type >> car.brand >> car.model >> car.color >> car.fuel >> car.mileage >> car.doors >> car.year >> car.price >> car.status >> car.licensePlate;
+        cars.push_back(car);
+    }
+
+    finser.close();
+
+    ofstream foutser(R"(D:\Course Work\Code\Database\Search for a car by brand and model.txt)",
+                     ios::out | ios::trunc);
+
+    if (!foutser.is_open()) {
+        cerr << "Error opening file: Search for a car by brand and model.txt" << endl;
+        return;
+    }
+
+    bool found = false;
+    for (const CarData& car : cars) {
+        if (car.brand == brand && car.model == model) {
+            found = true;
+            foutser << car.type << "\t" << car.brand << "\t" << car.model << "\t"
+                    << car.color << "\t" << car.fuel << "\t" << car.mileage << "\t" << car.doors << "\t"
+                    << car.year << "\t" << car.price << "\t" << car.status << "\t"
+                    << car.licensePlate << endl;
+            cout << "Type: " << car.type << "\n"
+                 << "Brand: " << car.brand << "\n"
+                 << "Model: " << car.model << "\n"
+                 << "Color: " << car.color << "\n"
+                 << "Fuel: " << car.fuel << "L/100km\n"
+                 << "Mileage: " << car.mileage << " km\n"
+                 << "Number of doors: " << car.doors << "\n"
+                 << "Year of production: " << car.year << "\n"
+                 << "Price: " << car.price << " dollars\n"
+                 << "Vehicle availability status: " << car.status << "\n"
+                 << "License plate number of the car: " << car.licensePlate << endl;
+
+        }
+    }
+    foutser.close();
+
+    if (!found) {
+        cout << "Cars with brand " << brand <<" and model " << model << " not found." << endl;
+    }
+}
+
+
+
+vector<CarData> SearchCars(const string& filname) {
+    vector<CarData> cars;
+    ifstream fin(R"(D:\Course Work\Code\Database\Cars.txt)");
+
+    if (!fin.is_open()) {
+        cerr << "Error opening file: " << filname << endl;
+        return cars;
+    }
+
+    string line;
+    while (getline(fin, line)) {
+        istringstream iss(line);
+        CarData car;
+        iss >> car.type >> car.brand >> car.model >> car.color >> car.fuel >> car.mileage >> car.doors >> car.year >> car.price >> car.status >> car.licensePlate;
+        cars.push_back(car);
+    }
+
+    fin.close();
+    return cars;
+}
+
+void printCar(const CarData& car, const string& name) {
+        ofstream fout(name, ios::out | ios::trunc);
+        if (!fout.is_open()) {
+            cerr << "Error opening file: " << name << endl;
+            return;
+        }
+    fout << car.type << "\t" << car.brand << "\t" << car.model << "\t"
+            << car.color << "\t" << car.fuel << "\t" << car.mileage << "\t" << car.doors << "\t"
+            << car.year << "\t" << car.price << "\t" << car.status << "\t"
+            << car.licensePlate << endl;
+    fout.close();
+}
+
+void printCars(const CarData& car) {
+        cout << "Type: " << car.type << "\n"
+             << "Brand: " << car.brand << "\n"
+             << "Model: " << car.model << "\n"
+             << "Color: " << car.color << "\n"
+             << "Fuel: " << car.fuel << "L/100km\n"
+             << "Mileage: " << car.mileage << " km\n"
+             << "Number of doors: " << car.doors << "\n"
+             << "Year of production: " << car.year << "\n"
+             << "Price: " << car.price << " dollars\n"
+             << "Vehicle availability status: " << car.status << "\n"
+             << "License plate number of the car: " << car.licensePlate << endl;
+
+}
+
+CarData findCheapestCar(const vector<CarData>& cars) {
+    if (cars.empty()) {
+
+        return CarData();
+    }
+    return *min_element(cars.begin(), cars.end(), [](const CarData& a, const CarData& b) {
+        return a.price < b.price;
+    });
+}
+
+
+CarData findExpensiveCar(const vector<CarData>& cars) {
+    if (cars.empty()) {
+        return CarData();
+    }
+    return *max_element(cars.begin(), cars.end(), [](const CarData& a, const CarData& b) {
+        return a.price < b.price;
+    });
+}
+
+CarData findLowestMileage(const vector<CarData>& cars) {
+    if (cars.empty()) {
+
+        return CarData();
+    }
+    return *min_element(cars.begin(), cars.end(), [](const CarData& a, const CarData& b) {
+        return a.mileage < b.mileage;
+    });
+}
+
+CarData findHighestMileage(const vector<CarData>& cars) {
+    if (cars.empty()) {
+        return CarData();
+    }
+    return *max_element(cars.begin(), cars.end(), [](const CarData& a, const CarData& b) {
+        return a.mileage < b.mileage;
+    });
+}
+
+
+CarData findMostEconomical(const vector<CarData>& cars) {
+    if (cars.empty()) {
+        return CarData();
+    }
+    return *min_element(cars.begin(), cars.end(), [](const CarData& a, const CarData& b) {
+        return a.fuel < b.fuel;
+    });
+}
+
+
+CarData findLeastEconomical(const vector<CarData>& cars) {
+    if (cars.empty()) {
+
+        return CarData();
+    }
+    return *max_element(cars.begin(), cars.end(), [](const CarData& a, const CarData& b) {
+        return a.fuel < b.fuel;
+    });
+}
+
+
+CarData findOldest(const vector<CarData>& cars) {
+    if (cars.empty()) {
+
+        return CarData();
+    }
+    return *min_element(cars.begin(), cars.end(), [](const CarData& a, const CarData& b) {
+        return a.year < b.year;
+    });
+}
+
+
+CarData findYoungest(const vector<CarData>& cars) {
+    if (cars.empty()) {
+        return CarData();
+    }
+    return *max_element(cars.begin(), cars.end(), [](const CarData& a, const CarData& b) {
+        return a.year < b.year;
+    });
+}
+
 
 
 //void AddPersonal(People &people){
