@@ -37,6 +37,7 @@ void printCar(const CarData& car, const string& name);
 CarData findCheapestCar(const vector<CarData>& cars);
 CarData findExpensiveCar(const vector<CarData>& cars);
 CarData findLowestMileage(const vector<CarData>& cars);
+void ChangeCar(const string& licensePlate);
 CarData findHighestMileage(const vector<CarData>& cars);
 CarData findMostEconomical(const vector<CarData>& cars);
 CarData findLeastEconomical(const vector<CarData>& cars);

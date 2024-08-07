@@ -104,7 +104,7 @@ int main() {
 //    SearchCarsByType(type);
 //    SearchCarsByStatus(status);
 //    SearchCarsByModBr(brand,model);
-    vector<CarData> cars = SearchCars(R"(D:\Course Work\Code\Database\Cars.txt)");
+//    vector<CarData> cars = SearchCars(R"(D:\Course Work\Code\Database\Cars.txt)");
 //    CarData cheapestCar = findCheapestCar(cars);
 //    printCar(cheapestCar, "D:\\Course Work\\Code\\Database\\The cheapest car.txt");
 //    printCars(cheapestCar);
@@ -126,22 +126,16 @@ int main() {
 //    CarData OldCar = findOldest(cars);
 //    printCar(OldCar, "D:\\Course Work\\Code\\Database\\The oldest.txt");
 //    printCars(OldCar);
-    CarData NewCar = findYoungest(cars);
-    printCar(NewCar, "D:\\Course Work\\Code\\Database\\The newest.txt");
-    printCars(NewCar);
+//    CarData NewCar = findYoungest(cars);
+//    printCar(NewCar, "D:\\Course Work\\Code\\Database\\The newest.txt");
+//    printCars(NewCar);
+    vector<CarData> cars = SearchCars(R"(D:\Course Work\Code\Database\Cars.txt)");
+    string licensePlateToModify;
+    cin >> licensePlateToModify;
+    ChangeCar(licensePlateToModify);
 
 
-//    // Приклад пошуку найдорожчого автомобіля
-//    CarData mostExpensiveCar = findExpensiveCar(cars);
-//    printCar(mostExpensiveCar, "most_expensive_car.txt");
-//    vector<CarData> cars = SearchCars(R"(D:\Course Work\Code\Database\Cars.txt)");
-//    // Приклад пошуку найдешевшого автомобіля
-//    CarData cheapestCar = findCheapestCar(cars);
-//    printCar(cheapestCar);
-//
-//    // Приклад пошуку найдорожчого автомобіля
-//    CarData mostExpensiveCar = findExpensiveCar(cars);
-//    printCar(mostExpensiveCar);
+
 
 
 //    AddinfSed(sedan1);

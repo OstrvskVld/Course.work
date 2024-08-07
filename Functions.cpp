@@ -305,6 +305,133 @@ void AddinfVan(Van &van){
 }
 
 
+void ChangeCar(const string& licensePlate) {
+    vector<CarData> cars;
+    ifstream fin(R"(D:\\Course Work\\Code\\Database\\Cars.txt)");
+
+    if (!fin.is_open()) {
+        cerr << "Error opening file: Cars.txt" << endl;
+        return;
+    }
+
+    string line;
+    while (getline(fin, line)) {
+        istringstream iss(line);
+        CarData car;
+        iss >> car.type >> car.brand >> car.model >> car.color >> car.fuel >> car.mileage
+            >> car.doors >> car.year >> car.price >> car.status >> car.licensePlate;
+        cars.push_back(car);
+    }
+
+    fin.close();
+
+    bool found = false;
+    for (CarData &car : cars) {
+        if (car.licensePlate == licensePlate) {
+            found = true;
+            cout << "Current information for the car with license plate " << licensePlate << ":" << endl;
+            cout << "Type: " << car.type << endl;
+            cout << "Brand: " << car.brand << endl;
+            cout << "Model: " << car.model << endl;
+            cout << "Color: " << car.color << endl;
+            cout << "Fuel: " << car.fuel << endl;
+            cout << "Mileage: " << car.mileage << endl;
+            cout << "Doors: " << car.doors << endl;
+            cout << "Year: " << car.year << endl;
+            cout << "Price: " << car.price << endl;
+            cout << "Status: " << car.status << endl;
+
+            while (true) {
+                cout << "What field do you want to modify?" << endl;
+                cout << "1. Brand" << endl;
+                cout << "2. Model" << endl;
+                cout << "3. Color" << endl;
+                cout << "4. Fuel" << endl;
+                cout << "5. Year of production" << endl;
+                cout << "6. Price" << endl;
+                cout << "7. Mileage" << endl;
+                cout << "8. Inventory status" << endl;
+                cout << "0. Exit" << endl;
+
+                int choice;
+                cin >> choice;
+
+                switch (choice) {
+                    case 1:
+                        cout << "Enter new brand: ";
+                        cin >> car.brand;
+                        break;
+                    case 2:
+                        cout << "Enter new model: ";
+                        cin >> car.model;
+                        break;
+                    case 3:
+                        cout << "Enter new color: ";
+                        cin >> car.color;
+                        break;
+                    case 4:
+                        cout << "Enter new amount of fuel: ";
+                        cin >> car.fuel;
+                        break;
+                    case 5:
+                        cout << "Enter new year of production: ";
+                        cin >> car.year;
+                        break;
+                    case 6:
+                        cout << "Enter new price: ";
+                        cin >> car.price;
+                        break;
+                    case 7:
+                        cout << "Enter new amount of mileage: ";
+                        cin >> car.mileage;
+                        break;
+                    case 8:
+                        cout << "Enter new inventory status: ";
+                        cin >> car.status;
+                        break;
+                    case 0:
+                    {
+                        ofstream fout(R"(D:\\Course Work\\Code\\Database\\Cars.txt)", ios::out | ios::trunc);
+                        if (!fout.is_open()) {
+                            cerr << "Error opening file:: Cars.txt" << endl;
+                            return;
+                        }
+
+                        for (const CarData &car : cars) {
+                            fout << car.type << "\t" << car.brand << "\t" << car.model << "\t"
+                                 << car.color << "\t" << car.fuel << "\t" << car.mileage << "\t"
+                                 << car.doors << "\t" << car.year << "\t" << car.price << "\t"
+                                 << car.status << "\t" << car.licensePlate << endl;
+                        }
+                        fout.close();
+                        cout << "\nUpdated information for the car with license plate "
+                             << licensePlate << ":" << endl;
+                        cout << "Type: " << car.type << endl;
+                        cout << "Brand: " << car.brand << endl;
+                        cout << "Model: " << car.model << endl;
+                        cout << "Color: " << car.color << endl;
+                        cout << "Fuel: " << car.fuel << endl;
+                        cout << "Mileage: " << car.mileage << endl;
+                        cout << "Doors: " << car.doors << endl;
+                        cout << "Year: " << car.year << endl;
+                        cout << "Price: " << car.price << endl;
+                        cout << "Status: " << car.status << endl;
+                    }
+                        return;
+                    default:
+                        cout << "Invalid choice." << endl;
+                }
+            }
+        }
+    }
+
+    if (!found) {
+        cout << "Car with license plate " << licensePlate << " not found." << endl;
+    }
+}
+
+
+
 
 void SortCars(vector<CarData>& cars, int criteria, bool ch) {
     if (criteria == 1) {
