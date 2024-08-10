@@ -27,6 +27,7 @@ string cr;
 string sorted;
 int choice;
 string brand, model, color, status,type;
+int startYear, endYear;
 //Vehicle vehicle("","",0,"","");
 //Bike bike(vehicle,"","",0);
 //People personal("",0,0,"");
@@ -54,6 +55,7 @@ int main() {
 //    AddCars(car);
 //    car.printInfo();
 //    ReadCars(cars);
+
 //    SortByYearDown(cr,sorted);
 //    cout << "Choose an option:\n"
 //         << "1. Sort by year (up)\n"
@@ -98,41 +100,68 @@ int main() {
 //            cout << "Invalid choice!" << endl;
 //            break;
 //    }
+
 //    SearchCarsByBrand(brand);
 //    SearchCarsByModel(model);
 //    SearchCarsByColor(color);
 //    SearchCarsByType(type);
 //    SearchCarsByStatus(status);
 //    SearchCarsByModBr(brand,model);
+
 //    vector<CarData> cars = SearchCars(R"(D:\Course Work\Code\Database\Cars.txt)");
+
 //    CarData cheapestCar = findCheapestCar(cars);
 //    printCar(cheapestCar, "D:\\Course Work\\Code\\Database\\The cheapest car.txt");
 //    printCars(cheapestCar);
+
 //    CarData expensiveCar = findExpensiveCar(cars);
 //    printCar(expensiveCar, "D:\\Course Work\\Code\\Database\\The most expensive car.txt");
 //    printCars(expensiveCar);
+
 //    CarData highestMileageCar = findHighestMileage(cars);
 //    printCar(highestMileageCar, "D:\\Course Work\\Code\\Database\\High mileage.txt");
 //    printCars(highestMileageCar);
+
 //    CarData lowestMileageCar = findLowestMileage(cars);
 //    printCar(lowestMileageCar, "D:\\Course Work\\Code\\Database\\Low mileage.txt");
 //    printCars(lowestMileageCar);
+
 //    CarData LeastEconomicalCar = findLeastEconomical(cars);
 //    printCar(LeastEconomicalCar, "D:\\Course Work\\Code\\Database\\Not the most economic.txt");
 //    printCars(LeastEconomicalCar);
+
 //    CarData MostEconomicalCar = findMostEconomical(cars);
 //    printCar(MostEconomicalCar, "D:\\Course Work\\Code\\Database\\The most economical.txt");
 //    printCars(MostEconomicalCar);
+
 //    CarData OldCar = findOldest(cars);
 //    printCar(OldCar, "D:\\Course Work\\Code\\Database\\The oldest.txt");
 //    printCars(OldCar);
+
 //    CarData NewCar = findYoungest(cars);
 //    printCar(NewCar, "D:\\Course Work\\Code\\Database\\The newest.txt");
 //    printCars(NewCar);
-    vector<CarData> cars = SearchCars(R"(D:\Course Work\Code\Database\Cars.txt)");
-    string licensePlateToModify;
-    cin >> licensePlateToModify;
-    ChangeCar(licensePlateToModify);
+
+//    vector<CarData> cars = SearchCars(R"(D:\Course Work\Code\Database\Cars.txt)");
+//    string licensePlateToModify;
+//    cin >> licensePlateToModify;
+//    ChangeCar(licensePlateToModify);
+
+//    string licensePlateDel;
+//    cin >>licensePlateDel;
+//    vector<string> licensePlatesToDelete = {licensePlateDel};
+//    DeleteCars(licensePlatesToDelete);
+
+
+
+//    cout << "Enter start year: ";
+//    cin >> startYear;
+//    cout << "Enter end year: ";
+//    cin >> endYear;
+//
+//    double averagePrice = CalculateAveragePrice(startYear, endYear);
+//    cout << "Average price of cars from " << startYear << " to " << endYear << ": " << averagePrice << endl;
+
 
 
 

@@ -37,12 +37,14 @@ void printCar(const CarData& car, const string& name);
 CarData findCheapestCar(const vector<CarData>& cars);
 CarData findExpensiveCar(const vector<CarData>& cars);
 CarData findLowestMileage(const vector<CarData>& cars);
-void ChangeCar(const string& licensePlate);
 CarData findHighestMileage(const vector<CarData>& cars);
 CarData findMostEconomical(const vector<CarData>& cars);
 CarData findLeastEconomical(const vector<CarData>& cars);
 CarData findOldest(const vector<CarData>& cars);
 CarData findYoungest(const vector<CarData>& cars);
+double CalculateAveragePrice(int startYear, int endYear);
+void ChangeCar(const string& licensePlate);
+void DeleteCars(const vector<string>& licensePlates);
 void ReadCars(Cars &cars);
 void BuyACar(Cars &cars);
 

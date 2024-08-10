@@ -85,14 +85,17 @@ void AddCars(Cars &cars) {
     cout << " Vehicle availability status (for example, 'available', 'sold', 'reserved') : " << endl;
     shared_ptr<string> inventoryStatus{new string{""}};
     cin >> *inventoryStatus;
+    if (*inventoryStatus != "Available" && *inventoryStatus != "Sold" && *inventoryStatus != "Reserved") {
+        throw AnotherVariant();
+    }
     cars.setStatus(*inventoryStatus);
     cout << "License plate number of the car: "  << endl;
     shared_ptr<string> licenseplate{new string{""}};
     cin >> *licenseplate;
     cars.setPlate(*licenseplate);
-    if (*inventoryStatus != "Available" && *inventoryStatus != "Sold" && *inventoryStatus != "Reserved") {
-        throw AnotherVariant();
-    }
+//    if (*inventoryStatus != "Available" && *inventoryStatus != "Sold" && *inventoryStatus != "Reserved") {
+//        throw AnotherVariant();
+//    }
 //    if (*inventoryStatus == "Sold" && "Reserved")
 //        throw AnotherVariant();
     Cars car(*type,*brand, *model, *color, *fuel, *mileage, *doors,*production,
@@ -305,6 +308,45 @@ void AddinfVan(Van &van){
 }
 
 
+double CalculateAveragePrice(int startYear, int endYear) {
+    vector<CarData> cars;
+    ifstream fin(R"(D:\Course Work\Code\Database\Cars.txt)");
+
+    if (!fin.is_open()) {
+        cerr << "Error opening file: Cars.txt" << endl;
+        return 0.0; //
+    }
+
+    string line;
+    while (getline(fin, line)) {
+        istringstream iss(line);
+        CarData car;
+        iss >> car.type >> car.brand >> car.model >> car.color >> car.fuel >> car.mileage >> car.doors >> car.year
+            >> car.price >> car.status >> car.licensePlate;
+        cars.push_back(car);
+    }
+
+    fin.close();
+
+    double total_price = 0.0;
+    int count = 0;
+    for (const CarData& car : cars) {
+        if (car.year >= startYear && car.year <= endYear) {
+            total_price += car.price;
+            count++;
+        }
+    }
+
+    if (count == 0) {
+        cerr << "No cars found in the specified year range." << endl;
+        return 0.0;
+    }
+
+    return total_price / count;
+}
+
+
+
 void ChangeCar(const string& licensePlate) {
     vector<CarData> cars;
     ifstream fin(R"(D:\\Course Work\\Code\\Database\\Cars.txt)");
@@ -334,12 +376,13 @@ void ChangeCar(const string& licensePlate) {
             cout << "Brand: " << car.brand << endl;
             cout << "Model: " << car.model << endl;
             cout << "Color: " << car.color << endl;
-            cout << "Fuel: " << car.fuel << endl;
-            cout << "Mileage: " << car.mileage << endl;
-            cout << "Doors: " << car.doors << endl;
-            cout << "Year: " << car.year << endl;
-            cout << "Price: " << car.price << endl;
-            cout << "Status: " << car.status << endl;
+            cout << "Fuel: " << car.fuel << " /100km" << endl;
+            cout << "Mileage: " << car.mileage << " km" << endl;
+            cout << "Number of doors: " << car.doors << endl;
+            cout << "Year of production: " << car.year << endl;
+            cout << "Price: " << car.price << " dollars" << endl;
+            cout << "Vehicle availability status (for example, 'available', 'sold', 'reserved') : " <<
+            car.status << endl;
 
             while (true) {
                 cout << "What field do you want to modify?" << endl;
@@ -410,12 +453,13 @@ void ChangeCar(const string& licensePlate) {
                         cout << "Brand: " << car.brand << endl;
                         cout << "Model: " << car.model << endl;
                         cout << "Color: " << car.color << endl;
-                        cout << "Fuel: " << car.fuel << endl;
-                        cout << "Mileage: " << car.mileage << endl;
-                        cout << "Doors: " << car.doors << endl;
-                        cout << "Year: " << car.year << endl;
-                        cout << "Price: " << car.price << endl;
-                        cout << "Status: " << car.status << endl;
+                        cout << "Fuel: " << car.fuel << " /100km" << endl;
+                        cout << "Mileage: " << car.mileage << " km" << endl;
+                        cout << "Number of doors: " << car.doors << endl;
+                        cout << "Year of production: " << car.year << endl;
+                        cout << "Price: " << car.price << " dollars" << endl;
+                        cout << "Vehicle availability status (for example, 'available', 'sold', 'reserved') : " <<
+                             car.status << endl;
                     }
                         return;
                     default:
@@ -429,6 +473,68 @@ void ChangeCar(const string& licensePlate) {
         cout << "Car with license plate " << licensePlate << " not found." << endl;
     }
 }
+
+
+void DeleteCars(const vector<string>& licensePlates) {
+    vector<CarData> cars;
+    ifstream fin(R"(D:\Course Work\Code\Database\Cars.txt)");
+
+    if (!fin.is_open()) {
+        cerr << "Error opening file: Cars.txt" << endl;
+        return;
+    }
+
+    string line;
+    while (getline(fin, line)) {
+        istringstream iss(line);
+        CarData car;
+        iss >> car.type >> car.brand >> car.model >> car.color >> car.fuel >> car.mileage >> car.doors >> car.year
+            >> car.price >> car.status >> car.licensePlate;
+        cars.push_back(car);
+    }
+
+    fin.close();
+
+    vector<CarData> newCars;
+    bool foundAny = false;
+    for (const CarData& car : cars) {
+        bool found = false;
+        for (const string& licensePlate : licensePlates) {
+            if (car.licensePlate == licensePlate) {
+                found = true;
+                foundAny = true;
+                break;
+            }
+        }
+        if (!found) {
+            newCars.push_back(car);
+        }
+    }
+
+    if (!foundAny) {
+        cout << "No cars found with the specified license plates." << endl;
+        return;
+    }
+
+    ofstream fout(R"(D:\Course Work\Code\Database\Cars.txt)", ios::out | ios::trunc);
+    if (!fout.is_open()) {
+        cerr << "Error opening file: Cars.txt" << endl;
+        return;
+    }
+
+    for (const CarData& car : newCars) {
+        fout << car.type << "\t" << car.brand << "\t" << car.model << "\t"
+             << car.color << "\t" << car.fuel << "\t" << car.mileage << "\t"
+             << car.doors << "\t" << car.year << "\t" << car.price << "\t"
+             << car.status << "\t" << car.licensePlate << endl;
+    }
+
+    fout.close();
+    cout << "Cars deleted successfully." << endl;
+}
+
+
+
 
 
 

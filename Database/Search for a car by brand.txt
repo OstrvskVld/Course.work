@@ -1,1 +1,1 @@
-Sedan	Toyota	Camry	Black	15	190000	4	2010	9300	Reserved	CE0022EE
+Sedan	Renault	Duster	White	11	12300	5	2020	16800	Sold	KA2133IE

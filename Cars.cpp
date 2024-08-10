@@ -114,7 +114,7 @@ void Cars ::printInfo() const {
         cout << "Brand: " << brand << endl;
         cout << "Model: " << model << endl;
         cout << "Color: " << color << endl;
-        cout << "Fuel: " << fuel << " 100km" << endl;
+        cout << "Fuel: " << fuel << " /100km" << endl;
         cout << "Mileage: " << mileage << " km" << endl;
         cout << "Number of doors: " << numberOfDoors << endl;
         cout << "Year of production: " << yearOfProduction << endl;
