@@ -18,7 +18,7 @@ using namespace std;
 
 //Cars car("","",0,"","","");
 Cars cars("","","","",0,0,0,0,0,"","");
-Sedan sedan("","","","","","",0,0,0,0,0,
+Sedan sedan1("","","","","","",0,0,0,0,0,
             "",0,Engine("","",""));
 Engine engine1("","","");
 Van van("","","","","","",0,0,0,
@@ -145,12 +145,15 @@ int main() {
 //    vector<CarData> cars = SearchCars(R"(D:\Course Work\Code\Database\Cars.txt)");
 //    string licensePlateToModify;
 //    cin >> licensePlateToModify;
-//    ChangeCar(licensePlateToModify);
+//    ChangeSed(licensePlateToModify);
 
-//    string licensePlateDel;
-//    cin >>licensePlateDel;
-//    vector<string> licensePlatesToDelete = {licensePlateDel};
-//    DeleteCars(licensePlatesToDelete);
+//    string licensePlate;
+//    cin >>licensePlate;
+//    vector<string> licensePlatesToDelete = {licensePlate};
+//    DeleteCarsSed(licensePlatesToDelete);
+
+//    vector<string> licensePlatesReturn = {licensePlate};
+//    ReturnCar(licensePlate);
 
 
 
@@ -178,7 +181,7 @@ int main() {
 //    ReadVan(van);
 //    AddCars(car);
 
-//    ReadCars(car);
+//    ReadCars(cars);
     return 0;
 
 

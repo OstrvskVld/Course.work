@@ -1,0 +1,2 @@
+Sedan	BMW	X6	Yellow	17	5	2019	30000	Sold	Panorama	290	345	35	Diesel
+Sedan	BMW	X6	Yellow	17	5	2019	30000	Sold	Panorama	279	568	345	Gas

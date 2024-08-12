@@ -1,0 +1,4 @@
+Sedan	BMW	X6	Yellow	17	5	2019	30000	Sold
+Sedan	Volvo	X90	White	16	5	2023	31000	Reserved
+Sedan	BMW	X5	rty	456	456	456	456	Sold
+Sedan	etr	ert	re	345	345	345	345	Sold

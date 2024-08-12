@@ -15,6 +15,30 @@ struct CarData {
     double fuel, price, mileage;
     int doors, year;
 };
+struct Engine1 {
+    string engineCapacity;
+    string power;
+    string engineType;
+};
+
+
+//struct EngineData {
+//    string engineCapacity,power,engineType;
+//
+//    friend istream& operator>>(istream& in, Engine& engine) {
+//        in >> engine.engineCapacity >> engine.power >> engine.engineType;
+//        return in;
+//    }
+//};
+struct SedanData : public CarData, Engine1{
+    string typeofroof;
+    int maxspeed;
+    Engine1 engine1;
+};
+
+
+
+
 using namespace std;
 void Probels();
 void AddCars(Cars &cars);
@@ -44,7 +68,10 @@ CarData findOldest(const vector<CarData>& cars);
 CarData findYoungest(const vector<CarData>& cars);
 double CalculateAveragePrice(int startYear, int endYear);
 void ChangeCar(const string& licensePlate);
-void DeleteCars(const vector<string>& licensePlates);
+void ChangeSed(const string& licensePlate);
+void ChangeVan(const string& licensePlate);
+void DeleteCarsSed(const vector<string>& licensePlates);
+void ReturnCar(const string& licensePlate);
 void ReadCars(Cars &cars);
 void BuyACar(Cars &cars);
 
