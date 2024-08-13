@@ -348,6 +348,128 @@ double CalculateAveragePrice(int startYear, int endYear) {
     return total_price / count;
 }
 
+void ChangeSedIfNecessary(const CarData& car) {
+    vector<SedanData> sedans;
+    ifstream fin(R"(D:\Course Work\Code\Database\Sedan.txt)");
+
+    if (!fin.is_open()) {
+        cerr << "Error opening file: Sedan.txt" << endl;
+        return;
+    }
+
+    string line;
+    while (getline(fin, line)) {
+        istringstream iss(line);
+        SedanData sedan;
+        iss >> sedan.type >> sedan.brand >> sedan.model >> sedan.color >> sedan.fuel >> sedan.mileage
+            >> sedan.doors >> sedan.year >> sedan.price >> sedan.status >> sedan.licensePlate
+            >> sedan.typeofroof >> sedan.maxspeed >> sedan.engineCapacity >> sedan.power >> sedan.engineType;
+        sedans.push_back(sedan);
+    }
+
+    fin.close();
+
+    bool sedanFound = false;
+    for (SedanData &sedan : sedans) {
+        if (sedan.licensePlate == car.licensePlate) {
+            sedanFound = true;
+
+            sedan.brand = car.brand;
+            sedan.model = car.model;
+            sedan.color = car.color;
+            sedan.fuel = car.fuel;
+            sedan.mileage = car.mileage;
+            sedan.doors = car.doors;
+            sedan.year = car.year;
+            sedan.price = car.price;
+            sedan.price = car.price;
+            ofstream fout(R"(D:\Course Work\Code\Database\Sedan.txt)", ios::out | ios::trunc);
+            if (!fout.is_open()) {
+                cerr << "Error opening file: Sedan.txt" << endl;
+                return;
+            }
+
+            for (const SedanData &s : sedans) {
+                fout << s.type << "\t" << s.brand << "\t" << s.model << "\t"
+                     << s.color << "\t" << s.fuel << "\t" << s.mileage << "\t"
+                     << s.doors << "\t" << s.year << "\t" << s.price << "\t"
+                     << s.status << "\t" << s.licensePlate << "\t"
+                     << s.typeofroof << "\t" << s.maxspeed << "\t"
+                     << s.engineCapacity << "\t" << s.power << "\t" << s.engineType << endl;
+            }
+            fout.close();
+            cout << "Details of sedan is updated." << endl;
+            break;
+        }
+    }
+
+    if (!sedanFound) {
+        cout << "Car with license plate " << car.licensePlate << " not found." << endl;
+    }
+}
+
+void ChangeVanIfNecessary(const CarData& car){
+    vector<VanData> vans;
+    ifstream fin(R"(D:\Course Work\Code\Database\Van.txt)");
+
+    if (!fin.is_open()) {
+        cerr << "Error opening file: Van.txt" << endl;
+        return;
+    }
+
+    string line;
+    while (getline(fin, line)) {
+        istringstream iss(line);
+        VanData van;
+        iss >> van.type >> van.brand >> van.model >> van.color >> van.fuel >> van.mileage
+            >> van.doors >> van.year >> van.price >> van.status >> van.licensePlate
+            >> van.payloadCapacity >> van.sleepingCapacity >> van.engineCapacity >> van.power >> van.engineType;
+        vans.push_back(van);
+    }
+
+    fin.close();
+
+    bool sedanFound = false;
+    for (VanData &van : vans) {
+        if (van.licensePlate == car.licensePlate) {
+            sedanFound = true;
+
+            van.brand = car.brand;
+            van.model = car.model;
+            van.color = car.color;
+            van.fuel = car.fuel;
+            van.mileage = car.mileage;
+            van.doors = car.doors;
+            van.year = car.year;
+            van.price = car.price;
+            van.status = car.status;
+            ofstream fout(R"(D:\Course Work\Code\Database\Van.txt)", ios::out | ios::trunc);
+            if (!fout.is_open()) {
+                cerr << "Error opening file: Van.txt" << endl;
+                return;
+            }
+
+            for (const VanData &s : vans) {
+                fout << s.type << "\t" << s.brand << "\t" << s.model << "\t"
+                     << s.color << "\t" << s.fuel << "\t" << s.mileage << "\t"
+                     << s.doors << "\t" << s.year << "\t" << s.price << "\t"
+                     << s.status << "\t" << s.licensePlate << "\t"
+                     << s.payloadCapacity << "\t" << s.sleepingCapacity << "\t"
+                     << s.engineCapacity << "\t" << s.power << "\t" << s.engineType << endl;
+            }
+            fout.close();
+            cout << "Details of van is updated." << endl;
+            break;
+        }
+    }
+
+    if (!sedanFound) {
+        cout << "Car with license plate " << car.licensePlate << " not found." << endl;
+    }
+}
+
+
+
 
 
 void ChangeCar(const string& licensePlate) {
@@ -450,6 +572,7 @@ void ChangeCar(const string& licensePlate) {
                                  << car.status << "\t" << car.licensePlate << endl;
                         }
                         fout.close();
+                        ChangeSedIfNecessary(car);
                         cout << "\nUpdated information for the car with license plate "
                              << licensePlate << ":" << endl;
                         cout << "Type: " << car.type << endl;
@@ -482,7 +605,7 @@ void ChangeSed(const string& licensePlate) {
     ifstream fin(R"(D:\Course Work\Code\Database\Sedan.txt)");
 
     if (!fin.is_open()) {
-        cerr << "Error opening file: Cars.txt" << endl;
+        cerr << "Error opening file: Sedan.txt" << endl;
         return;
     }
 
@@ -644,7 +767,169 @@ void ChangeSed(const string& licensePlate) {
 }
 
 void ChangeVan(const string& licensePlate){
+    vector<VanData> vans;
+    ifstream fin(R"(D:\Course Work\Code\Database\Van.txt)");
 
+    if (!fin.is_open()) {
+        cerr << "Error opening file: Van.txt" << endl;
+        return;
+    }
+
+    string line;
+    while (getline(fin, line)) {
+        istringstream iss(line);
+        VanData van;
+        iss >> van.type >> van.brand >> van.model >> van.color >> van.fuel >> van.mileage
+            >> van.doors >> van.year >> van.price >> van.status >> van.licensePlate >> van.payloadCapacity >>
+            van.sleepingCapacity>> van.engineCapacity >> van.power >> van.engineType;
+        vans.push_back(van);
+    }
+
+    fin.close();
+
+    bool found = false;
+    for (VanData &van : vans) {
+        if (van.licensePlate == licensePlate) {
+            found = true;
+            cout << "Current information for the car with license plate " << licensePlate << ":" << endl;
+            cout << "Type: " << van.type << endl;
+            cout << "Brand: " << van.brand << endl;
+            cout << "Model: " << van.model << endl;
+            cout << "Color: " << van.color << endl;
+            cout << "Fuel: " << van.fuel << " /100km" << endl;
+            cout << "Mileage: " << van.mileage << " km" << endl;
+            cout << "Number of doors: " << van.doors << endl;
+            cout << "Year of production: " << van.year << endl;
+            cout << "Price: " << van.price << " dollars" << endl;
+            cout << "Vehicle availability status (for example, 'available', 'sold', 'reserved') : " <<
+                                                                                                    van.status << endl;
+            cout <<  "Payload capacity: " << van.payloadCapacity << endl;
+            cout << "Sleeping capacity: " << van.sleepingCapacity << endl;
+            cout << "Engine capacity: " << van.engineCapacity << endl;
+            cout << "Engine power: " << van.power << endl;
+            cout << "Engine type: " << van.engineType << endl;
+
+            bool modifyAgain = true;
+            while (modifyAgain) {
+                cout << "What field do you want to modify? (Enter 0 to exit)" << endl;
+                cout << "1. Brand" << endl;
+                cout << "2. Model" << endl;
+                cout << "3. Color" << endl;
+                cout << "4. Fuel" << endl;
+                cout << "5. Year of production" << endl;
+                cout << "6. Price" << endl;
+                cout << "7. Mileage" << endl;
+                cout << "8. Inventory status" << endl;
+                cout << "9. Payload capacity" << endl;
+                cout << "10. Sleeping capacity" << endl;
+                cout << "11. Engine capacity" << endl;
+                cout << "12. Engine power" << endl;
+                cout << "13. Engine type" << endl;
+                cout << "0. Exit" << endl;
+
+                int choice;
+                cin >> choice;
+
+                switch (choice) {
+                    case 1:
+                        cout << "Enter new brand: ";
+                        cin >> van.brand;
+                        break;
+                    case 2:
+                        cout << "Enter new model: ";
+                        cin >> van.model;
+                        break;
+                    case 3:
+                        cout << "Enter new color: ";
+                        cin >> van.color;
+                        break;
+                    case 4:
+                        cout << "Enter new amount of fuel: ";
+                        cin >> van.fuel;
+                        break;
+                    case 5:
+                        cout << "Enter new year of production: ";
+                        cin >> van.year;
+                        break;
+                    case 6:
+                        cout << "Enter new price: ";
+                        cin >> van.price;
+                        break;
+                    case 7:
+                        cout << "Enter new amount of mileage: ";
+                        cin >> van.mileage;
+                        break;
+                    case 8:
+                        cout << "Enter new inventory status: ";
+                        cin >> van.status;
+                        break;
+                    case 9:
+                        cout << "Enter new payload capacity: ";
+                        cin >> van.payloadCapacity;
+                        break;
+                    case 10:
+                        cout << "Enter new sleeping capacity: ";
+                        cin >> van.sleepingCapacity;
+                        break;
+                    case 11:
+                        cout << "Enter new engine capacity: ";
+                        cin >> van.engineCapacity;
+                        break;
+                    case 12:
+                        cout << "Enter new power: ";
+                        cin >> van.power;
+                        break;
+                    case 13:
+                        cout << "Enter new engine type: ";
+                        cin >> van.engineType;
+                        break;
+                    case 0:
+                        modifyAgain = false;
+                        break;
+                    default:
+                        cout << "Invalid choice." << endl;
+                }
+            }
+
+            ofstream fout(R"(D:\Course Work\Code\Database\Van.txt)", ios::out | ios::trunc);
+            if (!fout.is_open()) {
+                cerr << "Error opening file:: Cars.txt" << endl;
+                return;
+            }
+
+            for (const VanData &van : vans) {
+                fout << van.type << "\t" << van.brand << "\t" << van.model << "\t"
+                     << van.color << "\t" << van.fuel << "\t" << van.mileage << "\t"
+                     << van.doors << "\t" << van.year << "\t" << van.price << "\t"
+                     << van.status << "\t" << van.licensePlate << "\t" << van.payloadCapacity
+                     << "\t" << van.sleepingCapacity << "\t" << van.engineCapacity << "\t" << van.power <<
+                     "\t" << van.engineType << endl;
+            }
+            fout.close();
+            cout << "\nUpdated information for the car with license plate "
+                 << licensePlate << ":" << endl;
+            cout << "Type: " << van.type << endl;
+            cout << "Brand: " << van.brand << endl;
+            cout << "Model: " << van.model << endl;
+            cout << "Color: " << van.color << endl;
+            cout << "Fuel: " << van.fuel << " /100km" << endl;
+            cout << "Mileage: " << van.mileage << " km" << endl;
+            cout << "Number of doors: " << van.doors << endl;
+            cout << "Year of production: " << van.year << endl;
+            cout << "Price: " << van.price << " dollars" << endl;
+            cout << "Vehicle availability status (for example, 'available', 'sold', 'reserved') : " <<
+                                                                                                    van.status << endl;
+            cout <<  "Payload capacity" << van.payloadCapacity << endl;
+            cout << "Sleeping capacity: " << van.sleepingCapacity << endl;
+            cout << "Engine capacity: " << van.engineCapacity << endl;
+            cout << "Engine power: " << van.power << endl;
+            cout << "Engine type: " << van.engineType << endl;
+        }
+    }
+
+    if (!found) {
+        cout << "Car with license plate " << licensePlate << " not found." << endl;
+    }
 }
 
 
@@ -752,6 +1037,129 @@ void DeleteCarsSed(const vector<string>& licensePlates) {
                 << sedan.status << "\t" << sedan.licensePlate << endl;
     }
     foutSed.close();
+
+
+    cout << "Cars and sedans deleted successfully." << endl;
+    ofstream foutDeleted(R"(D:\Course Work\Code\Database\Deleted transport.txt)", ios::app);
+    if (!foutDeleted.is_open()) {
+        cerr << "Error opening file: Deleted_transport.txt" << endl;
+        return;
+    }
+
+    for (const CarData& car : deletedCars) {
+        foutDeleted << car.type << "\t" << car.brand << "\t" << car.model << "\t"
+                    << car.color << "\t" << car.fuel << "\t" << car.mileage << "\t"
+                    << car.doors << "\t" << car.year << "\t" << car.price << "\t"
+                    << car.status << "\t" << car.licensePlate << endl;
+    }
+
+    foutDeleted.close();
+    cout << "Cars deleted successfully." << endl;
+}
+
+void DeleteCarsVan(const vector<string>& licensePlates){
+    vector<CarData> cars;
+    vector<CarData> deletedCars;
+    ifstream fin(R"(D:\Course Work\Code\Database\Cars.txt)");
+
+    if (!fin.is_open()) {
+        cerr << "Error opening file: Cars.txt" << endl;
+        return;
+    }
+
+    string line;
+    while (getline(fin, line)) {
+        istringstream iss(line);
+        CarData car;
+        iss >> car.type >> car.brand >> car.model >> car.color >> car.fuel >> car.mileage >> car.doors >> car.year
+            >> car.price >> car.status >> car.licensePlate;
+        cars.push_back(car);
+    }
+
+    fin.close();
+
+    vector<CarData> newCars;
+    vector<CarData> deleteCars;
+    bool foundAny = false;
+    for (const CarData& car : cars) {
+        bool found = false;
+        for (const string& licensePlate : licensePlates) {
+            if (car.licensePlate == licensePlate) {
+                found = true;
+                foundAny = true;
+                deletedCars.push_back(car);
+                break;
+            }
+        }
+        if (!found) {
+            newCars.push_back(car);
+        }
+    }
+
+    if (!foundAny) {
+        cout << "No cars found with the specified license plates." << endl;
+        return;
+    }
+
+    ofstream fout(R"(D:\Course Work\Code\Database\Cars.txt)", ios::out | ios::trunc);
+    if (!fout.is_open()) {
+        cerr << "Error opening file: Cars.txt" << endl;
+        return;
+    }
+
+    for (const CarData& car : newCars) {
+        fout << car.type << "\t" << car.brand << "\t" << car.model << "\t"
+             << car.color << "\t" << car.fuel << "\t" << car.mileage << "\t"
+             << car.doors << "\t" << car.year << "\t" << car.price << "\t"
+             << car.status << "\t" << car.licensePlate << endl;
+    }
+
+    fout.close();
+
+    ifstream finVan(R"(D:\Course Work\Code\Database\Van.txt)");
+    if (!finVan.is_open()) {
+        cerr << "Error opening file: Van.txt" << endl;
+        return;
+    }
+
+    vector<VanData> vans;
+    while (getline(finVan, line)) {
+        istringstream iss(line);
+        VanData van;
+        iss >> van.type >> van.brand >> van.model >> van.color >> van.fuel >> van.mileage >> van.doors
+            >> van.year >> van.price >> van.status >> van.licensePlate;
+        vans.push_back(van);
+    }
+    finVan.close();
+
+    vector<VanData> newVans;
+    for (const VanData& van : vans) {
+        bool found = false;
+        for (const string& licensePlate : licensePlates) {
+            if (van.licensePlate == licensePlate) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            newVans.push_back(van);
+        }
+    }
+
+
+    ofstream foutVan(R"(D:\Course Work\Code\Database\Van.txt)", ios::out | ios::trunc);
+    if (!foutVan.is_open()) {
+        cerr << "Error opening file: Van.txt" << endl;
+        return;
+    }
+
+    for (const VanData& van : newVans) {
+        foutVan << van.type << "\t" << van.brand << "\t" << van.model << "\t"
+                << van.color << "\t" << van.fuel << "\t" << van.mileage << "\t"
+                << van.doors << "\t" << van.year << "\t" << van.price << "\t"
+                << van.status << "\t" << van.licensePlate << endl;
+    }
+    foutVan.close();
 
 
     cout << "Cars and sedans deleted successfully." << endl;

@@ -15,10 +15,14 @@ struct CarData {
     double fuel, price, mileage;
     int doors, year;
 };
+
 struct Engine1 {
-    string engineCapacity;
-    string power;
-    string engineType;
+    string engineCapacity, power, engineType;
+};
+
+struct VanData : public CarData, Engine1 {
+    int payloadCapacity, sleepingCapacity;
+    Engine1 engine2;
 };
 
 
@@ -67,10 +71,13 @@ CarData findLeastEconomical(const vector<CarData>& cars);
 CarData findOldest(const vector<CarData>& cars);
 CarData findYoungest(const vector<CarData>& cars);
 double CalculateAveragePrice(int startYear, int endYear);
+void ChangeSedIfNecessary(const CarData& car);
+void ChangeVanIfNecessary(const CarData& car);
 void ChangeCar(const string& licensePlate);
 void ChangeSed(const string& licensePlate);
 void ChangeVan(const string& licensePlate);
 void DeleteCarsSed(const vector<string>& licensePlates);
+void DeleteCarsVan(const vector<string>& licensePlates);
 void ReturnCar(const string& licensePlate);
 void ReadCars(Cars &cars);
 void BuyACar(Cars &cars);

@@ -142,10 +142,10 @@ int main() {
 //    printCar(NewCar, "D:\\Course Work\\Code\\Database\\The newest.txt");
 //    printCars(NewCar);
 
-//    vector<CarData> cars = SearchCars(R"(D:\Course Work\Code\Database\Cars.txt)");
-//    string licensePlateToModify;
-//    cin >> licensePlateToModify;
-//    ChangeSed(licensePlateToModify);
+    vector<CarData> cars = SearchCars(R"(D:\Course Work\Code\Database\Cars.txt)");
+    string licensePlateToModify;
+    cin >> licensePlateToModify;
+    ChangeCar(licensePlateToModify);
 
 //    string licensePlate;
 //    cin >>licensePlate;

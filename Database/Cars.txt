@@ -1,1 +1,1 @@
-Sedan	Chevrolet	Epica	Black	10	145000	4	2006	4200	Available	KE3236MI
+Sedan	Chevrolet	Aveo	Blue	10	167800	4	2007	4200	Available	KE3236MI
