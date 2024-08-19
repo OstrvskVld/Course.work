@@ -80,6 +80,9 @@ void DeleteCarsSed(const vector<string>& licensePlates);
 void DeleteCarsVan(const vector<string>& licensePlates);
 void ReturnCar(const string& licensePlate);
 void ReadCars(Cars &cars);
+void WriteAvailableCars(const Cars& car);
+void WriteSoldCars(const Cars& car);
+void WriteReservedCars(const Cars& car);
 void BuyACar(Cars &cars);
 
 

@@ -52,8 +52,12 @@ int main() {
 //        cin >> brand >> model;
 //    interface1.A4();
 //    Probels();
-//    AddCars(car);
-//    car.printInfo();
+    WriteAvailableCars(car);
+//    WriteReservedCars(cars);
+//    WriteSoldCars(cars)
+    AddCars(car);
+    car.printInfo();
+
 //    ReadCars(cars);
 
 //    SortByYearDown(cr,sorted);
@@ -142,10 +146,10 @@ int main() {
 //    printCar(NewCar, "D:\\Course Work\\Code\\Database\\The newest.txt");
 //    printCars(NewCar);
 
-    vector<CarData> cars = SearchCars(R"(D:\Course Work\Code\Database\Cars.txt)");
-    string licensePlateToModify;
-    cin >> licensePlateToModify;
-    ChangeCar(licensePlateToModify);
+//    vector<CarData> cars = SearchCars(R"(D:\Course Work\Code\Database\Cars.txt)");
+//    string licensePlateToModify;
+//    cin >> licensePlateToModify;
+//    ChangeCar(licensePlateToModify);
 
 //    string licensePlate;
 //    cin >>licensePlate;

@@ -85,14 +85,26 @@ void AddCars(Cars &cars) {
     cout << " Vehicle availability status (for example, 'available', 'sold', 'reserved') : " << endl;
     shared_ptr<string> inventoryStatus{new string{""}};
     cin >> *inventoryStatus;
+    cars.setStatus(*inventoryStatus);
     if (*inventoryStatus != "Available" && *inventoryStatus != "Sold" && *inventoryStatus != "Reserved") {
         throw AnotherVariant();
     }
-    cars.setStatus(*inventoryStatus);
     cout << "License plate number of the car: "  << endl;
     shared_ptr<string> licenseplate{new string{""}};
     cin >> *licenseplate;
     cars.setPlate(*licenseplate);
+    if (*inventoryStatus == "Available") {
+        WriteAvailableCars(cars);
+    } else if (*inventoryStatus == "Sold") {
+        WriteSoldCars(cars);
+    } else if (*inventoryStatus == "Reserved") {
+        WriteReservedCars(cars);
+    }
+
+//    cout << "License plate number of the car: "  << endl;
+//    shared_ptr<string> licenseplate{new string{""}};
+//    cin >> *licenseplate;
+//    cars.setPlate(*licenseplate);
 //    if (*inventoryStatus != "Available" && *inventoryStatus != "Sold" && *inventoryStatus != "Reserved") {
 //        throw AnotherVariant();
 //    }
@@ -109,6 +121,48 @@ void AddCars(Cars &cars) {
     foutCar.close();
     Probels();
 }
+void WriteAvailableCars(const Cars& car){
+    ofstream fout(R"(D:\Course Work\Code\Database\Available cars.txt)", ios_base::app);
+    if (!fout.is_open()) {
+        cerr << "Error opening file: Available cars.txt" << endl;
+        return;
+    }
+
+    fout << car.getType() << "\t" << car.getBrand() << "\t" << car.getModel() << "\t" << car.getColor() << "\t" << car.getFuel()
+         << "\t" << car.getMileage() << "\t" << car.getDoors() << "\t" << car.getYear() << "\t" << car.getPrice() << "\t"
+         << car.getStatus() << "\t" << car.getPlate() << endl;
+    fout.close();
+}
+
+void WriteSoldCars(const Cars& car){
+    ofstream fout(R"(D:\Course Work\Code\Database\Sold cars.txt)", ios_base::app);
+    if (!fout.is_open()) {
+        cerr << "Error opening file: Sold cars.txt" << endl;
+        return;
+    }
+
+    fout << car.getType() << "\t" << car.getBrand() << "\t" << car.getModel() << "\t" << car.getColor() << "\t" << car.getFuel()
+         << "\t" << car.getMileage() << "\t" << car.getDoors() << "\t" << car.getYear() << "\t" << car.getPrice() << "\t"
+         << car.getStatus() << "\t" << car.getPlate() <<endl;
+    fout.close();
+}
+
+void WriteReservedCars(const Cars& car){
+    ofstream fout(R"(D:\Course Work\Code\Database\Reserved cars.txt)", ios_base::app);
+    if (!fout.is_open()) {
+        cerr << "Error opening file: Reserved cars.txt" << endl;
+        return;
+    }
+
+    fout << car.getType() << "\t" << car.getBrand() << "\t" << car.getModel() << "\t" << car.getColor() << "\t" << car.getFuel()
+         << "\t" << car.getMileage() << "\t" << car.getDoors() << "\t" << car.getYear() << "\t" << car.getPrice() << "\t"
+         << car.getStatus() << "\t" << car.getPlate() <<endl;
+    fout.close();
+}
+
+
+
+
 void AddinfSed(Sedan &sedan){
     Engine engine1;
     Cars car1;
@@ -324,8 +378,8 @@ double CalculateAveragePrice(int startYear, int endYear) {
     while (getline(fin, line)) {
         istringstream iss(line);
         CarData car;
-        iss >> car.type >> car.brand >> car.model >> car.color >> car.fuel >> car.mileage >> car.doors >> car.year
-            >> car.price >> car.status >> car.licensePlate;
+        iss >> car.type >> car.brand >>car.model >> car.color >> car.fuel >> car.mileage >> car.doors >> car.year
+        >> car.price >> car.status >> car.licensePlate;
         cars.push_back(car);
     }
 
