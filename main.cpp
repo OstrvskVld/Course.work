@@ -17,6 +17,7 @@
 using namespace std;
 
 //Cars car("","",0,"","","");
+
 Cars cars("","","","",0,0,0,0,0,"","");
 Sedan sedan1("","","","","","",0,0,0,0,0,
             "",0,Engine("","",""));
@@ -52,11 +53,16 @@ int main() {
 //        cin >> brand >> model;
 //    interface1.A4();
 //    Probels();
-    WriteAvailableCars(car);
+//    WriteAvailableCars(car);
 //    WriteReservedCars(cars);
 //    WriteSoldCars(cars)
-    AddCars(car);
-    car.printInfo();
+//    AddCars(car);
+//    car.printInfo();
+
+    Users user;
+    vector<CarData> cars;
+    user.setUserInfo();
+    BuyOrReserveCar(cars, user);
 
 //    ReadCars(cars);
 

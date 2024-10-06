@@ -40,6 +40,18 @@ ostream &operator<<(ostream &os, const Users &obj){
 //        return *this;
 //    }
 //}
+
+void Users::setUserInfo() {
+    cout << "Enter user ID: ";
+    cin >> userId;
+    cout << "Enter name: ";
+    cin.ignore();
+    getline(cin, name);
+    cout << "Enter phone: ";
+    getline(cin, phone);
+    cout << "Enter email: ";
+    getline(cin, email);
+}
 void Users::A3() {
     Users::A3();
 }

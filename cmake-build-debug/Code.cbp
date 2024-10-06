@@ -115,6 +115,9 @@
 		<Unit filename="D:/Course Work/Code/Functions.h">
 			<Option target="Code"/>
 		</Unit>
+		<Unit filename="D:/Course Work/Code/IncorrectInputException.h">
+			<Option target="Code"/>
+		</Unit>
 		<Unit filename="D:/Course Work/Code/Interface.h">
 			<Option target="Code"/>
 		</Unit>

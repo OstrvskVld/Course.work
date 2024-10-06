@@ -28,4 +28,5 @@ add_executable(Code main.cpp
         Van.h
         Users.cpp
         Users.h
+        IncorrectInputException.h
 )

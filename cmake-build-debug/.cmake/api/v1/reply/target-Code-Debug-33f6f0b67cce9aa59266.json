@@ -129,7 +129,8 @@
 				18,
 				20,
 				22,
-				24
+				24,
+				25
 			]
 		}
 	],
@@ -269,6 +270,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "Users.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "IncorrectInputException.h",
 			"sourceGroupIndex" : 1
 		}
 	],

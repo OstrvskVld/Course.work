@@ -10,6 +10,7 @@
 #include "Bike.h"
 #include "WrongType.h"
 #include "AnotherVariant.h"
+#include "IncorrectInputException.h"
 #include "People.h"
 #include "Drivers.h"
 #include "vector"
@@ -31,95 +32,171 @@ void Probels(){
 };
 
 void AddCars(Cars &cars) {
-    cout << " You want to add a new car: " << endl;
-//    cout << " What type of transportation? " << endl;
-    shared_ptr<string> type{new string{""}};
-//    cin >> *type;
-//    cars.setType(*type);
+    try {
+        cout << "You want to add a new car: " << endl;
+
+        shared_ptr<string> type{new string{""}};
         for (int attempts = 0; attempts < 3; ++attempts) {
-            cout << " What type of transportation? (Sedan or Van): ";
+            cout << "What type of transportation? (Sedan or Van): ";
             cin >> *type;
+
             if (*type == "Sedan" || *type == "Van") {
                 break;
             } else {
-                cout << " Incorrect input. Please try again. " << endl;
+                cerr << "Incorrect input. Please try again." << endl;
+                if (attempts == 2) throw IncorrectInputException();
             }
         }
-        if (*type != "Sedan" && *type != "Van") {
-            cout << " Too many incorrect attempts. Exiting program. " << endl;
-            exit(1);
-        }
-    cars.setType(*type);
-    cout << " What is the brand of the transport? " << endl;
-    shared_ptr<string> brand{new string{""}};
-    cin >> *brand;
-    cars.setBrand(*brand);
-    cout << " What is the model of the car? " << endl;
-    shared_ptr<string> model{new string{""}};
-    cin >> *model;
-    cars.setModel(*model);
-    cout << " What is the color of the car? " << endl;
-    shared_ptr<string> color{new string{""}};
-    cin >> *color;
-    cars.setColor(*color);
-    cout << " What is the fuel consumption on 100km? " << endl;
-    shared_ptr<double> fuel{new double{0.0}};
-    cin >> *fuel;
-    cars.setFuel(*fuel);
-    cout << " What is the mileage of the car? " << endl;
-    shared_ptr<double> mileage{new double{0.0}};
-    cin >> *mileage;
-    cars.setMileage(*mileage);
-    cout << " How many doors? " << endl;
-    shared_ptr<int> doors{new int{0}};
-    cin >> *doors;
-    cars.setDoors(*doors);
-    cout << " What is the year of production? " << endl;
-    shared_ptr<int> production{new int{0}};
-    cin >> *production;
-    cars.setYear(*production);
-    cout << " What is the price of the car? " << endl;
-    shared_ptr<double> price{new double {0.0}};
-    cin >> *price;
-    cars.setPrice(*price);
-    cout << " Vehicle availability status (for example, 'available', 'sold', 'reserved') : " << endl;
-    shared_ptr<string> inventoryStatus{new string{""}};
-    cin >> *inventoryStatus;
-    cars.setStatus(*inventoryStatus);
-    if (*inventoryStatus != "Available" && *inventoryStatus != "Sold" && *inventoryStatus != "Reserved") {
-        throw AnotherVariant();
-    }
-    cout << "License plate number of the car: "  << endl;
-    shared_ptr<string> licenseplate{new string{""}};
-    cin >> *licenseplate;
-    cars.setPlate(*licenseplate);
-    if (*inventoryStatus == "Available") {
-        WriteAvailableCars(cars);
-    } else if (*inventoryStatus == "Sold") {
-        WriteSoldCars(cars);
-    } else if (*inventoryStatus == "Reserved") {
-        WriteReservedCars(cars);
-    }
+        cars.setType(*type);
 
-//    cout << "License plate number of the car: "  << endl;
-//    shared_ptr<string> licenseplate{new string{""}};
-//    cin >> *licenseplate;
-//    cars.setPlate(*licenseplate);
-//    if (*inventoryStatus != "Available" && *inventoryStatus != "Sold" && *inventoryStatus != "Reserved") {
-//        throw AnotherVariant();
-//    }
-//    if (*inventoryStatus == "Sold" && "Reserved")
-//        throw AnotherVariant();
-    Cars car(*type,*brand, *model, *color, *fuel, *mileage, *doors,*production,
-             *price, *inventoryStatus,*licenseplate);
-    ofstream foutCar(R"(D:\Course Work\Code\Database\Cars.txt)",
-                    ios_base::app);
-    foutCar << *type  << "\t"  << *brand << "\t"  << *model << "\t"
-    << *color << "\t"  << *fuel  <<"\t"  << *mileage  <<"\t"  << *doors << "\t"
-    << *production << "\t"  << *price <<"\t"
-    << *inventoryStatus << "\t" << *licenseplate << endl;
-    foutCar.close();
-    Probels();
+        shared_ptr<string> brand{new string{""}};
+        cout << "What is the brand of the transport? " << endl;
+        for (int attempts = 0; attempts < 3; ++attempts) {
+            cin >> *brand;
+            if (!brand->empty()) {
+                break;
+            } else {
+                cerr << "Brand cannot be empty. Please try again." << endl;
+                if (attempts == 2) throw IncorrectInputException();
+            }
+        }
+        cars.setBrand(*brand);
+
+        shared_ptr<string> model{new string{""}};
+        cout << "What is the model of the car? " << endl;
+        for (int attempts = 0; attempts < 3; ++attempts) {
+            cin >> *model;
+            if (!model->empty()) {
+                break;
+            } else {
+                cerr << "Model cannot be empty. Please try again." << endl;
+                if (attempts == 2) throw IncorrectInputException();
+            }
+        }
+        cars.setModel(*model);
+
+        shared_ptr<string> color{new string{""}};
+        cout << "What is the color of the car? " << endl;
+        for (int attempts = 0; attempts < 3; ++attempts) {
+            cin >> *color;
+            if (!color->empty()) {
+                break;
+            } else {
+                cerr << "Color cannot be empty. Please try again." << endl;
+                if (attempts == 2) throw IncorrectInputException();
+            }
+        }
+        cars.setColor(*color);
+
+        shared_ptr<double> fuel{new double{0.0}};
+        cout << "What is the fuel consumption on 100km? " << endl;
+        for (int attempts = 0; attempts < 3; ++attempts) {
+            cin >> *fuel;
+            if (*fuel > 0) {
+                break;
+            } else {
+                cerr << "Fuel consumption must be positive. Please try again." << endl;
+                if (attempts == 2) throw IncorrectInputException();
+            }
+        }
+        cars.setFuel(*fuel);
+
+        shared_ptr<double> mileage{new double{0.0}};
+        cout << "What is the mileage of the car? " << endl;
+        for (int attempts = 0; attempts < 3; ++attempts) {
+            cin >> *mileage;
+            if (*mileage >= 0) {
+                break;
+            } else {
+                cerr << "Mileage cannot be negative. Please try again." << endl;
+                if (attempts == 2) throw IncorrectInputException();
+            }
+        }
+        cars.setMileage(*mileage);
+
+        shared_ptr<int> doors{new int{0}};
+        cout << "How many doors? " << endl;
+        for (int attempts = 0; attempts < 3; ++attempts) {
+            cin >> *doors;
+            if (*doors > 0) {
+                break;
+            } else {
+                cerr << "Number of doors must be positive. Please try again." << endl;
+                if (attempts == 2) throw IncorrectInputException();
+            }
+        }
+        cars.setDoors(*doors);
+
+        shared_ptr<int> production{new int{0}};
+        cout << "What is the year of production? " << endl;
+        for (int attempts = 0; attempts < 3; ++attempts) {
+            cin >> *production;
+            if (*production > 0 && *production <= 2024) {
+                break;
+            } else {
+                cerr << "Invalid production year. Please try again." << endl;
+                if (attempts == 2) throw IncorrectInputException();
+            }
+        }
+        cars.setYear(*production);
+
+        shared_ptr<double> price{new double{0.0}};
+        cout << "What is the price of the car? " << endl;
+        for (int attempts = 0; attempts < 3; ++attempts) {
+            cin >> *price;
+            if (*price > 0) {
+                break;
+            } else {
+                cerr << "Price must be positive. Please try again." << endl;
+                if (attempts == 2) throw IncorrectInputException();
+            }
+        }
+        cars.setPrice(*price);
+
+        shared_ptr<string> inventoryStatus{new string{""}};
+        cout << "Vehicle availability status (Available, Sold, Reserved): " << endl;
+        for (int attempts = 0; attempts < 3; ++attempts) {
+            cin >> *inventoryStatus;
+            if (*inventoryStatus == "Available" || *inventoryStatus == "Sold" || *inventoryStatus == "Reserved") {
+                break;
+            } else {
+                cerr << "Invalid status. Please try again." << endl;
+                if (attempts == 2) throw AnotherVariant();
+            }
+        }
+        cars.setStatus(*inventoryStatus);
+
+        shared_ptr<string> licenseplate{new string{""}};
+        cout << "License plate number of the car: " << endl;
+        for (int attempts = 0; attempts < 3; ++attempts) {
+            cin >> *licenseplate;
+            if (!licenseplate->empty()) {
+                break;
+            } else {
+                cerr << "License plate cannot be empty. Please try again." << endl;
+                if (attempts == 2) throw IncorrectInputException();
+            }
+        }
+        cars.setPlate(*licenseplate);
+
+        // Save car details to the file
+        ofstream foutCar(R"(D:\Course Work\Code\Database\Cars.txt)", ios_base::app);
+        foutCar << *type << "\t" << *brand << "\t" << *model << "\t"
+                << *color << "\t" << *fuel << "\t" << *mileage << "\t" << *doors << "\t"
+                << *production << "\t" << *price << "\t" << *inventoryStatus << "\t" << *licenseplate << endl;
+        foutCar.close();
+
+        cout << "Car added successfully!" << endl;
+    } catch (const IncorrectInputException &e) {
+        cerr << e.what() << " Exiting program." << endl;
+        exit(1);
+    } catch (const AnotherVariant &e) {
+        cerr << e.what() << " Exiting program." << endl;
+        exit(1);
+    } catch (const exception &e) {
+        cerr << "An unexpected error occurred: " << e.what() << endl;
+        exit(1);
+    }
 }
 void WriteAvailableCars(const Cars& car){
     ofstream fout(R"(D:\Course Work\Code\Database\Available cars.txt)", ios_base::app);
@@ -2069,12 +2146,82 @@ void ReadCars(Cars &cars){
 //    finE.close();
 //}
 //
-//
-//
-//
-//
-//
-//
-//
 
 
+void BuyOrReserveCar(vector<CarData> &cars, Users &user) {
+    cout << "Enter the license plate number of the car you want to buy or reserve: ";
+    string licensePlate;
+    cin >> licensePlate;
+
+    ifstream finCar(R"(D:\Course Work\Code\Database\Cars.txt)");
+    if (!finCar) {
+        cerr << "Error opening file!" << endl;
+        return;
+    }
+
+    string line;
+    vector<CarData> carList;
+    while (getline(finCar, line)) {
+        istringstream iss(line);
+        CarData car;
+        iss >> car.type >> car.brand >> car.model >> car.color >> car.fuel >> car.mileage
+            >> car.doors >> car.year >> car.price >> car.status >> car.licensePlate;
+        carList.push_back(car);
+    }
+    finCar.close();
+
+    bool found = false;
+    CarData *selectedCar = nullptr;
+    for (auto &car : carList) {
+        if (car.licensePlate == licensePlate) {
+            found = true;
+            selectedCar = &car;
+            break;
+        }
+    }
+
+    if (!found) {
+        cout << "The car with this license plate was not found." << endl;
+        return;
+    }
+
+    if (selectedCar->status != "Available") {
+        cout << "This vehicle is no longer available for purchase or reservation." << endl;
+        return;
+    }
+
+    cout << "Enter an action (buy or reserve): ";
+    string action;
+    cin >> action;
+
+    if (action == "buy" || action == "reserve") {
+
+        selectedCar->status = (action == "buy") ? "Sold" : "Reserved";
+
+
+        ofstream fout(action == "buy" ? R"(D:\Course Work\Code\Database\BoughtCars.txt)"
+                                      : R"(D:\Course Work\Code\Database\ReservedCars.txt)",
+                      ios_base::app);
+        fout << "User ID: " << user.getUserID() << "\t" << "Name: " << user.getName() << "\t"
+             << "Phone: " << user.getPhone() << "\t" << "Email: " << user.getEmail() << endl;
+        fout << "Car details: " << selectedCar->type << "\t" << selectedCar->brand << "\t" << selectedCar->model << "\t"
+             << selectedCar->color << "\t" << selectedCar->fuel << "\t" << selectedCar->mileage << "\t"
+             << selectedCar->doors << "\t" << selectedCar->year << "\t" << selectedCar->price << "\t"
+             << selectedCar->status << "\t" << selectedCar->licensePlate << endl << endl;
+        fout.close();
+
+
+        ofstream foutCar(R"(D:\Course Work\Code\Database\Cars.txt)");
+        for (const auto &car : carList) {
+            foutCar << car.type << "\t" << car.brand << "\t" << car.model << "\t"
+                    << car.color << "\t" << car.fuel << "\t" << car.mileage << "\t"
+                    << car.doors << "\t" << car.year << "\t" << car.price << "\t"
+                    << car.status << "\t" << car.licensePlate << endl;
+        }
+        foutCar.close();
+
+        cout << "The operation has been successfully completed. The vehicle status has been updated." << endl;
+    } else {
+        cout << "Wrong action. You can only buy or reserve." << endl;
+    }
+}

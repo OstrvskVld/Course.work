@@ -9,9 +9,9 @@ public:
     AnotherVariant() = default;
     ~AnotherVariant() = default;
 
-    const char *what() const noexcept override{
-        return "Write correctly!";
-    };
+    const char* what() const noexcept override {
+        return "Incorrect vehicle status. Allowed values: Available, Sold, Reserved.";
+    }
 };
 
 #endif //CODE_ANOTHERVARIANT_H

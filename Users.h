@@ -16,13 +16,19 @@ private:
     string email;
 public:
     Users();
-    Users(int userId,string name,string phone, string email);
+    Users(int userId, string name, string phone, string email);
     Users(const Users &other);
     Users(Users &&other);
-    friend ostream &operator <<(ostream &os,const Users &obj);
-//    Customers operator=(const Customers &rhs);
+    friend ostream &operator<<(ostream &os, const Users &obj);
+    void setUserInfo();
+
+    string getName() const { return name; }
+    string getPhone() const { return phone; }
+    string getEmail() const { return email; }
+    int getUserID() { return userId; }
+
     virtual void A3() override;
-    virtual ~Users(){};
+    virtual ~Users() {};
 };
 
 

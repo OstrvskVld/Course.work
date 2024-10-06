@@ -74,6 +74,7 @@ double CalculateAveragePrice(int startYear, int endYear);
 void ChangeSedIfNecessary(const CarData& car);
 void ChangeVanIfNecessary(const CarData& car);
 void ChangeCar(const string& licensePlate);
+void BuyOrReserveCar(vector<CarData> &cars, Users &user);
 void ChangeSed(const string& licensePlate);
 void ChangeVan(const string& licensePlate);
 void DeleteCarsSed(const vector<string>& licensePlates);
