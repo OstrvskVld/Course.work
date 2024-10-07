@@ -1,4 +1,4 @@
-#include "Vehicle.h"
+
 #include "Functions.h"
 #include <iostream>
 #include "memory"
@@ -7,12 +7,9 @@
 #include "Van.h"
 #include "Sedan.h"
 #include "Engine.h"
-#include "Bike.h"
 #include "WrongType.h"
 #include "AnotherVariant.h"
 #include "IncorrectInputException.h"
-#include "People.h"
-#include "Drivers.h"
 #include "vector"
 #include <iostream>
 #include <vector>
