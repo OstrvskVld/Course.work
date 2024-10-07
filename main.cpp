@@ -12,6 +12,7 @@
 #include "WrongPassword.h"
 #include "memory"
 #include "AnotherVariant.h"
+#include "Users.h"
 
 
 using namespace std;

@@ -128,30 +128,6 @@ Code/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/build
 .PHONY : Code/fast
 
-Bike.obj: Bike.cpp.obj
-.PHONY : Bike.obj
-
-# target to build an object file
-Bike.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Bike.cpp.obj
-.PHONY : Bike.cpp.obj
-
-Bike.i: Bike.cpp.i
-.PHONY : Bike.i
-
-# target to preprocess a source file
-Bike.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Bike.cpp.i
-.PHONY : Bike.cpp.i
-
-Bike.s: Bike.cpp.s
-.PHONY : Bike.s
-
-# target to generate assembly for a file
-Bike.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Bike.cpp.s
-.PHONY : Bike.cpp.s
-
 Cars.obj: Cars.cpp.obj
 .PHONY : Cars.obj
 
@@ -175,30 +151,6 @@ Cars.s: Cars.cpp.s
 Cars.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Cars.cpp.s
 .PHONY : Cars.cpp.s
-
-Drivers.obj: Drivers.cpp.obj
-.PHONY : Drivers.obj
-
-# target to build an object file
-Drivers.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Drivers.cpp.obj
-.PHONY : Drivers.cpp.obj
-
-Drivers.i: Drivers.cpp.i
-.PHONY : Drivers.i
-
-# target to preprocess a source file
-Drivers.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Drivers.cpp.i
-.PHONY : Drivers.cpp.i
-
-Drivers.s: Drivers.cpp.s
-.PHONY : Drivers.s
-
-# target to generate assembly for a file
-Drivers.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Drivers.cpp.s
-.PHONY : Drivers.cpp.s
 
 Engine.obj: Engine.cpp.obj
 .PHONY : Engine.obj
@@ -247,30 +199,6 @@ Functions.s: Functions.cpp.s
 Functions.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Functions.cpp.s
 .PHONY : Functions.cpp.s
-
-People.obj: People.cpp.obj
-.PHONY : People.obj
-
-# target to build an object file
-People.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/People.cpp.obj
-.PHONY : People.cpp.obj
-
-People.i: People.cpp.i
-.PHONY : People.i
-
-# target to preprocess a source file
-People.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/People.cpp.i
-.PHONY : People.cpp.i
-
-People.s: People.cpp.s
-.PHONY : People.s
-
-# target to generate assembly for a file
-People.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/People.cpp.s
-.PHONY : People.cpp.s
 
 Sedan.obj: Sedan.cpp.obj
 .PHONY : Sedan.obj
@@ -344,30 +272,6 @@ Van.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Van.cpp.s
 .PHONY : Van.cpp.s
 
-Vehicle.obj: Vehicle.cpp.obj
-.PHONY : Vehicle.obj
-
-# target to build an object file
-Vehicle.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Vehicle.cpp.obj
-.PHONY : Vehicle.cpp.obj
-
-Vehicle.i: Vehicle.cpp.i
-.PHONY : Vehicle.i
-
-# target to preprocess a source file
-Vehicle.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Vehicle.cpp.i
-.PHONY : Vehicle.cpp.i
-
-Vehicle.s: Vehicle.cpp.s
-.PHONY : Vehicle.s
-
-# target to generate assembly for a file
-Vehicle.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Vehicle.cpp.s
-.PHONY : Vehicle.cpp.s
-
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -401,24 +305,15 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Code
-	@echo ... Bike.obj
-	@echo ... Bike.i
-	@echo ... Bike.s
 	@echo ... Cars.obj
 	@echo ... Cars.i
 	@echo ... Cars.s
-	@echo ... Drivers.obj
-	@echo ... Drivers.i
-	@echo ... Drivers.s
 	@echo ... Engine.obj
 	@echo ... Engine.i
 	@echo ... Engine.s
 	@echo ... Functions.obj
 	@echo ... Functions.i
 	@echo ... Functions.s
-	@echo ... People.obj
-	@echo ... People.i
-	@echo ... People.s
 	@echo ... Sedan.obj
 	@echo ... Sedan.i
 	@echo ... Sedan.s
@@ -428,9 +323,6 @@ help:
 	@echo ... Van.obj
 	@echo ... Van.i
 	@echo ... Van.s
-	@echo ... Vehicle.obj
-	@echo ... Vehicle.i
-	@echo ... Vehicle.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

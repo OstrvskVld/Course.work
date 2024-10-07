@@ -25,15 +25,6 @@ struct VanData : public CarData, Engine1 {
     Engine1 engine2;
 };
 
-
-//struct EngineData {
-//    string engineCapacity,power,engineType;
-//
-//    friend istream& operator>>(istream& in, Engine& engine) {
-//        in >> engine.engineCapacity >> engine.power >> engine.engineType;
-//        return in;
-//    }
-//};
 struct SedanData : public CarData, Engine1{
     string typeofroof;
     int maxspeed;
@@ -50,8 +41,6 @@ void AddinfSed(Sedan &sedan);
 void AddinfVan(Van &van);
 void ReadVan(Van &van);
 void ReadSed(Sedan &sedan);
-void AddUsers(Users &Users);
-void ReadUsers(Users &Users);
 void Sort(const string& cr, const string& sorted, int criteria, bool ch);
 void SearchCarsByBrand(const string& brand);
 void SearchCarsByModel(const string& model);
@@ -74,7 +63,7 @@ double CalculateAveragePrice(int startYear, int endYear);
 void ChangeSedIfNecessary(const CarData& car);
 void ChangeVanIfNecessary(const CarData& car);
 void ChangeCar(const string& licensePlate);
-void BuyOrReserveCar(vector<CarData> &cars, Users &user);
+void BuyOrReserveCar(vector<CarData> &cars, const Users &user);
 void ChangeSed(const string& licensePlate);
 void ChangeVan(const string& licensePlate);
 void DeleteCarsSed(const vector<string>& licensePlates);
@@ -84,7 +73,7 @@ void ReadCars(Cars &cars);
 void WriteAvailableCars(const Cars& car);
 void WriteSoldCars(const Cars& car);
 void WriteReservedCars(const Cars& car);
-void BuyACar(Cars &cars);
+
 
 
 #endif //CODE_FUNCTIONS_H

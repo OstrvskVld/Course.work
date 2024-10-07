@@ -85,22 +85,10 @@
 		<Unit filename="D:/Course Work/Code/AnotherVariant.h">
 			<Option target="Code"/>
 		</Unit>
-		<Unit filename="D:/Course Work/Code/Bike.cpp">
-			<Option target="Code"/>
-		</Unit>
-		<Unit filename="D:/Course Work/Code/Bike.h">
-			<Option target="Code"/>
-		</Unit>
 		<Unit filename="D:/Course Work/Code/Cars.cpp">
 			<Option target="Code"/>
 		</Unit>
 		<Unit filename="D:/Course Work/Code/Cars.h">
-			<Option target="Code"/>
-		</Unit>
-		<Unit filename="D:/Course Work/Code/Drivers.cpp">
-			<Option target="Code"/>
-		</Unit>
-		<Unit filename="D:/Course Work/Code/Drivers.h">
 			<Option target="Code"/>
 		</Unit>
 		<Unit filename="D:/Course Work/Code/Engine.cpp">
@@ -121,12 +109,6 @@
 		<Unit filename="D:/Course Work/Code/Interface.h">
 			<Option target="Code"/>
 		</Unit>
-		<Unit filename="D:/Course Work/Code/People.cpp">
-			<Option target="Code"/>
-		</Unit>
-		<Unit filename="D:/Course Work/Code/People.h">
-			<Option target="Code"/>
-		</Unit>
 		<Unit filename="D:/Course Work/Code/Sedan.cpp">
 			<Option target="Code"/>
 		</Unit>
@@ -143,12 +125,6 @@
 			<Option target="Code"/>
 		</Unit>
 		<Unit filename="D:/Course Work/Code/Van.h">
-			<Option target="Code"/>
-		</Unit>
-		<Unit filename="D:/Course Work/Code/Vehicle.cpp">
-			<Option target="Code"/>
-		</Unit>
-		<Unit filename="D:/Course Work/Code/Vehicle.h">
 			<Option target="Code"/>
 		</Unit>
 		<Unit filename="D:/Course Work/Code/WrongPassword.h">
