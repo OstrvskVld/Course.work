@@ -1,2 +1,0 @@
-Sedan	Toyota	Camry	Black	15	190000	4	2010	9300	Reserved	CE0022EE
-Sedan	Chevrolet	Tahoe	Black	25	223590	5	2009	18460	Available	AA9213ME

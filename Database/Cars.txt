@@ -1,9 +1,0 @@
-Sedan	Chevrolet	Aveo	Blue	10	167800	4	2007	4200	Available	KE3236MI
-Sedan	Honda	Civic	Grey	13	263900	4	2008	8200	Available	AE6005MI
-Sedan	Mercedes	GLE	Black	18	11000	5	2023	31500	Sold	KA3001MA
-Sedan	BMW	X5	White	25	192000	5	2018	21900	Available	AO0001MI
-Sedan	sdf	dsf	ssfd	124	123	123	123	123	Available	werewr
-Sedan	Lada	2110	Blue	9	198200	4	2006	2100	Available	AE8845ME
-Sedan	sdf	asdf	asfd	324	234	234	234	24	Available	dfg
-Sedan	dgfh	dhfg	dfgh	465	564	465	465	5465	Available	dfhg
-Sedan	dhf	hfg	fghd	7654	4765	4765	4765	4765	Available	KAdfg

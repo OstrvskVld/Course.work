@@ -1,8 +1,0 @@
-Sedan	Lada	2110	Black	9	5	2004	2300	Available	AE8845PA
-Sedan	Chevrolet	Aveo	Blue	10	5	2006	4500	Available	KE3236MI
-Sedan	Honda	Civic	Grey	12	5	2008	8200	Sold	AE6005KA
-Sedan	Mercedes	E222	White	19	2	2019	23000	Reserved	CE0001BM
-Sedan	Chevrolet	Aveo	Blue	10	145000	4	2006	4200	Available	KE3236MI
-Sedan	Toyota	Camry	Black	15	190000	4	2010	9300	Reserved	CE0022EE
-Sedan	Chevrolet	Aveo	Blue	10	145000	4	2006	4200	Available	KE3236MI
-Sedan	Toyota	Camry	Black	15	190000	4	2010	9300	Reserved	CE0022EE

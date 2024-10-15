@@ -2312,8 +2312,8 @@ void BuyOrReserveCar(vector<CarData> &cars, const Users &user) {
     if (action == "buy" || action == "reserve") {
         selectedCar->status = (action == "buy") ? "Sold" : "Reserved";
 
-        ofstream fout(action == "buy" ? R"(D:\Course Work\Code\Database\BoughtCars.txt)"
-                                      : R"(D:\Course Work\Code\Database\ReservedCars.txt)",
+        ofstream fout(action == "buy" ? R"(D:\Course Work\Code\Database\Bought cars by users.txt)"
+                                      : R"(D:\Course Work\Code\Database\Reserved cars by users.txt)",
                       ios_base::app);
         fout << "User ID: " << user.getUserID() << "\t" << "Name: " << user.getName() << "\t"
              << "Phone: " << user.getPhone() << "\t" << "Email: " << user.getEmail() << endl;

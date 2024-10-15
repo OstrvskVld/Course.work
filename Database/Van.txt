@@ -1,3 +1,0 @@
-Van	Man	LE	Black	54	2	2019	42000	Reserved	25	2	6.6	346	Diesel
-Van	Man	LE	Black	54	2	2019	42000	Reserved	77	3	5.3	389	Diesel
-Van	Man	LE	Black	54	2	2019	42000	Reserved	345	453	345	345	ret
