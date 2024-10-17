@@ -65,7 +65,6 @@ double CalculateAveragePrice(int startYear, int endYear);
 void ChangeSedIfNecessary(const CarData& car);
 void ChangeVanIfNecessary(const CarData& car);
 void ChangeCar(const string& licensePlate);
-void BuyOrReserveCar(vector<CarData> &cars, const Users &user);
 void ChangeSed(const string& licensePlate);
 void ChangeVan(const string& licensePlate);
 void DeleteCarsSed(const vector<string>& licensePlates);
@@ -74,6 +73,7 @@ void ReturnCar(const string& licensePlate);
 void WriteAvailableCars(const Cars& car);
 void WriteSoldCars(const Cars& car);
 void WriteReservedCars(const Cars& car);
+void BuyOrReserveCar(vector<CarData> &cars, const Users &user);
 
 
 

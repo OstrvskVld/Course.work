@@ -22,7 +22,7 @@ Sedan sedan1("","","","","","",0,0,0,0,0,
 Engine engine1("","","");
 Van van("","","","","","",0,0,0,
         0,0,0,0,Engine("","",""));
-Users users(0,"","","" );
+Users users(0,"","","");
 string cr;
 string sorted;
 int choice;
@@ -74,9 +74,7 @@ int startYear, endYear;
 //        cin >> brand >> model;
 //    interface1.A4();
 //    Probels();
-//    WriteAvailableCars(car);
-//    WriteReservedCars(cars);
-//    WriteSoldCars(cars);
+//
 //    AddCars(car);
 //    AddinfSed(sedan);
 //    AddinfVan(van1);
@@ -259,6 +257,9 @@ int main() {
         Sedan sedan;
         Interface1 interface1;
         Users users1;
+        WriteAvailableCars(cars);
+        WriteReservedCars(cars);
+        WriteSoldCars(cars);
 
         if (cont == 'A') {
             string password;
@@ -282,6 +283,14 @@ int main() {
                         cout << "G - Sort Cars" << endl;
                         cout << "H - Search Criteria of cars" << endl;
                         cout << "I - Search  by smaller or larger values" << endl;
+                        cout << "J - Calculate Average Price for a Year Range" << endl;
+                        cout << "K - Change Car Details" << endl;
+                        cout << "L - Change Sedan Details" << endl;
+                        cout << "M - Change Van Details" << endl;
+                        cout << "N - Return Car" << endl;
+                        cout << "O - Delete Cars/Sedans" << endl;
+                        cout << "P - Delete Cars/Vans" << endl;
+                        cout << "Q - Buy or Reserve Car" << endl;
                         cout << "H - Exit!" << endl;
                         Probels();
 
@@ -291,7 +300,7 @@ int main() {
                         try {
                             if (choice != 'A' && choice != 'B' && choice != 'C' && choice!= 'D'
                             && choice!= 'E' && choice!= 'F' && choice!= 'G'
-                            && choice!= 'H' && choice!= 'I') {
+                            && choice!= 'H' && choice!= 'I' && choice != 'J' && choice != 'K') {
                                 throw IncorrectInputException();
                             } else {
                                 switch (choice) {
@@ -500,8 +509,79 @@ int main() {
                                             }
                                         } while (choice != 9);
                                     }
+                                    case 'J': {
+                                        int startYear, endYear;
+                                        cout << "Enter start year: ";
+                                        cin >> startYear;
+                                        cout << "Enter end year: ";
+                                        cin >> endYear;
 
-
+                                        double averagePrice = CalculateAveragePrice(startYear, endYear);
+                                        cout << "Average price of cars from " << startYear << " to " << endYear << ": " << averagePrice << endl;
+                                        break;
+                                    }
+                                    case 'K': {
+                                        string licensePlateToModify;
+                                        cout << "Enter license plate of the car you want to modify: ";
+                                        cin >> licensePlateToModify;
+                                        ChangeCar(licensePlateToModify);
+                                        break;
+                                    }
+                                    case 'L': {
+                                        string licensePlate;
+                                        cout << "Enter license plate of the sedan to modify: ";
+                                        cin >> licensePlate;
+                                        ChangeSed(licensePlate);
+                                        CarData car;
+                                        if (car.type == "Sedan") {
+                                            ChangeSedIfNecessary(car);
+                                        } else {
+                                            cout << "The provided license plate does not belong to a sedan." << endl;
+                                        }
+                                        break;
+                                    }
+                                    case 'M': {
+                                        string licensePlate;
+                                        cout << "Enter license plate of the van to modify: ";
+                                        cin >> licensePlate;
+                                        ChangeVan(licensePlate);
+                                        CarData car;
+                                        if (car.type == "Van") {
+                                            ChangeVanIfNecessary(car);
+                                        } else {
+                                            cout << "The provided license plate does not belong to a van." << endl;
+                                        }
+                                        break;
+                                    }
+                                    case 'N': {
+                                        string licensePlate;
+                                        cout << "Enter license plate of the car to return: ";
+                                        cin >> licensePlate;
+                                        ReturnCar(licensePlate);
+                                        break;
+                                    }
+                                    case 'O': {
+                                        string licensePlate;
+                                        cout << "Enter license plate of the car to delete: ";
+                                        cin >> licensePlate;
+                                        vector<string> licensePlatesToDelete = {licensePlate};
+                                        DeleteCarsSed(licensePlatesToDelete);
+                                        break;
+                                    }
+                                    case 'P': {
+                                        string licensePlate;
+                                        cout << "Enter license plate of the van to delete: ";
+                                        cin >> licensePlate;
+                                        vector<string> licensePlatesToDelete = {licensePlate};
+                                        DeleteCarsVan(licensePlatesToDelete);
+                                        break;
+                                    }
+                                    case 'Q':
+                                        vector<CarData> cars;
+                                        Users user;
+                                        user.setUserInfo();
+                                        BuyOrReserveCar(cars, user);
+                                        break;
 
                                 }
                             }
