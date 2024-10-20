@@ -1,1 +1,2 @@
-				0	0	0	0	0		
+Sedan	Mercedes	Vito	Black	16	324900	5	2010	7890	Available	KA0022MI
+Van	DAF	XF	White	50	250000	2	2002	42000	Available	CE4214BX

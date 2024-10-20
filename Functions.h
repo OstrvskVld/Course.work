@@ -66,13 +66,15 @@ void ChangeSedIfNecessary(const CarData& car);
 void ChangeVanIfNecessary(const CarData& car);
 void ChangeCar(const string& licensePlate);
 void ChangeSed(const string& licensePlate);
+void UpdateCarDataWithSedan(const SedanData& sedan);
+void UpdateCarDataWithVan(const VanData& van);
 void ChangeVan(const string& licensePlate);
 void DeleteCarsSed(const vector<string>& licensePlates);
 void DeleteCarsVan(const vector<string>& licensePlates);
 void ReturnCar(const string& licensePlate);
-void WriteAvailableCars(const Cars& cars);
-void WriteSoldCars(const Cars& cars);
-void WriteReservedCars(const Cars& cars);
+void WriteAvailableCars(const CarData& car);
+void WriteSoldCars(const CarData& car);
+void WriteReservedCars(const CarData& car);
 void BuyOrReserveCar(vector<CarData> &cars, const Users &user);
 
 

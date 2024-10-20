@@ -30,7 +30,6 @@ public:
           int yearOfProduction, double price, string typeofroof, int maxspeed,Engine engine1);
     Sedan(Cars cars,string typeofroof, int maxspeed);
     Sedan(Cars cars,string typeofroof, int maxspeed, Engine engine1);
-//    virtual void Fuel() const = 0;
     Sedan(const Cars& car);
     Sedan(const Sedan &other);
     Sedan(Sedan &&other);

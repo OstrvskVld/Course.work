@@ -26,6 +26,7 @@ private:
 
 public:
 
+
         string getPlate() const;
         int getFuel() const;
         string getType() const;

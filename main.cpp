@@ -306,9 +306,7 @@ int main() {
             Sedan sedan;
             Interface1 interface1;
             Users users1;
-            WriteAvailableCars(cars);
-            WriteReservedCars(cars);
-            WriteSoldCars(cars);
+            CarData car;
 
             if (cont == 'A') {
                 string password;
@@ -389,6 +387,9 @@ int main() {
                                             cout << "Read information about vans!" << endl;
                                             break;
                                         case 'G': {
+                                            CarData car;
+                                            SedanData sedan;
+                                            VanData van;
                                             interface1.A4();
                                             string licensePlateToModify;
                                             cout << "Enter license plate of the car you want to modify: ";
@@ -397,32 +398,23 @@ int main() {
                                             break;
                                         }
                                         case 'H': {
+                                            SedanData sedan;
                                             interface1.A1();
                                             string licensePlate;
                                             cout << "Enter license plate of the sedan to modify: ";
                                             cin >> licensePlate;
                                             ChangeSed(licensePlate);
-                                            CarData car;
-                                            if (car.type == "Sedan") {
-                                                ChangeSedIfNecessary(car);
-                                            } else {
-                                                cout << "The provided license plate does not belong to a sedan."
-                                                     << endl;
-                                            }
+                                            UpdateCarDataWithSedan(sedan);
                                             break;
                                         }
                                         case 'I': {
+                                            VanData van;
                                             interface1.A2();
                                             string licensePlate;
                                             cout << "Enter license plate of the van to modify: ";
                                             cin >> licensePlate;
                                             ChangeVan(licensePlate);
-                                            CarData car;
-                                            if (car.type == "Van") {
-                                                ChangeVanIfNecessary(car);
-                                            } else {
-                                                cout << "The provided license plate does not belong to a van." << endl;
-                                            }
+                                            UpdateCarDataWithVan(van);
                                             break;
                                         }
                                         case 'J': {
