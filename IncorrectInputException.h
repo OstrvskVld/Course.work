@@ -3,14 +3,10 @@
 #define CODE_INCORRECTINPUTEXCEPTION_H
 
 #include <iostream>
-class IncorrectInputException : public std::exception{
-public:
-    IncorrectInputException() = default;
-    ~IncorrectInputException() = default;
 
-    const char* what() const noexcept override {
-        return "Incorrect input. Please try again.";
-    }
+class IncorrectInputException : public runtime_error{
+public:
+    IncorrectInputException() : runtime_error("Incorrect input. Please try again.\n") {}
 };
 
 #endif //CODE_INCORRECTINPUTEXCEPTION_H

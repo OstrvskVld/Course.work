@@ -7,7 +7,6 @@
 #include "Van.h"
 #include "Sedan.h"
 #include "Engine.h"
-#include "WrongType.h"
 #include "AnotherVariant.h"
 #include "IncorrectInputException.h"
 #include "vector"
@@ -196,42 +195,42 @@ void AddCars(Cars &cars) {
         exit(1);
     }
 }
-void WriteAvailableCars(const Cars& car){
+void WriteAvailableCars(const Cars& cars){
     ofstream fout(R"(D:\Course Work\Code\Database\Available cars.txt)", ios_base::app);
     if (!fout.is_open()) {
         cerr << "Error opening file: Available cars.txt" << endl;
         return;
     }
 
-    fout << car.getType() << "\t" << car.getBrand() << "\t" << car.getModel() << "\t" << car.getColor() << "\t" << car.getFuel()
-         << "\t" << car.getMileage() << "\t" << car.getDoors() << "\t" << car.getYear() << "\t" << car.getPrice() << "\t"
-         << car.getStatus() << "\t" << car.getPlate() << endl;
+    fout << cars.getType() << "\t" << cars.getBrand() << "\t" << cars.getModel() << "\t" << cars.getColor() << "\t" << cars.getFuel()
+         << "\t" << cars.getMileage() << "\t" << cars.getDoors() << "\t" << cars.getYear() << "\t" << cars.getPrice() << "\t"
+         << cars.getStatus() << "\t" << cars.getPlate() << endl;
     fout.close();
 }
 
-void WriteSoldCars(const Cars& car){
+void WriteSoldCars(const Cars& cars){
     ofstream fout(R"(D:\Course Work\Code\Database\Sold cars.txt)", ios_base::app);
     if (!fout.is_open()) {
         cerr << "Error opening file: Sold cars.txt" << endl;
         return;
     }
 
-    fout << car.getType() << "\t" << car.getBrand() << "\t" << car.getModel() << "\t" << car.getColor() << "\t" << car.getFuel()
-         << "\t" << car.getMileage() << "\t" << car.getDoors() << "\t" << car.getYear() << "\t" << car.getPrice() << "\t"
-         << car.getStatus() << "\t" << car.getPlate() <<endl;
+    fout << cars.getType() << "\t" << cars.getBrand() << "\t" << cars.getModel() << "\t" << cars.getColor() << "\t" << cars.getFuel()
+         << "\t" << cars.getMileage() << "\t" << cars.getDoors() << "\t" << cars.getYear() << "\t" << cars.getPrice() << "\t"
+         << cars.getStatus() << "\t" << cars.getPlate() <<endl;
     fout.close();
 }
 
-void WriteReservedCars(const Cars& car){
+void WriteReservedCars(const Cars& cars){
     ofstream fout(R"(D:\Course Work\Code\Database\Reserved cars.txt)", ios_base::app);
     if (!fout.is_open()) {
         cerr << "Error opening file: Reserved cars.txt" << endl;
         return;
     }
 
-    fout << car.getType() << "\t" << car.getBrand() << "\t" << car.getModel() << "\t" << car.getColor() << "\t" << car.getFuel()
-         << "\t" << car.getMileage() << "\t" << car.getDoors() << "\t" << car.getYear() << "\t" << car.getPrice() << "\t"
-         << car.getStatus() << "\t" << car.getPlate() <<endl;
+    fout << cars.getType() << "\t" << cars.getBrand() << "\t" << cars.getModel() << "\t" << cars.getColor() << "\t" << cars.getFuel()
+         << "\t" << cars.getMileage() << "\t" << cars.getDoors() << "\t" << cars.getYear() << "\t" << cars.getPrice() << "\t"
+         << cars.getStatus() << "\t" << cars.getPlate() <<endl;
     fout.close();
 }
 

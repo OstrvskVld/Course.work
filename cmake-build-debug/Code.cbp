@@ -127,12 +127,6 @@
 		<Unit filename="D:/Course Work/Code/Van.h">
 			<Option target="Code"/>
 		</Unit>
-		<Unit filename="D:/Course Work/Code/WrongPassword.h">
-			<Option target="Code"/>
-		</Unit>
-		<Unit filename="D:/Course Work/Code/WrongType.h">
-			<Option target="Code"/>
-		</Unit>
 		<Unit filename="D:/Course Work/Code/main.cpp">
 			<Option target="Code"/>
 		</Unit>

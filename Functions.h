@@ -70,9 +70,9 @@ void ChangeVan(const string& licensePlate);
 void DeleteCarsSed(const vector<string>& licensePlates);
 void DeleteCarsVan(const vector<string>& licensePlates);
 void ReturnCar(const string& licensePlate);
-void WriteAvailableCars(const Cars& car);
-void WriteSoldCars(const Cars& car);
-void WriteReservedCars(const Cars& car);
+void WriteAvailableCars(const Cars& cars);
+void WriteSoldCars(const Cars& cars);
+void WriteReservedCars(const Cars& cars);
 void BuyOrReserveCar(vector<CarData> &cars, const Users &user);
 
 

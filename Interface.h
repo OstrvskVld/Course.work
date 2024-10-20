@@ -17,16 +17,16 @@ public:
 class Interface1 : public Interface{
 public:
     virtual void A4() override{
-        cout << " Cars: ";
+        cout << "CARS " << endl;
     }
     virtual void A1() override{
-        cout << " Sedan: ";
+        cout << "SEDAN " << endl;
     }
     virtual void A2() override{
-        cout << " Van: ";
+        cout << "VAN: " << endl;
     }
     virtual void A3() override{
-        cout << " Users: ";
+        cout << "USER: " << endl;
     }
     virtual ~Interface1(){};
 };

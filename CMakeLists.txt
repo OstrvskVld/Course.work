@@ -14,8 +14,6 @@ add_executable(Code main.cpp
         Functions.cpp
         Functions.h
         Interface.h
-        WrongPassword.h
-        WrongType.h
         Sedan.cpp
         Sedan.h
         Van.cpp

@@ -1,0 +1,21 @@
+# User Instructions for the Program
+
+1. **Data Entry**:
+   - Do not enter **int** values where a **string** is required. For example, when entering a vehicle's license plate, use letters and numbers.
+   - Avoid spaces in fields that do not allow spaces (e.g., license plates).
+   - If the program asks for input data (e.g., vehicle model), enter it without extra characters or spaces.
+
+2. **Menu Operations**:
+   - When selecting an option in the menu (A, B, C, etc.), ensure that you enter only one character that corresponds to your choice.
+   - If you enter an invalid character, the program will display an error message and prompt you to try again.
+
+3. **Admin Password**:
+   - To access administrative functions, you must enter the correct password. Currently, the password is "123".
+   - If you enter an incorrect password, the program will display an error message and allow you to retry.
+
+4. **Exiting the Program**:
+   - You can exit the program at any time by entering the character **Q**. The program will confirm the exit.
+
+5. **Additional Recommendations**:
+   - Always check the entered data before confirming actions.
+   - If you have questions or encounter errors, refer to the documentation or seek assistance.
