@@ -7,6 +7,8 @@
 
 2. **Menu Operations**:
    - When selecting an option in the menu (A, B, C, etc.), ensure that you enter only one character that corresponds to your choice.
+   - Capitalize first words in all string values!
+   - Enter all string values without spaces! If there are several words, use “_”.
    - If you enter an invalid character, the program will display an error message and prompt you to try again.
 
 3. **Admin Password**:

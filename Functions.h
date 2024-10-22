@@ -69,6 +69,7 @@ void ChangeSed(const string& licensePlate);
 void UpdateCarDataWithSedan(const SedanData& sedan);
 void UpdateCarDataWithVan(const VanData& van);
 void ChangeVan(const string& licensePlate);
+void RemoveFromStatusFile(const string& licensePlate, const string& statusFilePath);
 void DeleteCarsSed(const vector<string>& licensePlates);
 void DeleteCarsVan(const vector<string>& licensePlates);
 void ReturnCar(const string& licensePlate);

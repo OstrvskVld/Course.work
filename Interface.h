@@ -23,10 +23,10 @@ public:
         cout << "SEDAN " << endl;
     }
     virtual void A2() override{
-        cout << "VAN: " << endl;
+        cout << "VAN " << endl;
     }
     virtual void A3() override{
-        cout << "USER: " << endl;
+        cout << "USER " << endl;
     }
     virtual ~Interface1(){};
 };

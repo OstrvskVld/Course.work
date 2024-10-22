@@ -57,8 +57,8 @@ void Van::A2() {
 
 void Van::printInfo() const {
     Cars::printInfo();
-    cout<< " Payload capacity: "  << payloadCapacity << "\n" << " Sleeping capacity: " <<
-    "\n" << sleepingCapacity << "\n" << " Engine characteristics: " <<"\n" << engine2;
+    cout<< "Payload capacity: "  << payloadCapacity << "\n" << "Sleeping capacity: " <<
+    "\n" << sleepingCapacity << "\n" << "Engine characteristics: " <<"\n" << engine2 << "\n" << endl;
 }
 
 int Van::getPayloadCap() const {

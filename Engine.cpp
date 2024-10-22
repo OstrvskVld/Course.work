@@ -25,7 +25,7 @@ Engine Engine::operator=(const Engine &rhs) {
 }
 ostream &operator<<(ostream &os, const Engine &obj) {
     os << "Engine capacity: " << obj.engineCapacity << "/L" <<"\n" << "Power:"
-       << obj.power << "/HP" << "\n" << "Engine type(patrol,diesel,gas): " << obj.engineType << endl;
+       << obj.power << "/HP" << "\n" << "Engine type(patrol,diesel,gas): " << obj.engineType << "\n" << endl;
     return os;
 }
 

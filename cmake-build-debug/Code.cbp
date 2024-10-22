@@ -85,6 +85,9 @@
 		<Unit filename="D:/Course Work/Code/AnotherVariant.h">
 			<Option target="Code"/>
 		</Unit>
+		<Unit filename="D:/Course Work/Code/CancelException.h">
+			<Option target="Code"/>
+		</Unit>
 		<Unit filename="D:/Course Work/Code/Cars.cpp">
 			<Option target="Code"/>
 		</Unit>

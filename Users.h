@@ -21,11 +21,13 @@ public:
     Users(Users &&other);
     friend ostream &operator<<(ostream &os, const Users &obj);
     void setUserInfo();
+    bool loginUser(const string& name, const string& phone);
 
-    string getName() const { return name; }
-    string getPhone() const { return phone; }
-    string getEmail() const { return email; }
-    int getUserID() const { return userId; }
+    static int getNextUserId();
+    string getName() const;
+    string getPhone() const;
+    string getEmail() const;
+    int getUserID() const;
 
     virtual void A3() override;
     virtual ~Users() {};

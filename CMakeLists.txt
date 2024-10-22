@@ -21,4 +21,5 @@ add_executable(Code main.cpp
         Users.cpp
         Users.h
         IncorrectInputException.h
+        CancelException.h
 )

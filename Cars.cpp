@@ -77,7 +77,7 @@ void Cars ::printInfo() const {
         cout << "Price: " << price << " dollars" << endl;
         cout << "Vehicle availability status (for example, 'available', 'sold', 'reserved') : " <<
         inventoryStatus << endl;
-        cout << "License plate number of the car: " << licenseplate << endl;
+        cout << "License plate number of the car: " << licenseplate << "\n" << endl;
 }
 
 string Cars::getPlate() const {

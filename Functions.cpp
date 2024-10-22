@@ -1,4 +1,4 @@
-
+#include "limits"
 #include "Functions.h"
 #include <iostream>
 #include "memory"
@@ -22,6 +22,20 @@
 
 
 using namespace std;
+template <typename T>
+static T get_input(T& value) {
+    while (true) {
+        cin>>value;
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cerr << "Invalid input. Please enter a value of the correct type." << endl;
+        } else {
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            return value;
+        }
+    }
+}
 
 void Probels(){
     cout<<endl<<"--------------------------"<<endl;
@@ -74,7 +88,8 @@ void AddCars(Cars &cars) {
         shared_ptr<string> color{new string{""}};
         cout << "What is the color of the car? " << endl;
         for (int attempts = 0; attempts < 3; ++attempts) {
-            cin >> *color;
+            cin.ignore();
+            getline(cin, *color);
             if (!color->empty()) {
                 break;
             } else {
@@ -85,9 +100,9 @@ void AddCars(Cars &cars) {
         cars.setColor(*color);
 
         shared_ptr<double> fuel{new double{0.0}};
-        cout << "What is the fuel consumption on 100km? " << endl;
+        cout << "What is the fuel consumption on 100km?(only number) " << endl;
         for (int attempts = 0; attempts < 3; ++attempts) {
-            cin >> *fuel;
+            get_input(*fuel);
             if (*fuel > 0) {
                 break;
             } else {
@@ -98,9 +113,9 @@ void AddCars(Cars &cars) {
         cars.setFuel(*fuel);
 
         shared_ptr<double> mileage{new double{0.0}};
-        cout << "What is the mileage of the car? " << endl;
+        cout << "What is the mileage of the car?(only number) " << endl;
         for (int attempts = 0; attempts < 3; ++attempts) {
-            cin >> *mileage;
+            get_input(*mileage);
             if (*mileage >= 0) {
                 break;
             } else {
@@ -111,9 +126,9 @@ void AddCars(Cars &cars) {
         cars.setMileage(*mileage);
 
         shared_ptr<int> doors{new int{0}};
-        cout << "How many doors? " << endl;
+        cout << "How many doors?(only number) " << endl;
         for (int attempts = 0; attempts < 3; ++attempts) {
-            cin >> *doors;
+            get_input(*doors);
             if (*doors > 0) {
                 break;
             } else {
@@ -124,9 +139,9 @@ void AddCars(Cars &cars) {
         cars.setDoors(*doors);
 
         shared_ptr<int> production{new int{0}};
-        cout << "What is the year of production? " << endl;
+        cout << "What is the year of production(only number)? " << endl;
         for (int attempts = 0; attempts < 3; ++attempts) {
-            cin >> *production;
+            get_input(*production);
             if (*production > 0 && *production <= 2024) {
                 break;
             } else {
@@ -137,9 +152,9 @@ void AddCars(Cars &cars) {
         cars.setYear(*production);
 
         shared_ptr<double> price{new double{0.0}};
-        cout << "What is the price of the car? " << endl;
+        cout << "What is the price of the car?(only number) " << endl;
         for (int attempts = 0; attempts < 3; ++attempts) {
-            cin >> *price;
+            get_input(*price);
             if (*price > 0) {
                 break;
             } else {
@@ -363,8 +378,8 @@ void AddinfSed(Sedan &sedan) {
 
             shared_ptr<int> maxspeed{new int{0}};
             for (int attempts = 0; attempts < 3; ++attempts) {
-                cout << "Max speed: ";
-                if (cin >> *maxspeed) {
+                cout << "Max speed(only number): /km";
+                if (get_input(*maxspeed)) {
                     break;
                 } else {
                     cout << "Invalid input. Please try again." << endl;
@@ -379,7 +394,7 @@ void AddinfSed(Sedan &sedan) {
 
             shared_ptr<string> engineCapacity{new string{""}};
             for (int attempts = 0; attempts < 3; ++attempts) {
-                cout << "Engine capacity: ";
+                cout << "Engine capacity(only number): /L";
                 cin >> *engineCapacity;
                 if (!engineCapacity->empty()) {
                     break;
@@ -395,7 +410,7 @@ void AddinfSed(Sedan &sedan) {
 
             shared_ptr<string> power{new string{""}};
             for (int attempts = 0; attempts < 3; ++attempts) {
-                cout << "Power: ";
+                cout << "Power(only number): /HP";
                 cin >> *power;
                 if (!power->empty()) {
                     break;
@@ -411,7 +426,7 @@ void AddinfSed(Sedan &sedan) {
 
             shared_ptr<string> engineType{new string{""}};
             for (int attempts = 0; attempts < 3; ++attempts) {
-                cout << "Engine type: ";
+                cout << "Engine type(patrol,diesel,gas): ";
                 cin >> *engineType;
                 if (!engineType->empty()) {
                     break;
@@ -550,8 +565,8 @@ void AddinfVan(Van &van) {
 
             shared_ptr<int> payloadCapacity{new int{0}};
             for (int attempts = 0; attempts < 3; ++attempts) {
-                cout << "What is the van's payload capacity? " << endl;
-                cin >> *payloadCapacity;
+                cout << "What is the van's payload capacity(only number)/kg? " << endl;
+                get_input(*payloadCapacity);
                 if (cin.fail()) {
                     cout << "Invalid input. Please enter a valid number." << endl;
                 } else {
@@ -567,8 +582,8 @@ void AddinfVan(Van &van) {
 
             shared_ptr<int> sleepingCapacity{new int{0}};
             for (int attempts = 0; attempts < 3; ++attempts) {
-                cout << "What is the van's sleeping capacity? " << endl;
-                cin >> *sleepingCapacity;
+                cout << "What is the van's sleeping capacity(only number)? " << endl;
+                get_input(*sleepingCapacity);
                 if (cin.fail()) {
                     cout << "Invalid input. Please enter a valid number." << endl;
                 } else {
@@ -589,7 +604,7 @@ void AddinfVan(Van &van) {
 
             cout << "Engine characteristics: " << endl;
             for (int attempts = 0; attempts < 3; ++attempts) {
-                cout << "Engine capacity: " << endl;
+                cout << "Engine capacity: /L" << endl;
                 cin >> *engineCapacity;
                 if (!engineCapacity->empty()) {
                     break;
@@ -605,7 +620,7 @@ void AddinfVan(Van &van) {
             van.getEngine().setCapacity(*engineCapacity);
 
             for (int attempts = 0; attempts < 3; ++attempts) {
-                cout << "Power: " << endl;
+                cout << "Power: /HP" << endl;
                 cin >> *power;
                 if (!power->empty()) {
                     break;
@@ -621,7 +636,7 @@ void AddinfVan(Van &van) {
             van.getEngine().setPower(*power);
 
             for (int attempts = 0; attempts < 3; ++attempts) {
-                cout << "Engine type: " << endl;
+                cout << "Engine type(patrol,diesel,gas): " << endl;
                 cin >> *engineType;
                 if (!engineType->empty()) {
                     break;
@@ -858,7 +873,7 @@ void ChangeCar(const string& licensePlate) {
             cout << "Number of doors: " << car.doors << endl;
             cout << "Year of production: " << car.year << endl;
             cout << "Price: " << car.price << " dollars" << endl;
-            cout << "Vehicle availability status (for example, 'available', 'sold', 'reserved') : " <<
+            cout << "Vehicle availability status (for example, 'Available', 'Sold', 'Reserved') : " <<
             car.status << endl;
 
 
@@ -880,7 +895,7 @@ void ChangeCar(const string& licensePlate) {
 
                 while (attempts > 0 && !validInput) {
                     try {
-                        cin >> choice;
+                        get_input(choice);
                         if (cin.fail()) {
                             throw runtime_error("Invalid input. Please enter a number.");
                         }
@@ -914,24 +929,32 @@ void ChangeCar(const string& licensePlate) {
                         cin >> car.color;
                         break;
                     case 4:
-                        cout << "Enter new amount of fuel: ";
-                        cin >> car.fuel;
+                        cout << "Enter new amount of fuel(only number): /100km";
+                        get_input(car.fuel);
                         break;
                     case 5:
-                        cout << "Enter new year of production: ";
-                        cin >> car.year;
+                        cout << "Enter new year of production(only number): ";
+                        get_input(car.year);
                         break;
                     case 6:
-                        cout << "Enter new price: ";
-                        cin >> car.price;
+                        cout << "Enter new price(only number): /dollars";
+                        get_input(car.price);
                         break;
                     case 7:
-                        cout << "Enter new amount of mileage: ";
-                        cin >> car.mileage;
+                        cout << "Enter new amount of mileage(only number): /km";
+                        get_input(car.mileage);
                         break;
                     case 8:
-                        cout << "Enter new inventory status: ";
-                        cin >> car.status;
+                        cout << "Enter new inventory status('Available','Sold','Reserved'): ";
+                        for (int attempts = 0; attempts < 3; ++attempts) {
+                            cin >> car.status;
+                            if (car.status == "Available" || car.status == "Sold" || car.status == "Reserved") {
+                                break;
+                            } else {
+                                cerr << "Invalid status. Please try again." << endl;
+                                if (attempts == 2) throw AnotherVariant();
+                            }
+                        }
                         break;
                     case 0: {
                         ofstream fout(R"(D:\\Course Work\\Code\\Database\\Cars.txt)", ios::out | ios::trunc);
@@ -1048,7 +1071,7 @@ void ChangeSed(const string& licensePlate) {
                 int attempts = 3;
                 while (attempts > 0) {
                     try {
-                        cin >> choice;
+                        get_input(choice);
                         if (cin.fail() || choice < 0 || choice > 13) {
                             throw invalid_argument("Invalid choice. Please enter a number between 0 and 13.");
                         }
@@ -1089,8 +1112,8 @@ void ChangeSed(const string& licensePlate) {
                     case 4:
                         while (attempts > 0) {
                             try {
-                                cout << "Enter new amount of fuel: ";
-                                cin >> inputDouble;
+                                cout << "Enter new amount of fuel(only number): /100km";
+                                get_input(inputDouble);
                                 if (cin.fail() || inputDouble <= 0) {
                                     throw invalid_argument("Fuel must be a positive number.");
                                 }
@@ -1109,8 +1132,8 @@ void ChangeSed(const string& licensePlate) {
                     case 5:
                         while (attempts > 0) {
                             try {
-                                cout << "Enter new year of production: ";
-                                cin >> inputInt;
+                                cout << "Enter new year of production(only number): ";
+                                get_input(inputInt);
                                 if (cin.fail() || inputInt < 1886 || inputInt > 2024) {
                                     throw invalid_argument("Invalid year. Please enter a year between 1886 and 2024.");
                                 }
@@ -1129,8 +1152,8 @@ void ChangeSed(const string& licensePlate) {
                     case 6:
                         while (attempts > 0) {
                             try {
-                                cout << "Enter new price: ";
-                                cin >> inputDouble;
+                                cout << "Enter new price(only number): /dollars";
+                                get_input(inputDouble);
                                 if (cin.fail() || inputDouble < 0) {
                                     throw invalid_argument("Price must be a non-negative number.");
                                 }
@@ -1149,8 +1172,8 @@ void ChangeSed(const string& licensePlate) {
                     case 7:
                         while (attempts > 0) {
                             try {
-                                cout << "Enter new mileage: ";
-                                cin >> inputInt;
+                                cout << "Enter new mileage(only number): /km";
+                                get_input(inputInt);
                                 if (cin.fail() || inputInt < 0) {
                                     throw invalid_argument("Mileage must be a non-negative number.");
                                 }
@@ -1167,8 +1190,16 @@ void ChangeSed(const string& licensePlate) {
                         }
                         break;
                     case 8:
-                        cout << "Enter new inventory status (e.g., 'available', 'sold', 'reserved'): ";
-                        cin >> sedan.status;
+                        cout << "Enter new inventory status (e.g., 'Available', 'Sold', 'Reserved'): ";
+                        for (int attempts = 0; attempts < 3; ++attempts) {
+                            cin >> sedan.status;
+                            if (sedan.status == "Available" || sedan.status == "Sold" || sedan.status == "Reserved") {
+                                break;
+                            } else {
+                                cerr << "Invalid status. Please try again." << endl;
+                                if (attempts == 2) throw AnotherVariant();
+                            }
+                        }
                         break;
                     case 9:
                         cout << "Enter new type of roof: ";
@@ -1177,8 +1208,8 @@ void ChangeSed(const string& licensePlate) {
                     case 10:
                         while (attempts > 0) {
                             try {
-                                cout << "Enter new max speed (km/h): ";
-                                cin >> inputInt;
+                                cout << "Enter new max speed(only number)/(km/h): ";
+                                get_input(inputInt);
                                 if (cin.fail() || inputInt <= 0) {
                                     throw invalid_argument("Max speed must be a positive number.");
                                 }
@@ -1197,8 +1228,8 @@ void ChangeSed(const string& licensePlate) {
                     case 11:
                         while (attempts > 0) {
                             try {
-                                cout << "Enter new engine capacity: ";
-                                cin >> inputDouble;
+                                cout << "Enter new engine capacity(only number): /L";
+                                get_input(inputDouble);
                                 if (cin.fail() || inputDouble <= 0) {
                                     throw invalid_argument("Engine capacity must be a positive number.");
                                 }
@@ -1217,8 +1248,8 @@ void ChangeSed(const string& licensePlate) {
                     case 12:
                         while (attempts > 0) {
                             try {
-                                cout << "Enter new engine power: ";
-                                cin >> inputInt;
+                                cout << "Enter new engine power(only number): /HP";
+                                get_input(inputInt);
                                 if (cin.fail() || inputInt <= 0) {
                                     throw invalid_argument("Engine power must be a positive number.");
                                 }
@@ -1235,7 +1266,7 @@ void ChangeSed(const string& licensePlate) {
                         }
                         break;
                     case 13:
-                        cout << "Enter new engine type: ";
+                        cout << "Enter new engine type(diesel,gas,patrol): ";
                         cin >> sedan.engineType;
                         break;
                     default:
@@ -1271,12 +1302,20 @@ void ChangeSed(const string& licensePlate) {
                  sedan.status << endl;
             cout <<  "Type of roof: " << sedan.typeofroof << endl;
             cout << "Max speed: " << sedan.maxspeed << "km/h" << endl;
-            cout << "Engine capacity: " << sedan.engineCapacity << endl;
-            cout << "Engine power: " << sedan.power << endl;
+            cout << "Engine capacity: " << sedan.engineCapacity << "/L" << endl;
+            cout << "Engine power: " << sedan.power << "/HP" << endl;
             cout << "Engine type: " << sedan.engineType << endl;
         }
-    }
+        if (sedan.status == "Available") {
+            WriteAvailableCars(sedan);
+        } else if (sedan.status == "Sold") {
+            WriteSoldCars(sedan);
+        } else if (sedan.status == "Reserved") {
+            WriteReservedCars(sedan);
+        }
+        UpdateCarDataWithSedan(sedan);
 
+    }
     if (!found) {
         cout << "Car with license plate " << licensePlate << " not found." << endl;
     }
@@ -1367,11 +1406,11 @@ void ChangeVan(const string& licensePlate) {
             cout << "Number of doors: " << van.doors << endl;
             cout << "Year of production: " << van.year << endl;
             cout << "Price: " << van.price << " dollars" << endl;
-            cout << "Vehicle availability status (for example, 'available', 'sold', 'reserved') : " << van.status << endl;
-            cout << "Payload capacity: " << van.payloadCapacity << endl;
+            cout << "Vehicle availability status (for example, 'Available', 'Sold', 'Reserved') : " << van.status << endl;
+            cout << "Payload capacity: " << van.payloadCapacity << "/kg" << endl;
             cout << "Sleeping capacity: " << van.sleepingCapacity << endl;
-            cout << "Engine capacity: " << van.engineCapacity << endl;
-            cout << "Engine power: " << van.power << endl;
+            cout << "Engine capacity: " << van.engineCapacity << "/L" << endl;
+            cout << "Engine power: " << van.power << "/HP" << endl;
             cout << "Engine type: " << van.engineType << endl;
 
             bool modifyAgain = true;
@@ -1397,7 +1436,7 @@ void ChangeVan(const string& licensePlate) {
                 bool validInput = false;
                 while (attempts < 3) {
                     try {
-                        cin >> choice;
+                        get_input(choice);
                         if (cin.fail() || choice < 0 || choice > 13) {
                             throw invalid_argument("Invalid choice. Please enter a number between 0 and 13.");
                         }
@@ -1428,43 +1467,51 @@ void ChangeVan(const string& licensePlate) {
                         cin >> van.color;
                         break;
                     case 4:
-                        cout << "Enter new amount of fuel: ";
-                        cin >> van.fuel;
+                        cout << "Enter new amount of fuel(only number): /100km";
+                        get_input(van.fuel);
                         break;
                     case 5:
-                        cout << "Enter new year of production: ";
-                        cin >> van.year;
+                        cout << "Enter new year of production(only number): ";
+                        get_input(van.year);
                         break;
                     case 6:
-                        cout << "Enter new price: ";
-                        cin >> van.price;
+                        cout << "Enter new price(only number): /dollars";
+                        get_input(van.price);
                         break;
                     case 7:
-                        cout << "Enter new amount of mileage: ";
-                        cin >> van.mileage;
+                        cout << "Enter new amount of mileage(only number): /km";
+                        get_input(van.mileage);
                         break;
                     case 8:
-                        cout << "Enter new inventory status: ";
-                        cin >> van.status;
+                        cout << "Enter new inventory status('Available','Sold','Reserved'): ";
+                        for (int attempts = 0; attempts < 3; ++attempts) {
+                            cin >> van.status;
+                            if (van.status == "Available" || van.status == "Sold" || van.status == "Reserved") {
+                                break;
+                            } else {
+                                cerr << "Invalid status. Please try again." << endl;
+                                if (attempts == 2) throw AnotherVariant();
+                            }
+                        }
                         break;
                     case 9:
-                        cout << "Enter new payload capacity: ";
-                        cin >> van.payloadCapacity;
+                        cout << "Enter new payload capacity(only number): /kg";
+                        get_input(van.payloadCapacity);
                         break;
                     case 10:
-                        cout << "Enter new sleeping capacity: ";
-                        cin >> van.sleepingCapacity;
+                        cout << "Enter new sleeping capacity(only number): ";
+                        get_input(van.sleepingCapacity);
                         break;
                     case 11:
-                        cout << "Enter new engine capacity: ";
+                        cout << "Enter new engine capacity(only number): /L";
                         cin >> van.engineCapacity;
                         break;
                     case 12:
-                        cout << "Enter new power: ";
+                        cout << "Enter new power(only number): /HP";
                         cin >> van.power;
                         break;
                     case 13:
-                        cout << "Enter new engine type: ";
+                        cout << "Enter new engine type(diesel,patrol,gas): ";
                         cin >> van.engineType;
                         break;
                     case 0:
@@ -1500,13 +1547,21 @@ void ChangeVan(const string& licensePlate) {
             cout << "Number of doors: " << van.doors << endl;
             cout << "Year of production: " << van.year << endl;
             cout << "Price: " << van.price << " dollars" << endl;
-            cout << "Vehicle availability status (for example, 'available', 'sold', 'reserved') : " << van.status << endl;
-            cout << "Payload capacity: " << van.payloadCapacity << endl;
+            cout << "Vehicle availability status (for example, 'Available', 'Sold', 'Reserved') : " << van.status << endl;
+            cout << "Payload capacity: " << van.payloadCapacity << "/kg" << endl;
             cout << "Sleeping capacity: " << van.sleepingCapacity << endl;
-            cout << "Engine capacity: " << van.engineCapacity << endl;
-            cout << "Engine power: " << van.power << endl;
+            cout << "Engine capacity: " << van.engineCapacity << "/L" << endl;
+            cout << "Engine power: " << van.power << "/HP" << endl;
             cout << "Engine type: " << van.engineType << endl;
         }
+        if (van.status == "Available") {
+            WriteAvailableCars(van);
+        } else if (van.status == "Sold") {
+            WriteSoldCars(van);
+        } else if (van.status == "Reserved") {
+            WriteReservedCars(van);
+        }
+        UpdateCarDataWithVan(van);
     }
 
     if (!found) {
@@ -1686,7 +1741,51 @@ void DeleteCarsSed(const vector<string>& licensePlates) {
     }
 
     foutDeleted.close();
-    cout << "Cars deleted successfully." << endl;
+    for (const CarData& car : deletedCars) {
+        if (car.status == "Available") {
+            RemoveFromStatusFile(car.licensePlate, R"(D:\Course Work\Code\Database\Available cars.txt)");
+        } else if (car.status == "Sold") {
+            RemoveFromStatusFile(car.licensePlate, R"(D:\Course Work\Code\Database\Sold cars.txt)");
+        } else if (car.status == "Reserved") {
+            RemoveFromStatusFile(car.licensePlate, R"(D:\Course Work\Code\Database\Reserved cars.txt)");
+        }
+    }
+}
+
+void RemoveFromStatusFile(const string& licensePlate, const string& statusFilePath) {
+    vector<CarData> statusCars;
+    ifstream finStatus(statusFilePath);
+
+    if (!finStatus.is_open()) {
+        cerr << "Error opening file: " << statusFilePath << endl;
+        return;
+    }
+
+    string line;
+    while (getline(finStatus, line)) {
+        istringstream iss(line);
+        CarData car;
+        iss >> car.type >> car.brand >> car.model >> car.color >> car.fuel >> car.mileage >> car.doors >> car.year
+            >> car.price >> car.status >> car.licensePlate;
+        if (car.licensePlate != licensePlate) {
+            statusCars.push_back(car);
+        }
+    }
+    finStatus.close();
+
+    ofstream foutStatus(statusFilePath, ios::out | ios::trunc);
+    if (!foutStatus.is_open()) {
+        cerr << "Error opening file: " << statusFilePath << endl;
+        return;
+    }
+
+    for (const CarData& car : statusCars) {
+        foutStatus << car.type << "\t" << car.brand << "\t" << car.model << "\t"
+                   << car.color << "\t" << car.fuel << "\t" << car.mileage << "\t"
+                   << car.doors << "\t" << car.year << "\t" << car.price << "\t"
+                   << car.status << "\t" << car.licensePlate << endl;
+    }
+    foutStatus.close();
 }
 
 void DeleteCarsVan(const vector<string>& licensePlates){
@@ -1809,6 +1908,15 @@ void DeleteCarsVan(const vector<string>& licensePlates){
     }
 
     foutDeleted.close();
+    for (const CarData& car : deletedCars) {
+        if (car.status == "Available") {
+            RemoveFromStatusFile(car.licensePlate, R"(D:\Course Work\Code\Database\Available.txt)");
+        } else if (car.status == "Sold") {
+            RemoveFromStatusFile(car.licensePlate, R"(D:\Course Work\Code\Database\Sold.txt)");
+        } else if (car.status == "Reserved") {
+            RemoveFromStatusFile(car.licensePlate, R"(D:\Course Work\Code\Database\Reserved.txt)");
+        }
+    }
     cout << "Cars deleted successfully." << endl;
 }
 
@@ -1906,6 +2014,14 @@ void ReturnCar(const string& licensePlate) {
     }
 
     foutDeleted.close();
+    CarData returnedCar = newCars.back();
+    if (returnedCar.status == "Available") {
+        WriteAvailableCars(returnedCar);
+    } else if (returnedCar.status == "Sold") {
+        WriteSoldCars(returnedCar);
+    } else if (returnedCar.status == "Reserved") {
+        WriteReservedCars(returnedCar);
+    }
     cout << "Car with license plate " << licensePlate << " returned successfully." << endl;
 }
 
@@ -1969,8 +2085,9 @@ void Sort(const string& cr, const string& sorted, int criteria, bool ch) {
              << "Number of doors: " << car.doors << "\n"
              << "Year of production: " << car.year << "\n"
              << "Price: " << car.price << " dollars\n"
-             << "Vehicle availability status: " << car.status << "\n"
+             << "Vehicle availability status('Available','Sold','Reserved'): " << car.status << "\n"
              << "License plate number of the car: " << car.licensePlate << endl;
+        Probels();
     }
 
     foutyear.close();
@@ -2024,6 +2141,7 @@ void SearchCarsByBrand(const string& brand) {
                  << "Price: " << car.price << " dollars\n"
                  << "Vehicle availability status: " << car.status << "\n"
                  << "License plate number of the car: " << car.licensePlate << endl;
+            Probels();
 
         }
     }
@@ -2080,8 +2198,9 @@ void SearchCarsByModel(const string& model) {
                  << "Number of doors: " << car.doors << "\n"
                  << "Year of production: " << car.year << "\n"
                  << "Price: " << car.price << " dollars\n"
-                 << "Vehicle availability status: " << car.status << "\n"
+                 << "Vehicle availability status('Available','Sold','Reserved'): " << car.status << "\n"
                  << "License plate number of the car: " << car.licensePlate << endl;
+            Probels();
 
         }
     }
@@ -2139,6 +2258,7 @@ void SearchCarsByColor(const string& color) {
                  << "Price: " << car.price << " dollars\n"
                  << "Vehicle availability status: " << car.status << "\n"
                  << "License plate number of the car: " << car.licensePlate << endl;
+            Probels();
 
         }
     }
@@ -2195,7 +2315,7 @@ void SearchCarsByType(const string& type) {
                  << "Price: " << car.price << " dollars\n"
                  << "Vehicle availability status: " << car.status << "\n"
                  << "License plate number of the car: " << car.licensePlate << endl;
-
+            Probels();
         }
     }
     foutser.close();
@@ -2250,9 +2370,9 @@ void SearchCarsByStatus(const string& status) {
                  << "Number of doors: " << car.doors << "\n"
                  << "Year of production: " << car.year << "\n"
                  << "Price: " << car.price << " dollars\n"
-                 << "Vehicle availability status: " << car.status << "\n"
+                 << "Vehicle availability status('Available','Sold','Reserved'): " << car.status << "\n"
                  << "License plate number of the car: " << car.licensePlate << endl;
-
+            Probels();
         }
     }
     foutser.close();
@@ -2307,9 +2427,9 @@ void SearchCarsByModBr(const string& brand,const string& model) {
                  << "Number of doors: " << car.doors << "\n"
                  << "Year of production: " << car.year << "\n"
                  << "Price: " << car.price << " dollars\n"
-                 << "Vehicle availability status: " << car.status << "\n"
+                 << "Vehicle availability status('Available','Sold','Reserved'): " << car.status << "\n"
                  << "License plate number of the car: " << car.licensePlate << endl;
-
+            Probels();
         }
     }
     foutser.close();
@@ -2365,8 +2485,9 @@ void printCars(const CarData& car) {
              << "Number of doors: " << car.doors << "\n"
              << "Year of production: " << car.year << "\n"
              << "Price: " << car.price << " dollars\n"
-             << "Vehicle availability status: " << car.status << "\n"
+             << "Vehicle availability status('Available','Sold','Reserved'): " << car.status << "\n"
              << "License plate number of the car: " << car.licensePlate << endl;
+    Probels();
 
 }
 
@@ -2479,12 +2600,14 @@ void ReadSed(Sedan &sedan){
     while(finSed >> *type >> *brand >> *model >> *color >> *fuel >> *mileage >> *doors >> *production >> *price >>
     *inventoryStatus >> *licenseplate >> *typeofroof >> *maxspeed >> *engineCapacity >> *power >> *engineType){
         cout << "Type: " << *type  << "\n"  << "Brand: " << *brand << "\n" << "Model: " << *model << "\n" << "Color: "
-             << *color << "\n" << "Fuel :" << *fuel << " 100km" <<"\n" << "Mileage: " << *mileage << " km" << "\n" << "Number of doors: " << *doors << "\n" << "Year of production: "
-             << *production << "\n" << "Price: " << *price << " dollars" <<"\n" << "Vehicle availability status (for example, 'available', 'sold', 'reserved') : "
+             << *color << "\n" << "Fuel :" << *fuel << " /100km" <<"\n" << "Mileage: " << *mileage << " km" << "\n" << "Number of doors: " << *doors << "\n" << "Year of production: "
+             << *production << "\n" << "Price: " << *price << " dollars" <<"\n" << "Vehicle availability status (for example, 'Available', 'Sold', 'Reserved') : "
              << *inventoryStatus << "\n" << "License plate number of the car: " << *licenseplate << "\n" << "Type of roof: " << *typeofroof << "\n" << "Max speed: " << *maxspeed
              << "km/h" << "\n" << "Engine capacity: " << *engineCapacity << "/L" <<"\n" << "Power:"
              << *power << "/HP" << "\n" << "Engine type(patrol,diesel,gas): " <<*engineType << endl;
+        Probels();
     }
+    Probels();
     finSed.close();
 }
 
@@ -2513,12 +2636,14 @@ void ReadVan(Van &van){
     while(finVan >> *type >> *brand >> *model >> *color >> *fuel >> *mileage >> *doors >> *production >> *price >>
                  *inventoryStatus >> *licenseplate >> *payloadCapacity >> *sleepingCapacity >> *engineCapacity >> *power >> *engineType){
         cout << "Type: " << *type  << "\n"  << "Brand: " << *brand << "\n" << "Model: " << *model << "\n" << "Color: "
-             << *color << "\n" << "Fuel :" << *fuel << " 100km" <<"\n" << "Mileage: " << *mileage << " km" << "\n"  "Number of doors: " << *doors << "\n" << "Year of production: "
-             << *production << "\n" << "Price: " << *price << " dollars" <<"\n" << "Vehicle availability status (for example, 'available', 'sold', 'reserved') : "
-             << *inventoryStatus << "\n" << "License plate number of the car: " << *licenseplate << "\n"  << " Payload capacity: " << *payloadCapacity << "\n" << " Sleeping capacity: " << *sleepingCapacity
-             << "km/h" << "\n" << "Engine capacity: " << *engineCapacity << "/L" <<"\n" << "Power:"
+             << *color << "\n" << "Fuel :" << *fuel << " /100km" <<"\n" << "Mileage: " << *mileage << " km" << "\n"  "Number of doors: " << *doors << "\n" << "Year of production: "
+             << *production << "\n" << "Price: " << *price << " dollars" <<"\n" << "Vehicle availability status (for example, 'Available', 'Sold', 'Reserved') : "
+             << *inventoryStatus << "\n" << "License plate number of the car: " << *licenseplate << "\n"  << " Payload capacity: " << *payloadCapacity << "kg" << "\n" << " Sleeping capacity: " << *sleepingCapacity
+              << "\n" << "Engine capacity: " << *engineCapacity << "/L" <<"\n" << "Power:"
              << *power << "/HP" << "\n" << "Engine type(patrol,diesel,gas): " <<*engineType << endl;
+        Probels();
     }
+
     finVan.close();
 }
 
@@ -2543,10 +2668,12 @@ void ReadCars(Cars &cars){
     while(finCar >> *type >> *brand >> *model >> *color >> *fuel >> *mileage >> *doors >> *production >> *price >>
                  *inventoryStatus >> *licenseplate){
         cout << "Type: " << *type  << "\n"  << "Brand: " << *brand << "\n" << "Model: " << *model << "\n" << "Color: "
-             << *color << "\n" << "Fuel :" << *fuel << " 100km" <<"\n" << "Mileage: " << *mileage << " km" << "\n"  "Number of doors: " << *doors << "\n" << "Year of production: "
-             << *production << "\n" << "Price: " << *price << " dollars" <<"\n" << "Vehicle availability status (for example, 'available', 'sold', 'reserved') : "
+             << *color << "\n" << "Fuel :" << *fuel << " /100km" <<"\n" << "Mileage: " << *mileage << " km" << "\n"  "Number of doors: " << *doors << "\n" << "Year of production: "
+             << *production << "\n" << "Price: " << *price << " dollars" <<"\n" << "Vehicle availability status (for example, 'Available', 'Sold', 'Reserved') : "
              << *inventoryStatus << "\n" << "License plate number of the car: " << *licenseplate << endl;
+        Probels();
     }
+
     finCar.close();
 }
 
@@ -2593,14 +2720,14 @@ void BuyOrReserveCar(vector<CarData> &cars, const Users &user) {
         return;
     }
 
-    cout << "Enter an action (buy or reserve): ";
+    cout << "Enter an action (Buy or Reserve): ";
     string action;
     cin >> action;
 
-    if (action == "buy" || action == "reserve") {
-        selectedCar->status = (action == "buy") ? "Sold" : "Reserved";
+    if (action == "Buy" || action == "Reserve") {
+        selectedCar->status = (action == "Buy") ? "Sold" : "Reserved";
 
-        ofstream fout(action == "buy" ? R"(D:\Course Work\Code\Database\Bought cars by users.txt)"
+        ofstream fout(action == "Buy" ? R"(D:\Course Work\Code\Database\Bought cars by users.txt)"
                                       : R"(D:\Course Work\Code\Database\Reserved cars by users.txt)",
                       ios_base::app);
         fout << "User ID: " << user.getUserID() << "\t" << "Name: " << user.getName() << "\t"
@@ -2619,6 +2746,12 @@ void BuyOrReserveCar(vector<CarData> &cars, const Users &user) {
                     << car.status << "\t" << car.licensePlate << endl;
         }
         foutCar.close();
+
+          if (selectedCar->status == "Sold") {
+            WriteSoldCars(*selectedCar);
+        } else if (selectedCar->status == "Reserved") {
+            WriteReservedCars(*selectedCar);
+        }
 
         cout << "The operation has been successfully completed. The vehicle status has been updated." << endl;
     } else {

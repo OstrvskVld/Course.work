@@ -65,7 +65,7 @@ void Sedan::A1() {
 void Sedan::printInfo() const {
     Cars::printInfo();
     cout<< "Type of roof: " << typeofroof << "\n" << "Max speed: " << maxspeed
-        << "km/h" << "\n" << " Engine characteristics: " <<"\n" << engine1;
+        << "km/h" << "\n" << " Engine characteristics: " <<"\n" << engine1 << "\n" << endl;
 }
 
 int Sedan::getSpeed() const {
