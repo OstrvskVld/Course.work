@@ -1,6 +1,0 @@
-User ID: 1	Name: 	Phone: 	Email: 
-Car details: Sedan	BMW	M5_F90	White	20	50000	4	2022	50000	Sold	KA0000AA
-
-User ID: 3	Name: Dima	Phone: 380959222333	Email: cool
-Car details: Sedan	BMW	M5_F90	White	20	50000	4	2022	50000	Sold	KA0000AA
-

@@ -1,4 +1,1 @@
-User ID: 1	Name: Vlad	Phone: 380959222313	Email: piska_ru@mail.ru
-User ID: 2	Name: Anton	Phone: 88005553535	Email: savtenko_cool_dodik@mail.ru
-User ID: 3	Name: Dima	Phone: 380959222333	Email: cool
-User ID: 4	Name: dfg	Phone: dfg	Email: dfgd
+User ID: 1	Name: Vlad	Phone: 380959222313	Email: vldstrvskj@gmail.com

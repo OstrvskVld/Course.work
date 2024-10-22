@@ -1,0 +1,3 @@
+User ID: 1	Name: Vlad	Phone: 380959222313	Email: vldstrvskj@gmail.com
+Car details: Sedan	BMW	M5_F90	White	20	50000	4	2022	50000	Reserved	KA0000AA
+
