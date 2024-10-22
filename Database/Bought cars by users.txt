@@ -1,6 +1,6 @@
-User ID: 5	Name: 3etr	Phone: ert	Email: ert
-Car details: Sedan	BMW	X5	Yellow	213	132	5	123	132	Sold	dfg
+User ID: 1	Name: 	Phone: 	Email: 
+Car details: Sedan	BMW	M5_F90	White	20	50000	4	2022	50000	Sold	KA0000AA
 
-User ID: 7	Name: fhg	Phone: fgh	Email: fgh
-Car details: Sedan	BMW	X5	Yellow	213	132	5	123	132	Sold	dfg
+User ID: 3	Name: Dima	Phone: 380959222333	Email: cool
+Car details: Sedan	BMW	M5_F90	White	20	50000	4	2022	50000	Sold	KA0000AA
 

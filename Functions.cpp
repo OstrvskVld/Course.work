@@ -2753,9 +2753,42 @@ void BuyOrReserveCar(vector<CarData> &cars, const Users &user) {
             WriteReservedCars(*selectedCar);
         }
 
+
+
+        ofstream foutSed(R"(D:\Course Work\Code\Database\Sedan.txt)");
+        for (const auto &car : carList) {
+            foutSed << car.type << "\t" << car.brand << "\t" << car.model << "\t"
+                    << car.color << "\t" << car.fuel << "\t" << car.mileage << "\t"
+                    << car.doors << "\t" << car.year << "\t" << car.price << "\t"
+                    << car.status << "\t" << car.licensePlate << endl;
+        }
+        foutSed.close();
+
+        if (selectedCar->status == "Sold") {
+            WriteSoldCars(*selectedCar);
+        } else if (selectedCar->status == "Reserved") {
+            WriteReservedCars(*selectedCar);
+        }
+
+        ofstream foutVan(R"(D:\Course Work\Code\Database\Van.txt)");
+        for (const auto &car : carList) {
+            foutCar << car.type << "\t" << car.brand << "\t" << car.model << "\t"
+                    << car.color << "\t" << car.fuel << "\t" << car.mileage << "\t"
+                    << car.doors << "\t" << car.year << "\t" << car.price << "\t"
+                    << car.status << "\t" << car.licensePlate << endl;
+        }
+        foutVan.close();
+
+        if (selectedCar->status == "Sold") {
+            WriteSoldCars(*selectedCar);
+        } else if (selectedCar->status == "Reserved") {
+            WriteReservedCars(*selectedCar);
+        }
+
         cout << "The operation has been successfully completed. The vehicle status has been updated." << endl;
     } else {
         cout << "Wrong action. You can only buy or reserve." << endl;
     }
+
 }
 

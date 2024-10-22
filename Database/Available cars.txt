@@ -1,1 +1,1 @@
-Sedan	BMW	X5	Yellow	213	132	5	123	132	Available	dfg
+Sedan	BMW	M5_F90	White	20	50000	4	2022	50000	Available	KA0000AA

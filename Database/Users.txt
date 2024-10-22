@@ -1,7 +1,4 @@
-User ID: 1	Name: dgf	Phone: dfgf	Email: dfgf
-User ID: 2	Name: fg	Phone: dfg	Email: dfg
-User ID: 3	Name: dfg	Phone: dfg	Email: ghk
-User ID: 4	Name: io	Phone: uoi	Email: uio
-User ID: 5	Name: 3etr	Phone: ert	Email: ert
-User ID: 6	Name: ert	Phone: er	Email: ert
-User ID: 7	Name: fhg	Phone: fgh	Email: fgh
+User ID: 1	Name: Vlad	Phone: 380959222313	Email: piska_ru@mail.ru
+User ID: 2	Name: Anton	Phone: 88005553535	Email: savtenko_cool_dodik@mail.ru
+User ID: 3	Name: Dima	Phone: 380959222333	Email: cool
+User ID: 4	Name: dfg	Phone: dfg	Email: dfgd

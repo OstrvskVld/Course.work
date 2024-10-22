@@ -1,1 +1,0 @@
-Sedan	BMW	X5	Yellow	213	132	5	123	132	Sold	dfg

@@ -63,13 +63,19 @@ void Users::setUserInfo() {
     cout << "Enter email: " << endl;
     getline(cin, email);
     ofstream fout(R"(D:\Course Work\Code\Database\Users.txt)", ios_base::app);
-    if (!fout) {
-        cerr << "Error opening file!" << endl;
-        return;
+    if (fout.is_open()) {
+        fout << "User ID: " << getUserID() << "\t"
+                 << "Name: " << name << "\t"
+                 << "Phone: " << phone << "\t"
+                 << "Email: " << email << endl;
+        fout.close();
+    } else {
+        cerr << "Error opening user info file!" << endl;
     }
+    this->name = name;
+    this->phone = phone;
+    this->email = email;
 
-    fout << "User ID: " << userId << "\tName: " << name << "\tPhone: " << phone << "\tEmail: " << email << "\n";
-    fout.close();
 
 }
 
