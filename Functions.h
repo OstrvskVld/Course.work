@@ -50,6 +50,7 @@ void SearchCarsByColor(const string& color);
 void SearchCarsByType(const string& type);
 void SearchCarsByStatus(const string& status);
 void SearchCarsByModBr(const string& brand,const string& model);
+void SearchCarsByLicensePlate(const string& licensePlate);
 vector<CarData> SearchCars(const string& filname);
 void printCars(const CarData& car);
 void printCar(const CarData& car, const string& name);

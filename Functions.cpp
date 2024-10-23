@@ -2436,6 +2436,63 @@ void SearchCarsByModBr(const string& brand,const string& model) {
     }
 }
 
+void SearchCarsByLicensePlate(const string& licensePlate) {
+    vector<CarData> cars;
+    ifstream finser(R"(D:\Course Work\Code\Database\Cars.txt)");
+
+    if (!finser.is_open()) {
+        cerr << "Error opening file: Cars.txt" << endl;
+        return;
+    }
+
+    string line;
+    while (getline(finser, line)) {
+        istringstream iss(line);
+        CarData car;
+        iss >> car.type >> car.brand >> car.model >> car.color >> car.fuel >> car.mileage >> car.doors >> car.year >> car.price >> car.status >> car.licensePlate;
+        cars.push_back(car);
+    }
+
+    finser.close();
+
+    ofstream foutser(R"(D:\Course Work\Code\Database\Search for a car by license plate.txt)",
+                     ios::out | ios::trunc);
+
+    if (!foutser.is_open()) {
+        cerr << "Error opening file: Search for a car by license plate.txt" << endl;
+        return;
+    }
+
+    bool found = false;
+    for (const CarData& car : cars) {
+        if (car.licensePlate == licensePlate) {
+            found = true;
+            foutser << car.type << "\t" << car.brand << "\t" << car.model << "\t"
+                    << car.color << "\t" << car.fuel << "\t" << car.mileage << "\t" << car.doors << "\t"
+                    << car.year << "\t" << car.price << "\t" << car.status << "\t"
+                    << car.licensePlate << endl;
+            cout << "Type: " << car.type << "\n"
+                 << "Brand: " << car.brand << "\n"
+                 << "Model: " << car.model << "\n"
+                 << "Color: " << car.color << "\n"
+                 << "Fuel: " << car.fuel << "L/100km\n"
+                 << "Mileage: " << car.mileage << " km\n"
+                 << "Number of doors: " << car.doors << "\n"
+                 << "Year of production: " << car.year << "\n"
+                 << "Price: " << car.price << " dollars\n"
+                 << "Vehicle availability status('Available','Sold','Reserved'): " << car.status << "\n"
+                 << "License plate number of the car: " << car.licensePlate << endl;
+            Probels();
+        }
+    }
+    foutser.close();
+
+    if (!found) {
+        cout << "Car with license plate " << licensePlate << " not found." << endl;
+    }
+}
+
+
 
 
 vector<CarData> SearchCars(const string& filname) {

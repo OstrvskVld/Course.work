@@ -459,7 +459,8 @@ int main() {
                                                  << "4. Search by type\n"
                                                  << "5. Search by status\n"
                                                  << "6. Search by brand and model\n"
-                                                 << "7. Exit\n";
+                                                 << "7. Search by license plate\n"
+                                                 << "8. Exit\n";
                                             int searchChoice;
                                             get_input(searchChoice);
 
@@ -504,7 +505,14 @@ int main() {
                                                     Probels();
                                                     break;
                                                 }
-                                                case 7:
+                                                case 7: {
+                                                    cout << "Enter license plate of car: ";
+                                                    getline(cin, searchCriteria);
+                                                    SearchCarsByLicensePlate(searchCriteria);
+                                                    Probels();
+                                                    break;
+                                                }
+                                                case 8:
                                                     cout << "Exiting search menu..." << endl;
                                                     break;
                                                 default:
