@@ -1,6 +1,6 @@
 
-#ifndef CODE_USERS_H
-#define CODE_USERS_H
+#ifndef CODE_USER_H
+#define CODE_USER_H
 
 
 #include "iostream"
@@ -8,18 +8,18 @@
 
 using namespace std;
 
-class Users : public Interface1 {
+class User : public Interface1 {
 private:
     int userId;
     string name;
     string phone;
     string email;
 public:
-    Users();
-    Users(int userId, string name, string phone, string email);
-    Users(const Users &other);
-    Users(Users &&other);
-    friend ostream &operator<<(ostream &os, const Users &obj);
+    User();
+    User(int userId, string name, string phone, string email);
+    User(const User &other);
+    User(User &&other);
+    friend ostream &operator<<(ostream &os, const User &obj);
     void setUserInfo();
     bool loginUser(const string& name, const string& phone);
 
@@ -30,8 +30,8 @@ public:
     int getUserID() const;
 
     virtual void A3() override;
-    virtual ~Users() {};
+    virtual ~User() {};
 };
 
 
-#endif //CODE_USERS_H
+#endif //CODE_USER_H

@@ -2,7 +2,7 @@
 
 #include "Sedan.h"
 #include "iostream"
-#include "Cars.h"
+#include "Car.h"
 #include "Engine.h"
 #include "Interface.h"
 
@@ -11,23 +11,23 @@ using namespace std;
 
 
 Sedan::Sedan()
-: Cars(),typeofroof(""),maxspeed(0), engine1("","",""){}
+: Car(), typeofroof(""), maxspeed(0), engine1("", "", ""){}
 Sedan::Sedan(string typeofroof, int maxspeed)
 : typeofroof{typeofroof}, maxspeed{maxspeed}{}
 Sedan::Sedan(string type,string licenseplate,string brand, string inventoryStatus, string model, string color, double fuel, double mileage,int numberOfDoors,
              int yearOfProduction, double price,
              string typeofroof, int maxspeed,Engine engine1)
-        : Cars(type, brand, model, color, fuel, mileage, numberOfDoors, yearOfProduction, price, inventoryStatus,licenseplate),
+        : Car(type, brand, model, color, fuel, mileage, numberOfDoors, yearOfProduction, price, inventoryStatus, licenseplate),
           typeofroof(typeofroof), maxspeed(maxspeed), engine1(engine1) {}
-Sedan::Sedan(Cars cars,string typeofroof, int maxspeed)
-: Cars(cars.getType(),cars.getBrand(),cars.getModel(),cars.getColor(),cars.getFuel(),cars.getMileage(),cars.getDoors(),
-       cars.getYear(),cars.getPrice(),  cars.getStatus(), cars.getPlate()),
-typeofroof{typeofroof}, maxspeed{maxspeed} {}
-Sedan::Sedan(Cars cars,string typeofroof, int maxspeed,Engine engine1)
-        : Cars(cars.getType(),cars.getBrand(),cars.getModel(),cars.getColor(),cars.getFuel(),cars.getMileage(),cars.getDoors(),
-               cars.getYear(),cars.getPrice(),  cars.getStatus(), cars.getPlate()),
-        typeofroof{typeofroof}, maxspeed{maxspeed},engine1{engine1}{}
-Sedan::Sedan(const Cars& carRef, string typeofroof, int maxspeed)
+Sedan::Sedan(Car cars, string typeofroof, int maxspeed)
+: Car(cars.getType(), cars.getBrand(), cars.getModel(), cars.getColor(), cars.getFuel(), cars.getMileage(), cars.getDoors(),
+      cars.getYear(), cars.getPrice(), cars.getStatus(), cars.getPlate()),
+  typeofroof{typeofroof}, maxspeed{maxspeed} {}
+Sedan::Sedan(Car cars, string typeofroof, int maxspeed, Engine engine1)
+        : Car(cars.getType(), cars.getBrand(), cars.getModel(), cars.getColor(), cars.getFuel(), cars.getMileage(), cars.getDoors(),
+              cars.getYear(), cars.getPrice(), cars.getStatus(), cars.getPlate()),
+          typeofroof{typeofroof}, maxspeed{maxspeed}, engine1{engine1}{}
+Sedan::Sedan(const Car& carRef, string typeofroof, int maxspeed)
         : typeofroof(typeofroof), maxspeed(maxspeed) {
     string type = carRef.getType();
     string licenseplate = carRef.getPlate();
@@ -43,10 +43,10 @@ Sedan::Sedan(const Cars& carRef, string typeofroof, int maxspeed)
 }
 
 Sedan::Sedan(const Sedan &other)
-        :Cars(other), typeofroof(other.typeofroof), maxspeed(other.maxspeed), engine1(other.engine1)
+        : Car(other), typeofroof(other.typeofroof), maxspeed(other.maxspeed), engine1(other.engine1)
 {}
 
-Sedan::Sedan(const Cars& car) : Cars(car), typeofroof(""), maxspeed(0) {}
+Sedan::Sedan(const Car& car) : Car(car), typeofroof(""), maxspeed(0) {}
 
 Sedan::Sedan(Sedan&& other)
         : typeofroof(move(other.typeofroof)),
@@ -63,7 +63,7 @@ void Sedan::A1() {
 }
 
 void Sedan::printInfo() const {
-    Cars::printInfo();
+    Car::printInfo();
     cout<< "Type of roof: " << typeofroof << "\n" << "Max speed: " << maxspeed
         << "km/h" << "\n" << " Engine characteristics: " <<"\n" << engine1 << "\n" << endl;
 }

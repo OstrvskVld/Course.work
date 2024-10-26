@@ -128,29 +128,29 @@ Code/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/build
 .PHONY : Code/fast
 
-Cars.obj: Cars.cpp.obj
-.PHONY : Cars.obj
+Car.obj: Car.cpp.obj
+.PHONY : Car.obj
 
 # target to build an object file
-Cars.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Cars.cpp.obj
-.PHONY : Cars.cpp.obj
+Car.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Car.cpp.obj
+.PHONY : Car.cpp.obj
 
-Cars.i: Cars.cpp.i
-.PHONY : Cars.i
+Car.i: Car.cpp.i
+.PHONY : Car.i
 
 # target to preprocess a source file
-Cars.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Cars.cpp.i
-.PHONY : Cars.cpp.i
+Car.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Car.cpp.i
+.PHONY : Car.cpp.i
 
-Cars.s: Cars.cpp.s
-.PHONY : Cars.s
+Car.s: Car.cpp.s
+.PHONY : Car.s
 
 # target to generate assembly for a file
-Cars.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Cars.cpp.s
-.PHONY : Cars.cpp.s
+Car.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Car.cpp.s
+.PHONY : Car.cpp.s
 
 Engine.obj: Engine.cpp.obj
 .PHONY : Engine.obj
@@ -176,29 +176,29 @@ Engine.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Engine.cpp.s
 .PHONY : Engine.cpp.s
 
-Functions.obj: Functions.cpp.obj
-.PHONY : Functions.obj
+Function.obj: Function.cpp.obj
+.PHONY : Function.obj
 
 # target to build an object file
-Functions.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Functions.cpp.obj
-.PHONY : Functions.cpp.obj
+Function.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Function.cpp.obj
+.PHONY : Function.cpp.obj
 
-Functions.i: Functions.cpp.i
-.PHONY : Functions.i
+Function.i: Function.cpp.i
+.PHONY : Function.i
 
 # target to preprocess a source file
-Functions.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Functions.cpp.i
-.PHONY : Functions.cpp.i
+Function.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Function.cpp.i
+.PHONY : Function.cpp.i
 
-Functions.s: Functions.cpp.s
-.PHONY : Functions.s
+Function.s: Function.cpp.s
+.PHONY : Function.s
 
 # target to generate assembly for a file
-Functions.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Functions.cpp.s
-.PHONY : Functions.cpp.s
+Function.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Function.cpp.s
+.PHONY : Function.cpp.s
 
 Sedan.obj: Sedan.cpp.obj
 .PHONY : Sedan.obj
@@ -224,29 +224,29 @@ Sedan.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Sedan.cpp.s
 .PHONY : Sedan.cpp.s
 
-Users.obj: Users.cpp.obj
-.PHONY : Users.obj
+User.obj: User.cpp.obj
+.PHONY : User.obj
 
 # target to build an object file
-Users.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Users.cpp.obj
-.PHONY : Users.cpp.obj
+User.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/User.cpp.obj
+.PHONY : User.cpp.obj
 
-Users.i: Users.cpp.i
-.PHONY : Users.i
+User.i: User.cpp.i
+.PHONY : User.i
 
 # target to preprocess a source file
-Users.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Users.cpp.i
-.PHONY : Users.cpp.i
+User.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/User.cpp.i
+.PHONY : User.cpp.i
 
-Users.s: Users.cpp.s
-.PHONY : Users.s
+User.s: User.cpp.s
+.PHONY : User.s
 
 # target to generate assembly for a file
-Users.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/Users.cpp.s
-.PHONY : Users.cpp.s
+User.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Code.dir\build.make CMakeFiles/Code.dir/User.cpp.s
+.PHONY : User.cpp.s
 
 Van.obj: Van.cpp.obj
 .PHONY : Van.obj
@@ -305,21 +305,21 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Code
-	@echo ... Cars.obj
-	@echo ... Cars.i
-	@echo ... Cars.s
+	@echo ... Car.obj
+	@echo ... Car.i
+	@echo ... Car.s
 	@echo ... Engine.obj
 	@echo ... Engine.i
 	@echo ... Engine.s
-	@echo ... Functions.obj
-	@echo ... Functions.i
-	@echo ... Functions.s
+	@echo ... Function.obj
+	@echo ... Function.i
+	@echo ... Function.s
 	@echo ... Sedan.obj
 	@echo ... Sedan.i
 	@echo ... Sedan.s
-	@echo ... Users.obj
-	@echo ... Users.i
-	@echo ... Users.s
+	@echo ... User.obj
+	@echo ... User.i
+	@echo ... User.s
 	@echo ... Van.obj
 	@echo ... Van.i
 	@echo ... Van.s

@@ -7,19 +7,19 @@ set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libstdc++ -static-libgcc")
 
 add_executable(Code main.cpp
         AnotherVariant.h
-        Cars.cpp
-        Cars.h
+        Car.cpp
+        Car.h
         Engine.cpp
         Engine.h
-        Functions.cpp
-        Functions.h
+        Function.cpp
+        Function.h
         Interface.h
         Sedan.cpp
         Sedan.h
         Van.cpp
         Van.h
-        Users.cpp
-        Users.h
+        User.cpp
+        User.h
         IncorrectInputException.h
         CancelException.h
 )

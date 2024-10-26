@@ -1,12 +1,12 @@
 #include "iostream"
-#include "Users.h"
+#include "User.h"
 #include <string>
 #include <fstream>
 
 using namespace std;
 
 
-int Users::getNextUserId() {
+int User::getNextUserId() {
     int maxUserId = 0;
     ifstream fin(R"(D:\Course Work\Code\Database\Users.txt)");
     if (fin.is_open()) {
@@ -23,20 +23,20 @@ int Users::getNextUserId() {
     return maxUserId + 1;
 }
 
-Users::Users()
+User::User()
         : userId{1}, name{""}, phone{""}, email{""} {}
 
-Users::Users(int userId,string name, string phone, string email)
+User::User(int userId, string name, string phone, string email)
         : userId{userId}, name{name}, phone{phone}, email{email} {}
 
-Users::Users(const Users &other) {
+User::User(const User &other) {
     userId = other.userId;
     name = other.name;
     phone = other.phone;
     email = other.email;
 }
 
-Users::Users(Users &&other)
+User::User(User &&other)
         : userId(other.userId), name(other.name), phone(other.phone), email(other.email) {
     other.userId = 0;
     other.name = "";
@@ -44,7 +44,7 @@ Users::Users(Users &&other)
     other.email = "";
 }
 
-ostream &operator<<(ostream &os, const Users &obj) {
+ostream &operator<<(ostream &os, const User &obj) {
     os << obj.userId << "\t" << obj.name << "\t" << obj.phone << "\t" << obj.email << endl;
     return os;
 }
@@ -53,7 +53,7 @@ ostream &operator<<(ostream &os, const Users &obj) {
 
 
 
-void Users::setUserInfo() {
+void User::setUserInfo() {
     userId = getNextUserId();
     cout << "Enter name: " << endl;
     cin.ignore();
@@ -79,7 +79,7 @@ void Users::setUserInfo() {
 
 }
 
-bool Users::loginUser(const string& name, const string& phone) {
+bool User::loginUser(const string& name, const string& phone) {
     ifstream fin(R"(D:\Course Work\Code\Database\Users.txt)");
     if (!fin.is_open()) {
         cerr << "Error opening file!" << endl;
@@ -97,21 +97,21 @@ bool Users::loginUser(const string& name, const string& phone) {
     return false;
 }
 
-int Users::getUserID() const {
+int User::getUserID() const {
     return userId;
 }
 
-string Users::getName() const {
+string User::getName() const {
     return name;
 }
 
-string Users::getPhone() const {
+string User::getPhone() const {
     return phone;
 }
 
-string Users::getEmail() const {
+string User::getEmail() const {
     return email;
 }
 
-void Users::A3() {
+void User::A3() {
 }

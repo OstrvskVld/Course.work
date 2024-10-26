@@ -1,9 +1,9 @@
 #include <iostream>
-#include "Cars.h"
+#include "Car.h"
 #include "Sedan.h"
 #include "Engine.h"
-#include "Functions.h"
-#include "Users.h"
+#include "Function.h"
+#include "User.h"
 #include "IncorrectInputException.h"
 #include "Interface.h"
 #include <string>
@@ -14,13 +14,13 @@ using namespace std;
 
 
 
-Cars cars("","","","",0,0,0,0,0,"","");
+Car cars("", "", "", "", 0, 0, 0, 0, 0, "", "");
 Sedan sedan1("","","","","","",0,0,0,0,0,
             "",0,Engine("","",""));
 Engine engine1("","","");
 Van van("","","","","","",0,0,0,
         0,0,0,0,Engine("","",""));
-Users users(0,"","","");
+User users(0, "", "", "");
 string cr;
 string sorted;
 int choice;
@@ -115,12 +115,12 @@ int main() {
                     continue;
                 }
 
-                Cars cars;
+                Car cars;
                 Engine engine;
                 Van van1;
                 Sedan sedan;
                 Interface1 interface1;
-                Users users1;
+                User users1;
                 CarData car;
 
                 if (cont == 'A') {
@@ -149,8 +149,8 @@ int main() {
                                         cout << "H - Change Sedan Details" << endl;
                                         cout << "I - Change Van Details" << endl;
                                         cout << "J - Return Car" << endl;
-                                        cout << "K - Delete Cars/Sedans" << endl;
-                                        cout << "L - Delete Cars/Vans" << endl;
+                                        cout << "K - Delete Car/Sedans" << endl;
+                                        cout << "L - Delete Car/Vans" << endl;
                                         cout << "M - Return to Main Menu" << endl;
                                         cout << "Q - Exit Program" << endl;
                                         Probels();
@@ -350,8 +350,8 @@ int main() {
                             cout << "A - Read Car Info" << endl;
                             cout << "B - Read Sedan Info" << endl;
                             cout << "C - Read Van Info" << endl;
-                            cout << "D - Sort Cars" << endl;
-                            cout << "E - Search Criteria of Cars" << endl;
+                            cout << "D - Sort Car" << endl;
+                            cout << "E - Search Criteria of Car" << endl;
                             cout << "F - Search by Smaller or Larger Values" << endl;
                             cout << "G - Calculate Average Price for a Year Range" << endl;
                             cout << "H - Buy or Reserve Car" << endl;

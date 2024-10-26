@@ -1,18 +1,18 @@
 
 #include <iostream>
-#include "Cars.h"
+#include "Car.h"
 
 
 using namespace std;
 
 
-Cars::Cars()
-        : Cars("","","","",0,0,0,0,0,"",""){}
-Cars::Cars(string type,string brand, string model, string color, double fuel, double mileage, int numberOfDoors, int yearOfProduction,
-           double price,string inventoryStatus, string licenseplate)
+Car::Car()
+        : Car("", "", "", "", 0, 0, 0, 0, 0, "", ""){}
+Car::Car(string type, string brand, string model, string color, double fuel, double mileage, int numberOfDoors, int yearOfProduction,
+         double price, string inventoryStatus, string licenseplate)
         : type{type},brand{brand}, model{model}, color{color}, fuel{fuel}, mileage{mileage}, numberOfDoors{numberOfDoors}, yearOfProduction{yearOfProduction},
         price{price}, inventoryStatus{inventoryStatus}, licenseplate{licenseplate} {}
-Cars::Cars(const Cars &other) {
+Car::Car(const Car &other) {
     type=other.type;
     brand=other.brand;
     model=other.model;
@@ -25,7 +25,7 @@ Cars::Cars(const Cars &other) {
     inventoryStatus=other.inventoryStatus;
     licenseplate=other.licenseplate;
 }
-Cars::Cars(Cars &&other)
+Car::Car(Car &&other)
         :type(other.type),brand(other.brand), model(other.model), color(other.color),fuel(other.fuel), mileage(other.mileage),
         numberOfDoors(other.numberOfDoors),yearOfProduction(other.yearOfProduction), price(other.price),
         inventoryStatus(other.inventoryStatus), licenseplate(other.licenseplate) {
@@ -41,12 +41,12 @@ Cars::Cars(Cars &&other)
     other.inventoryStatus = "";
     other.licenseplate = "";
 }
-ostream &operator<<(ostream &os, const Cars &car){
+ostream &operator<<(ostream &os, const Car &car){
     os<<car.type << "\t" << car.brand << "\t" << car.model <<"\t"<<car.color <<"\t"<<car.fuel << "\t" << car.mileage << "\t" << car.numberOfDoors
     << "\t"<< car.yearOfProduction<< "\t"<< car.price << "\t" << car.inventoryStatus << "\t" << car.licenseplate << endl;
     return os;
 }
-Cars Cars::operator=(const Cars &rhs) {
+Car Car::operator=(const Car &rhs) {
     if(this==&rhs)
         return *this;
     else{
@@ -65,7 +65,7 @@ Cars Cars::operator=(const Cars &rhs) {
     }
 }
 
-void Cars ::printInfo() const {
+void Car ::printInfo() const {
         cout << "Type: " << type << endl;
         cout << "Brand: " << brand << endl;
         cout << "Model: " << model << endl;
@@ -80,75 +80,75 @@ void Cars ::printInfo() const {
         cout << "License plate number of the car: " << licenseplate << "\n" << endl;
 }
 
-string Cars::getPlate() const {
+string Car::getPlate() const {
     return licenseplate;
 }
-double Cars::getMileage() const {
+double Car::getMileage() const {
     return mileage;
 }
-int Cars::getPrice() const {
+int Car::getPrice() const {
     return price;
 }
-int Cars::getFuel() const {
+int Car::getFuel() const {
     return fuel;
 }
-string Cars::getColor() const {
+string Car::getColor() const {
     return color;
 }
-string Cars::getBrand() const {
+string Car::getBrand() const {
     return brand;
 }
-int Cars::getYear() const {
+int Car::getYear() const {
     return yearOfProduction;
 }
-int Cars::getDoors() const {
+int Car::getDoors() const {
     return numberOfDoors;
 }
-string Cars::getModel() const {
+string Car::getModel() const {
     return model;
 }
-string Cars::getStatus() const {
+string Car::getStatus() const {
     return inventoryStatus;
 }
-string Cars::getType() const {
+string Car::getType() const {
     return type;
 }
-void Cars::setPlate(const std::string &newPlate) {
+void Car::setPlate(const std::string &newPlate) {
     licenseplate = newPlate;
 }
-void Cars::setType(const string& newType) {
+void Car::setType(const string& newType) {
     type = newType;
 }
-void Cars::setStatus(const string &newStatus) {
+void Car::setStatus(const string &newStatus) {
     inventoryStatus = newStatus;
 }
-void Cars::setPrice(const double &newPrice) {
+void Car::setPrice(const double &newPrice) {
     price = newPrice;
 }
-void Cars::setYear(const int &newyearOfProduction) {
+void Car::setYear(const int &newyearOfProduction) {
     yearOfProduction = newyearOfProduction;
 }
-void Cars::setMileage(const double& newMileage) {
+void Car::setMileage(const double& newMileage) {
     mileage = newMileage;
 }
-void Cars::setDoors(const int &newnumberOfDoors) {
+void Car::setDoors(const int &newnumberOfDoors) {
     numberOfDoors = newnumberOfDoors;
 }
-void Cars::setFuel(const double &newfuel) {
+void Car::setFuel(const double &newfuel) {
     fuel = newfuel;
 }
-void Cars::setColor(const string &newcolor) {
+void Car::setColor(const string &newcolor) {
     color = newcolor;
 }
-void Cars::setModel(const string &newmodel) {
+void Car::setModel(const string &newmodel) {
     model = newmodel;
 }
-void Cars::setBrand(const string &newbrand) {
+void Car::setBrand(const string &newbrand) {
     brand = newbrand;
 }
 
 
-void Cars::A4() {
-    Cars::A4();
+void Car::A4() {
+    Car::A4();
 }
 

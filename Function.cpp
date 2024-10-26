@@ -1,9 +1,9 @@
 #include "limits"
-#include "Functions.h"
+#include "Function.h"
 #include <iostream>
 #include "memory"
 #include <fstream>
-#include "Cars.h"
+#include "Car.h"
 #include "Van.h"
 #include "Sedan.h"
 #include "Engine.h"
@@ -38,7 +38,7 @@ void Probels(){
     cout<<endl<<"--------------------------"<<endl;
 };
 
-void AddCars(Cars &cars) {
+void AddCars(Car &cars) {
     try {
         cout << "You want to add a new car: " << endl;
 
@@ -270,7 +270,7 @@ void WriteReservedCars(const CarData& car){
 
 void AddinfSed(Sedan &sedan) {
     Engine engine1;
-    Cars car1;
+    Car car1;
 
     cout << "Choose which sedan you want to know more about: " << endl;
     ifstream finCar(R"(D:\Course Work\Code\Database\Cars.txt)");
@@ -341,8 +341,8 @@ void AddinfSed(Sedan &sedan) {
 
     while (finCar >> *type >> *brand >> *model >> *color >> *fuel >> *mileage >> *doors >> *production >> *price >>
                   *inventoryStatus >> *licenseplate) {
-        Cars cars(*type, *brand, *model, *color, *fuel, *mileage, *doors, *production,
-                  *price, *inventoryStatus, *licenseplate);
+        Car cars(*type, *brand, *model, *color, *fuel, *mileage, *doors, *production,
+                 *price, *inventoryStatus, *licenseplate);
 
         if (cars.getBrand() == *nazvmar && cars.getModel() == *nazvamod && cars.getPlate() == *nazvaplate) {
             sedan.setType(*type);
@@ -461,7 +461,7 @@ void AddinfSed(Sedan &sedan) {
 
 void AddinfVan(Van &van) {
     Engine engine2;
-    Cars car1;
+    Car car1;
     cout << "Choose which van you want to know more about: " << endl;
     ifstream finCar(R"(D:\Course Work\Code\Database\Cars.txt)");
     if (!finCar.is_open()) {
@@ -544,8 +544,8 @@ void AddinfVan(Van &van) {
 
     while (finCar >> *type >> *brand >> *model >> *color >> *fuel >> *mileage >> *doors >> *production >> *price >>
                   *inventoryStatus >> *licenseplate) {
-        Cars cars(*type, *brand, *model, *color, *fuel, *mileage, *doors, *production,
-                  *price, *inventoryStatus, *licenseplate);
+        Car cars(*type, *brand, *model, *color, *fuel, *mileage, *doors, *production,
+                 *price, *inventoryStatus, *licenseplate);
 
         if (cars.getBrand() == *nazvmar && cars.getModel() == *nazvamod && cars.getPlate() == *nazvaplate) {
             van.setType(*type);
@@ -672,7 +672,7 @@ double CalculateAveragePrice(int startYear, int endYear) {
     ifstream fin(R"(D:\Course Work\Code\Database\Cars.txt)");
 
     if (!fin.is_open()) {
-        cerr << "Error opening file: Cars.txt" << endl;
+        cerr << "Error opening file: Car.txt" << endl;
         return 0.0;
     }
 
@@ -840,7 +840,7 @@ void ChangeCar(const string& licensePlate) {
     ifstream fin(R"(D:\\Course Work\\Code\\Database\\Cars.txt)");
 
     if (!fin.is_open()) {
-        cerr << "Error opening file: Cars.txt" << endl;
+        cerr << "Error opening file: Car.txt" << endl;
         return;
     }
 
@@ -956,7 +956,7 @@ void ChangeCar(const string& licensePlate) {
                     case 0: {
                         ofstream fout(R"(D:\\Course Work\\Code\\Database\\Cars.txt)", ios::out | ios::trunc);
                         if (!fout.is_open()) {
-                            cerr << "Error opening file: Cars.txt" << endl;
+                            cerr << "Error opening file: Car.txt" << endl;
                             return;
                         }
 
@@ -1272,7 +1272,7 @@ void ChangeSed(const string& licensePlate) {
             }
             ofstream fout(R"(D:\Course Work\Code\Database\Sedan.txt)", ios::out | ios::trunc);
             if (!fout.is_open()) {
-                cerr << "Error opening file:: Cars.txt" << endl;
+                cerr << "Error opening file:: Car.txt" << endl;
                 return;
             }
 
@@ -1624,7 +1624,7 @@ void DeleteCarsSed(const vector<string>& licensePlates) {
     ifstream fin(R"(D:\Course Work\Code\Database\Cars.txt)");
 
     if (!fin.is_open()) {
-        cerr << "Error opening file: Cars.txt" << endl;
+        cerr << "Error opening file: Car.txt" << endl;
         return;
     }
 
@@ -1664,7 +1664,7 @@ void DeleteCarsSed(const vector<string>& licensePlates) {
 
     ofstream fout(R"(D:\Course Work\Code\Database\Cars.txt)", ios::out | ios::trunc);
     if (!fout.is_open()) {
-        cerr << "Error opening file: Cars.txt" << endl;
+        cerr << "Error opening file: Car.txt" << endl;
         return;
     }
 
@@ -1723,7 +1723,7 @@ void DeleteCarsSed(const vector<string>& licensePlates) {
     foutSed.close();
 
 
-    cout << "Cars and sedans deleted successfully." << endl;
+    cout << "Car and sedans deleted successfully." << endl;
     ofstream foutDeleted(R"(D:\Course Work\Code\Database\Deleted transport.txt)", ios::app);
     if (!foutDeleted.is_open()) {
         cerr << "Error opening file: Deleted_transport.txt" << endl;
@@ -1791,7 +1791,7 @@ void DeleteCarsVan(const vector<string>& licensePlates){
     ifstream fin(R"(D:\Course Work\Code\Database\Cars.txt)");
 
     if (!fin.is_open()) {
-        cerr << "Error opening file: Cars.txt" << endl;
+        cerr << "Error opening file: Car.txt" << endl;
         return;
     }
 
@@ -1831,7 +1831,7 @@ void DeleteCarsVan(const vector<string>& licensePlates){
 
     ofstream fout(R"(D:\Course Work\Code\Database\Cars.txt)", ios::out | ios::trunc);
     if (!fout.is_open()) {
-        cerr << "Error opening file: Cars.txt" << endl;
+        cerr << "Error opening file: Car.txt" << endl;
         return;
     }
 
@@ -1890,7 +1890,7 @@ void DeleteCarsVan(const vector<string>& licensePlates){
     foutVan.close();
 
 
-    cout << "Cars and sedans deleted successfully." << endl;
+    cout << "Car and sedans deleted successfully." << endl;
     ofstream foutDeleted(R"(D:\Course Work\Code\Database\Deleted transport.txt)", ios::app);
     if (!foutDeleted.is_open()) {
         cerr << "Error opening file: Deleted_transport.txt" << endl;
@@ -1907,14 +1907,14 @@ void DeleteCarsVan(const vector<string>& licensePlates){
     foutDeleted.close();
     for (const CarData& car : deletedCars) {
         if (car.status == "Available") {
-            RemoveFromStatusFile(car.licensePlate, R"(D:\Course Work\Code\Database\Available.txt)");
+            RemoveFromStatusFile(car.licensePlate, R"(D:\Course Work\Code\Database\Available cars.txt)");
         } else if (car.status == "Sold") {
-            RemoveFromStatusFile(car.licensePlate, R"(D:\Course Work\Code\Database\Sold.txt)");
+            RemoveFromStatusFile(car.licensePlate, R"(D:\Course Work\Code\Database\Sold cars.txt)");
         } else if (car.status == "Reserved") {
-            RemoveFromStatusFile(car.licensePlate, R"(D:\Course Work\Code\Database\Reserved.txt)");
+            RemoveFromStatusFile(car.licensePlate, R"(D:\Course Work\Code\Database\Reserved cars.txt)");
         }
     }
-    cout << "Cars deleted successfully." << endl;
+    cout << "Car deleted successfully." << endl;
 }
 
 
@@ -1923,7 +1923,7 @@ void ReturnCar(const string& licensePlate) {
     ifstream fin(R"(D:\Course Work\Code\Database\Cars.txt)");
 
     if (!fin.is_open()) {
-        cerr << "Error opening file: Cars.txt" << endl;
+        cerr << "Error opening file: Car.txt" << endl;
         return;
     }
 
@@ -1949,7 +1949,7 @@ void ReturnCar(const string& licensePlate) {
     }
 
     if (foundInCars) {
-        cout << "Car with license plate " << licensePlate << " is already in Cars.txt" << endl;
+        cout << "Car with license plate " << licensePlate << " is already in Car.txt" << endl;
         return;
     }
 
@@ -1984,7 +1984,7 @@ void ReturnCar(const string& licensePlate) {
 
     ofstream fout(R"(D:\Course Work\Code\Database\Cars.txt)", ios::out | ios::trunc);
     if (!fout.is_open()) {
-        cerr << "Error opening file: Cars.txt" << endl;
+        cerr << "Error opening file: Car.txt" << endl;
         return;
     }
 
@@ -2097,7 +2097,7 @@ void SearchCarsByBrand(const string& brand) {
     ifstream finser(R"(D:\Course Work\Code\Database\Cars.txt)");
 
     if (!finser.is_open()) {
-        cerr << "Error opening file: Cars.txt" << endl;
+        cerr << "Error opening file: Car.txt" << endl;
         return;
     }
 
@@ -2146,7 +2146,7 @@ void SearchCarsByBrand(const string& brand) {
     foutser.close();
 
     if (!found) {
-        cout << "Cars with brand " << brand << " not found." << endl;
+        cout << "Car with brand " << brand << " not found." << endl;
     }
 }
 
@@ -2156,7 +2156,7 @@ void SearchCarsByModel(const string& model) {
     ifstream finser(R"(D:\Course Work\Code\Database\Cars.txt)");
 
     if (!finser.is_open()) {
-        cerr << "Error opening file: Cars.txt" << endl;
+        cerr << "Error opening file: Car.txt" << endl;
         return;
     }
 
@@ -2205,7 +2205,7 @@ void SearchCarsByModel(const string& model) {
     foutser.close();
 
     if (!found) {
-        cout << "Cars with model " << model << " not found." << endl;
+        cout << "Car with model " << model << " not found." << endl;
     }
 }
 
@@ -2214,7 +2214,7 @@ void SearchCarsByColor(const string& color) {
     ifstream finser(R"(D:\Course Work\Code\Database\Cars.txt)");
 
     if (!finser.is_open()) {
-        cerr << "Error opening file: Cars.txt" << endl;
+        cerr << "Error opening file: Car.txt" << endl;
         return;
     }
 
@@ -2262,7 +2262,7 @@ void SearchCarsByColor(const string& color) {
     foutser.close();
 
     if (!found) {
-        cout << "Cars with color " << color << " not found." << endl;
+        cout << "Car with color " << color << " not found." << endl;
     }
 }
 
@@ -2271,7 +2271,7 @@ void SearchCarsByType(const string& type) {
     ifstream finser(R"(D:\Course Work\Code\Database\Cars.txt)");
 
     if (!finser.is_open()) {
-        cerr << "Error opening file: Cars.txt" << endl;
+        cerr << "Error opening file: Car.txt" << endl;
         return;
     }
 
@@ -2318,7 +2318,7 @@ void SearchCarsByType(const string& type) {
     foutser.close();
 
     if (!found) {
-        cout << "Cars with type " << type << " not found." << endl;
+        cout << "Car with type " << type << " not found." << endl;
     }
 }
 
@@ -2328,7 +2328,7 @@ void SearchCarsByStatus(const string& status) {
     ifstream finser(R"(D:\Course Work\Code\Database\Cars.txt)");
 
     if (!finser.is_open()) {
-        cerr << "Error opening file: Cars.txt" << endl;
+        cerr << "Error opening file: Car.txt" << endl;
         return;
     }
 
@@ -2375,7 +2375,7 @@ void SearchCarsByStatus(const string& status) {
     foutser.close();
 
     if (!found) {
-        cout << "Cars with status " << status << " not found." << endl;
+        cout << "Car with status " << status << " not found." << endl;
     }
 }
 
@@ -2385,7 +2385,7 @@ void SearchCarsByModBr(const string& brand,const string& model) {
     ifstream finser(R"(D:\Course Work\Code\Database\Cars.txt)");
 
     if (!finser.is_open()) {
-        cerr << "Error opening file: Cars.txt" << endl;
+        cerr << "Error opening file: Car.txt" << endl;
         return;
     }
 
@@ -2432,7 +2432,7 @@ void SearchCarsByModBr(const string& brand,const string& model) {
     foutser.close();
 
     if (!found) {
-        cout << "Cars with brand " << brand <<" and model " << model << " not found." << endl;
+        cout << "Car with brand " << brand <<" and model " << model << " not found." << endl;
     }
 }
 
@@ -2441,7 +2441,7 @@ void SearchCarsByLicensePlate(const string& licensePlate) {
     ifstream finser(R"(D:\Course Work\Code\Database\Cars.txt)");
 
     if (!finser.is_open()) {
-        cerr << "Error opening file: Cars.txt" << endl;
+        cerr << "Error opening file: Car.txt" << endl;
         return;
     }
 
@@ -2703,7 +2703,7 @@ void ReadVan(Van &van){
 
 
 
-void ReadCars(Cars &cars){
+void ReadCars(Car &cars){
     ifstream finCar(R"(D:\Course Work\Code\Database\Cars.txt)");
     if (!finCar.is_open()) {
         cerr << "Error opening file: " << endl;
@@ -2732,7 +2732,7 @@ void ReadCars(Cars &cars){
 }
 
 
-void BuyOrReserveCar(vector<CarData> &cars, const Users &user) {
+void BuyOrReserveCar(vector<CarData> &cars, const User &user) {
     cout << "Enter the license plate number of the car you want to buy or reserve: ";
     string licensePlate;
     cin >> licensePlate;

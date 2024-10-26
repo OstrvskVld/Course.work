@@ -88,10 +88,10 @@
 		<Unit filename="D:/Course Work/Code/CancelException.h">
 			<Option target="Code"/>
 		</Unit>
-		<Unit filename="D:/Course Work/Code/Cars.cpp">
+		<Unit filename="D:/Course Work/Code/Car.cpp">
 			<Option target="Code"/>
 		</Unit>
-		<Unit filename="D:/Course Work/Code/Cars.h">
+		<Unit filename="D:/Course Work/Code/Car.h">
 			<Option target="Code"/>
 		</Unit>
 		<Unit filename="D:/Course Work/Code/Engine.cpp">
@@ -100,10 +100,10 @@
 		<Unit filename="D:/Course Work/Code/Engine.h">
 			<Option target="Code"/>
 		</Unit>
-		<Unit filename="D:/Course Work/Code/Functions.cpp">
+		<Unit filename="D:/Course Work/Code/Function.cpp">
 			<Option target="Code"/>
 		</Unit>
-		<Unit filename="D:/Course Work/Code/Functions.h">
+		<Unit filename="D:/Course Work/Code/Function.h">
 			<Option target="Code"/>
 		</Unit>
 		<Unit filename="D:/Course Work/Code/IncorrectInputException.h">
@@ -118,10 +118,10 @@
 		<Unit filename="D:/Course Work/Code/Sedan.h">
 			<Option target="Code"/>
 		</Unit>
-		<Unit filename="D:/Course Work/Code/Users.cpp">
+		<Unit filename="D:/Course Work/Code/User.cpp">
 			<Option target="Code"/>
 		</Unit>
-		<Unit filename="D:/Course Work/Code/Users.h">
+		<Unit filename="D:/Course Work/Code/User.h">
 			<Option target="Code"/>
 		</Unit>
 		<Unit filename="D:/Course Work/Code/Van.cpp">

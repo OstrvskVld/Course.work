@@ -1,12 +1,12 @@
 
-#ifndef CODE_FUNCTIONS_H
-#define CODE_FUNCTIONS_H
+#ifndef CODE_FUNCTION_H
+#define CODE_FUNCTION_H
 
 
-#include "Cars.h"
+#include "Car.h"
 #include "Van.h"
 #include "Sedan.h"
-#include "Users.h"
+#include "User.h"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -36,12 +36,12 @@ struct SedanData : public CarData, Engine1{
 
 using namespace std;
 void Probels();
-void AddCars(Cars &cars);
+void AddCars(Car &cars);
 void AddinfSed(Sedan &sedan);
 void AddinfVan(Van &van);
 void ReadVan(Van &van);
 void ReadSed(Sedan &sedan);
-void ReadCars(Cars &cars);
+void ReadCars(Car &cars);
 void SortCars(vector<CarData>& cars, int criteria, bool ch);
 void Sort(const string& cr, const string& sorted, int criteria, bool ch);
 void SearchCarsByBrand(const string& brand);
@@ -77,8 +77,8 @@ void ReturnCar(const string& licensePlate);
 void WriteAvailableCars(const CarData& car);
 void WriteSoldCars(const CarData& car);
 void WriteReservedCars(const CarData& car);
-void BuyOrReserveCar(vector<CarData> &cars, const Users &user);
+void BuyOrReserveCar(vector<CarData> &cars, const User &user);
 
 
 
-#endif //CODE_FUNCTIONS_H
+#endif //CODE_FUNCTION_H

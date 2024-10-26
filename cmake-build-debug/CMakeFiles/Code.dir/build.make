@@ -82,19 +82,19 @@ CMakeFiles/Code.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Code.dir/main.cpp.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Course Work\Code\main.cpp" -o CMakeFiles\Code.dir\main.cpp.s
 
-CMakeFiles/Code.dir/Cars.cpp.obj: CMakeFiles/Code.dir/flags.make
-CMakeFiles/Code.dir/Cars.cpp.obj: D:/Course\ Work/Code/Cars.cpp
-CMakeFiles/Code.dir/Cars.cpp.obj: CMakeFiles/Code.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\Course Work\Code\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Code.dir/Cars.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Code.dir/Cars.cpp.obj -MF CMakeFiles\Code.dir\Cars.cpp.obj.d -o CMakeFiles\Code.dir\Cars.cpp.obj -c "D:\Course Work\Code\Cars.cpp"
+CMakeFiles/Code.dir/Car.cpp.obj: CMakeFiles/Code.dir/flags.make
+CMakeFiles/Code.dir/Car.cpp.obj: D:/Course\ Work/Code/Car.cpp
+CMakeFiles/Code.dir/Car.cpp.obj: CMakeFiles/Code.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\Course Work\Code\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Code.dir/Car.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Code.dir/Car.cpp.obj -MF CMakeFiles\Code.dir\Car.cpp.obj.d -o CMakeFiles\Code.dir\Car.cpp.obj -c "D:\Course Work\Code\Car.cpp"
 
-CMakeFiles/Code.dir/Cars.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Code.dir/Cars.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Course Work\Code\Cars.cpp" > CMakeFiles\Code.dir\Cars.cpp.i
+CMakeFiles/Code.dir/Car.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Code.dir/Car.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Course Work\Code\Car.cpp" > CMakeFiles\Code.dir\Car.cpp.i
 
-CMakeFiles/Code.dir/Cars.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Code.dir/Cars.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Course Work\Code\Cars.cpp" -o CMakeFiles\Code.dir\Cars.cpp.s
+CMakeFiles/Code.dir/Car.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Code.dir/Car.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Course Work\Code\Car.cpp" -o CMakeFiles\Code.dir\Car.cpp.s
 
 CMakeFiles/Code.dir/Engine.cpp.obj: CMakeFiles/Code.dir/flags.make
 CMakeFiles/Code.dir/Engine.cpp.obj: D:/Course\ Work/Code/Engine.cpp
@@ -110,19 +110,19 @@ CMakeFiles/Code.dir/Engine.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Code.dir/Engine.cpp.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Course Work\Code\Engine.cpp" -o CMakeFiles\Code.dir\Engine.cpp.s
 
-CMakeFiles/Code.dir/Functions.cpp.obj: CMakeFiles/Code.dir/flags.make
-CMakeFiles/Code.dir/Functions.cpp.obj: D:/Course\ Work/Code/Functions.cpp
-CMakeFiles/Code.dir/Functions.cpp.obj: CMakeFiles/Code.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\Course Work\Code\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Code.dir/Functions.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Code.dir/Functions.cpp.obj -MF CMakeFiles\Code.dir\Functions.cpp.obj.d -o CMakeFiles\Code.dir\Functions.cpp.obj -c "D:\Course Work\Code\Functions.cpp"
+CMakeFiles/Code.dir/Function.cpp.obj: CMakeFiles/Code.dir/flags.make
+CMakeFiles/Code.dir/Function.cpp.obj: D:/Course\ Work/Code/Function.cpp
+CMakeFiles/Code.dir/Function.cpp.obj: CMakeFiles/Code.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\Course Work\Code\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Code.dir/Function.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Code.dir/Function.cpp.obj -MF CMakeFiles\Code.dir\Function.cpp.obj.d -o CMakeFiles\Code.dir\Function.cpp.obj -c "D:\Course Work\Code\Function.cpp"
 
-CMakeFiles/Code.dir/Functions.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Code.dir/Functions.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Course Work\Code\Functions.cpp" > CMakeFiles\Code.dir\Functions.cpp.i
+CMakeFiles/Code.dir/Function.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Code.dir/Function.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Course Work\Code\Function.cpp" > CMakeFiles\Code.dir\Function.cpp.i
 
-CMakeFiles/Code.dir/Functions.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Code.dir/Functions.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Course Work\Code\Functions.cpp" -o CMakeFiles\Code.dir\Functions.cpp.s
+CMakeFiles/Code.dir/Function.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Code.dir/Function.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Course Work\Code\Function.cpp" -o CMakeFiles\Code.dir\Function.cpp.s
 
 CMakeFiles/Code.dir/Sedan.cpp.obj: CMakeFiles/Code.dir/flags.make
 CMakeFiles/Code.dir/Sedan.cpp.obj: D:/Course\ Work/Code/Sedan.cpp
@@ -152,40 +152,40 @@ CMakeFiles/Code.dir/Van.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Code.dir/Van.cpp.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Course Work\Code\Van.cpp" -o CMakeFiles\Code.dir\Van.cpp.s
 
-CMakeFiles/Code.dir/Users.cpp.obj: CMakeFiles/Code.dir/flags.make
-CMakeFiles/Code.dir/Users.cpp.obj: D:/Course\ Work/Code/Users.cpp
-CMakeFiles/Code.dir/Users.cpp.obj: CMakeFiles/Code.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\Course Work\Code\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Code.dir/Users.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Code.dir/Users.cpp.obj -MF CMakeFiles\Code.dir\Users.cpp.obj.d -o CMakeFiles\Code.dir\Users.cpp.obj -c "D:\Course Work\Code\Users.cpp"
+CMakeFiles/Code.dir/User.cpp.obj: CMakeFiles/Code.dir/flags.make
+CMakeFiles/Code.dir/User.cpp.obj: D:/Course\ Work/Code/User.cpp
+CMakeFiles/Code.dir/User.cpp.obj: CMakeFiles/Code.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\Course Work\Code\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Code.dir/User.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Code.dir/User.cpp.obj -MF CMakeFiles\Code.dir\User.cpp.obj.d -o CMakeFiles\Code.dir\User.cpp.obj -c "D:\Course Work\Code\User.cpp"
 
-CMakeFiles/Code.dir/Users.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Code.dir/Users.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Course Work\Code\Users.cpp" > CMakeFiles\Code.dir\Users.cpp.i
+CMakeFiles/Code.dir/User.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Code.dir/User.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Course Work\Code\User.cpp" > CMakeFiles\Code.dir\User.cpp.i
 
-CMakeFiles/Code.dir/Users.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Code.dir/Users.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Course Work\Code\Users.cpp" -o CMakeFiles\Code.dir\Users.cpp.s
+CMakeFiles/Code.dir/User.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Code.dir/User.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Course Work\Code\User.cpp" -o CMakeFiles\Code.dir\User.cpp.s
 
 # Object files for target Code
 Code_OBJECTS = \
 "CMakeFiles/Code.dir/main.cpp.obj" \
-"CMakeFiles/Code.dir/Cars.cpp.obj" \
+"CMakeFiles/Code.dir/Car.cpp.obj" \
 "CMakeFiles/Code.dir/Engine.cpp.obj" \
-"CMakeFiles/Code.dir/Functions.cpp.obj" \
+"CMakeFiles/Code.dir/Function.cpp.obj" \
 "CMakeFiles/Code.dir/Sedan.cpp.obj" \
 "CMakeFiles/Code.dir/Van.cpp.obj" \
-"CMakeFiles/Code.dir/Users.cpp.obj"
+"CMakeFiles/Code.dir/User.cpp.obj"
 
 # External object files for target Code
 Code_EXTERNAL_OBJECTS =
 
 Code.exe: CMakeFiles/Code.dir/main.cpp.obj
-Code.exe: CMakeFiles/Code.dir/Cars.cpp.obj
+Code.exe: CMakeFiles/Code.dir/Car.cpp.obj
 Code.exe: CMakeFiles/Code.dir/Engine.cpp.obj
-Code.exe: CMakeFiles/Code.dir/Functions.cpp.obj
+Code.exe: CMakeFiles/Code.dir/Function.cpp.obj
 Code.exe: CMakeFiles/Code.dir/Sedan.cpp.obj
 Code.exe: CMakeFiles/Code.dir/Van.cpp.obj
-Code.exe: CMakeFiles/Code.dir/Users.cpp.obj
+Code.exe: CMakeFiles/Code.dir/User.cpp.obj
 Code.exe: CMakeFiles/Code.dir/build.make
 Code.exe: CMakeFiles/Code.dir/linkLibs.rsp
 Code.exe: CMakeFiles/Code.dir/objects1.rsp

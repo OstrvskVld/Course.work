@@ -2,7 +2,7 @@
 
 #include "Van.h"
 #include "iostream"
-#include "Cars.h"
+#include "Car.h"
 #include "Engine.h"
 
 
@@ -10,23 +10,23 @@ using namespace std;
 
 
 Van::Van()
-        : Cars(),payloadCapacity(0),sleepingCapacity(0), engine2("","",""){}
+        : Car(), payloadCapacity(0), sleepingCapacity(0), engine2("", "", ""){}
 Van::Van(int payloadCapacity, int sleepingCapacity)
         : payloadCapacity{payloadCapacity}, sleepingCapacity{sleepingCapacity}{}
 Van::Van(string type,string licenseplate,string brand, string inventoryStatus, string model, string color, double fuel, double mileage,int numberOfDoors,
          int yearOfProduction, double price,
-         int payloadCapacity, int sleepingCapacity,Engine engine2) : Cars(type,brand, model, color, fuel, mileage, numberOfDoors, yearOfProduction, price,
-                                                           inventoryStatus,licenseplate),
-         payloadCapacity{payloadCapacity}, sleepingCapacity{sleepingCapacity}, engine2{engine2} {}
-Van::Van(Cars cars,int payloadCapacity, int sleepingCapacity)
-        : Cars(cars.getType(),cars.getBrand(),cars.getModel(),cars.getColor(),cars.getFuel(),cars.getMileage(),cars.getDoors(),
-               cars.getYear(),cars.getPrice(),  cars.getStatus(), cars.getPlate()),
+         int payloadCapacity, int sleepingCapacity,Engine engine2) : Car(type, brand, model, color, fuel, mileage, numberOfDoors, yearOfProduction, price,
+                                                                         inventoryStatus, licenseplate),
+                                                                     payloadCapacity{payloadCapacity}, sleepingCapacity{sleepingCapacity}, engine2{engine2} {}
+Van::Van(Car cars, int payloadCapacity, int sleepingCapacity)
+        : Car(cars.getType(), cars.getBrand(), cars.getModel(), cars.getColor(), cars.getFuel(), cars.getMileage(), cars.getDoors(),
+              cars.getYear(), cars.getPrice(), cars.getStatus(), cars.getPlate()),
           payloadCapacity{payloadCapacity}, sleepingCapacity{sleepingCapacity} {}
-Van::Van(Cars cars,int payloadCapacity, int sleepingCapacity,Engine engine2)
-        : Cars(cars.getType(),cars.getBrand(),cars.getModel(),cars.getColor(),cars.getFuel(),cars.getMileage(),cars.getDoors(),
-               cars.getYear(),cars.getPrice(),  cars.getStatus(), cars.getPlate()),
-          payloadCapacity{payloadCapacity}, sleepingCapacity{sleepingCapacity},engine2{engine2}{}
-Van::Van(const Cars& carRef, int payloadCapacity, int sleepingCapacity)
+Van::Van(Car cars, int payloadCapacity, int sleepingCapacity, Engine engine2)
+        : Car(cars.getType(), cars.getBrand(), cars.getModel(), cars.getColor(), cars.getFuel(), cars.getMileage(), cars.getDoors(),
+              cars.getYear(), cars.getPrice(), cars.getStatus(), cars.getPlate()),
+          payloadCapacity{payloadCapacity}, sleepingCapacity{sleepingCapacity}, engine2{engine2}{}
+Van::Van(const Car& carRef, int payloadCapacity, int sleepingCapacity)
         : payloadCapacity{payloadCapacity}, sleepingCapacity{sleepingCapacity} {
     string licenseplate = carRef.getPlate();
     int price = carRef.getPrice();
@@ -40,8 +40,8 @@ Van::Van(const Cars& carRef, int payloadCapacity, int sleepingCapacity)
 }
 
 Van::Van(const Van &other)
-        :Cars(other), payloadCapacity(other.payloadCapacity), sleepingCapacity(other.sleepingCapacity),
-        engine2(other.engine2)
+        : Car(other), payloadCapacity(other.payloadCapacity), sleepingCapacity(other.sleepingCapacity),
+          engine2(other.engine2)
 {}
 
 Van::Van(Van&& other)
@@ -56,7 +56,7 @@ void Van::A2() {
 }
 
 void Van::printInfo() const {
-    Cars::printInfo();
+    Car::printInfo();
     cout<< "Payload capacity: "  << payloadCapacity << "\n" << "Sleeping capacity: " <<
     "\n" << sleepingCapacity << "\n" << "Engine characteristics: " <<"\n" << engine2 << "\n" << endl;
 }

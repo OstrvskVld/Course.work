@@ -1,6 +1,6 @@
 
-#ifndef CODE_CARS_H
-#define CODE_CARS_H
+#ifndef CODE_CAR_H
+#define CODE_CAR_H
 
 #include <iostream>
 #include "Interface.h"
@@ -10,7 +10,7 @@
 using namespace std;
 
 
-class Cars : public Interface1{
+class Car : public Interface1{
 private:
     string type;
     string inventoryStatus;
@@ -52,20 +52,20 @@ public:
         void setMileage(const double& newMileage);
 
 
-    Cars();
-    Cars(const Cars &other);
-    Cars(Cars &&other);
-    friend ostream &operator <<(ostream &os,const Cars &obj);
-    Cars operator=(const Cars &rhs);
-    Cars(string type,string brand, string model, string color, double fuel,double mileage, int numberOfDoors, int yearOfProduction, double price,
-         string inventoryStatus, string licenseplate);
+    Car();
+    Car(const Car &other);
+    Car(Car &&other);
+    friend ostream &operator <<(ostream &os,const Car &obj);
+    Car operator=(const Car &rhs);
+    Car(string type, string brand, string model, string color, double fuel, double mileage, int numberOfDoors, int yearOfProduction, double price,
+        string inventoryStatus, string licenseplate);
     virtual void printInfo() const;
     virtual void A4() override;
-    virtual ~Cars(){};
+    virtual ~Car(){};
 
 };
 
 
 
 
-#endif //CODE_CARS_H
+#endif //CODE_CAR_H

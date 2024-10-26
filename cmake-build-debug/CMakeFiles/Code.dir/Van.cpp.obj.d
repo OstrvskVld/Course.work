@@ -142,5 +142,5 @@ CMakeFiles/Code.dir/Van.cpp.obj: D:\Course\ Work\Code\Van.cpp \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
- D:\Course\ Work\Code\Cars.h D:\Course\ Work\Code\Interface.h \
+ D:\Course\ Work\Code\Car.h D:\Course\ Work\Code\Interface.h \
  D:\Course\ Work\Code\Engine.h
